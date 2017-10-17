@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.CartMapper">
+
+<insert id="addCart" parameterType="CartDTO">
+ insert into
+ cart(cart_num,userid,gCategory,gCode,gName,gPrice,gSize,gAmount,gImage1)
+ values(cart_num_seq.nextval,#{userid},#{gCategory},#{gCode},#{gName},#{gPrice},#{gSize},#{gAmount},#{gImage1}) 
+</insert>
+
+<select id="cartList" parameterType="string" resultType="CartDTO">
+ select cart_num,userid,gCategory,gCode,gName,gPrice,gSize,gAmount,gImage1
+ from cart
+ where userid=#{userid}
+ order by cart_num desc
+</select>
+
+<update id="amountUpdate" parameterType="hashmap">
+ update cart 
+ set gAmount=#{gAmount}
+ where cart_num=#{cart_num}
+</update>
+
+<delete id="delCart" parameterType="int">
+ delete from cart
+ where cart_num=#{cart_num}
+</delete>
+
+<delete id="delAllCart" parameterType="arraylist">
+ delete from cart
+ <where>
+   cart_num IN
+   <foreach item="item" index="index" collection="list" open="("
+    separator="," close=")">
+    #{item}
+   </foreach>
+  </where>
+</delete>
+
+<select id="orderConfirm" parameterType="int" resultType="CartDTO">
+ select cart_num,userid,gCategory,gCode,gName,gPrice,gSize,gAmount,gImage1
+ from cart
+ where cart_num=#{cart_num}
+</select>
+
+<select id="orderAllConfirm" parameterType="arraylist" resultType="CartDTO">
+  select cart_num,userid,gCategory,gCode,gName,gPrice,gSize,gAmount,gImage1
+  from cart
+  <where>
+   cart_num IN
+   <foreach item="item" index="index" collection="list" open="("
+    separator="," close=")">
+    #{item}
+   </foreach>
+  </where>
+ </select>
+
+</mapper>

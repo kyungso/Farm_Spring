@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.OrderMapper">
+
+<insert id="orderDone" parameterType="OrderDTO">
+ insert into 
+ orderinfo(order_num,userid,gcode,gname,gprice,gsize,gamount,gimage1,orderName,post1,post2,addr1,addr2,phone,payMethod)
+ values(order_num_seq.nextval,#{userid},#{gCode},#{gName},#{gPrice},#{gSize},#{gAmount},#{gImage1},#{orderName},#{post1},#{post2},#{addr1},#{addr2},#{phone},#{payMethod})
+</insert>
+
+<insert id="orderAllDone" parameterType="arraylist">
+		insert all
+		<foreach collection="list" item="xxx">
+			into orderinfo(order_num,userid,gcode,gname,gprice,gsize,gamount,gimage1,orderName,post1,post2,addr1,addr2,phone,payMethod)
+			values(get_seq,#{xxx.userid},#{xxx.gCode},#{xxx.gName},#{xxx.gPrice},#{xxx.gSize},#{xxx.gAmount},#{xxx.gImage1},#{xxx.orderName},#{xxx.post1},#{xxx.post2},#{xxx.addr1},#{xxx.addr2},#{xxx.phone},#{xxx.payMethod})
+		</foreach>
+		select * from dual
+</insert>
+
+<select id="orderList" parameterType="hashmap" resultType="OrderDTO">
+ select order_num,userid,gCode,gName,gPrice,gSize,gAmount,gImage1,orderName,post1,post2,addr1,addr2,phone,payMethod,to_char(orderday,'YYYY-MM-dd') orderday
+ from orderinfo
+ where userid=#{userid}
+ and to_char(orderday,'yyyy-mm-dd') between #{start_date} and #{end_date}
+ <if test="searchValue!=null">and gName like '%'||#{searchValue}||'%'</if>
+</select>
+<select id="order_totalCount" parameterType="hashmap" resultType="int">
+ select count(*) from orderinfo
+ where userid=#{userid}
+ and to_char(orderday,'yyyy-mm-dd') between #{start_date} and #{end_date}
+</select>
+<select id="order_totalSearchValue" parameterType="hashmap" resultType="int">
+ select count(*) from orderinfo
+ where userid=#{userid}
+ and to_char(orderday,'yyyy-mm-dd') between #{start_date} and #{end_date}
+ <if test="searchValue!=null">and gName like '%'||#{searchValue}||'%'</if>
+</select>
+
+<delete id="orderDel" parameterType="arraylist">
+ delete from orderinfo
+ <where>
+ 	order_num IN
+ 	<foreach item="item" index="index" collection="list" open="("
+ 	 separator="," close=")">
+ 	 #{item}
+ 	</foreach>
+ </where>
+</delete>
+
+<select id="orderListDetail" parameterType="int" resultType="OrderDTO">
+ select order_num,userid,gCode,gName,gPrice,gSize,gAmount,gImage1,orderName,post1,post2,addr1,addr2,phone,payMethod,to_char(orderday,'YYYY-MM-dd') orderday
+ from orderinfo
+ where order_num=#{order_num}
+</select>
+
+</mapper>
