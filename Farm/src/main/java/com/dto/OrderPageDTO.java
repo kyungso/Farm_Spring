@@ -3,6 +3,9 @@ package com.dto;
 import java.util.Calendar;
 import java.util.List;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("OrderPageDTO")
 public class OrderPageDTO {
 
 	//전체 데이터

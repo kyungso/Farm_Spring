@@ -3,6 +3,9 @@ package com.dto;
 import java.io.File;
 import java.util.Arrays;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("FreeBoardDTO")
 public class FreeBoardDTO {
 	
 	 private int board_num;

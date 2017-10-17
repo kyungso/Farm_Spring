@@ -16,13 +16,13 @@
 					<td>
 						<table style='padding: 15px'>
 							<tr>
-								<td><a href="GoodsRetrieveServlet?gCode=${goodsList.gCode}"> 
+								<td><a href="goodsRetrieve?gCode=${goodsList.gCode}"> 
 									<img src="images/items/${goodsList.gImage1}.jpg" border="0" align="center" width="200">
 								</a></td>
 							</tr>
 							<tr>
 								<td class="td_default" align="center">
-								<a class="a_black" href="GoodsRetrieveServlet?gCode=${goodsList.gCode}">${goodsList.gName}<br>
+								<a class="a_black" href="goodsRetrieve?gCode=${goodsList.gCode}">${goodsList.gName}<br>
 								</a> <font color="gray"> --------------------------------------------- </font></td>
 							</tr>
 							<tr>

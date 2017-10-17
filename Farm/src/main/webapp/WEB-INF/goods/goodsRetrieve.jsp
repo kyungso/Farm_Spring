@@ -45,7 +45,7 @@
 		// bottomFix의 button
 		$("#bottom_home").on("click",function(){
 			/* location.href = "home.jsp"; */
-			$(location).attr('href','home.jsp');
+			$(location).attr('href','/app/');
 		});
 		
 		$("#bottom_order").on("click",function(){
