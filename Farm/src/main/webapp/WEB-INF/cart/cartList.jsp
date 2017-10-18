@@ -3,32 +3,50 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
 
-<script>
+<script type="text/javascript">
 	 $(document).ready(function(){
-		$("#delete").on("click",function(){
-			if(confirm("삭제하시겠습니까?")){
-				
-			}
-		})
+		$(".updateBtn").on("click",function(event){
+			var num = $(this).attr("data-num");
+			var amount = $("#CART_AMOUNT"+num).val();
+			$("#sum"+num).text(($("#gPrice"+num).text())*amount);
+			
+			$.ajax({
+				type:"get",
+				url:"cartAmountUpdate",
+				data:{
+					cart_num:num,
+					gAmount:amount
+				},
+				dataType:"text",
+				success:function(responseData,status,xhr){
+					console.log(responseData);
+				},
+				error:function(xhr,status,e){
+					console.log(status,e);
+				}
+			});
+		});
+		
 	}); 
  function orderAllConfirm(f){
-	 f.action="OrderAllConfirmServlet";
+	 f.action="orderAllConfirm";
 	 f.submit();
  }
  function order(num,userid){
-	 location.href="OrderConfirmServlet?num="+num+"&userid="+userid;
+	 location.href="orderConfirm?num="+num+"&userid="+userid;
  }
  function delCart(num){
 	if(confirm("삭제하시겠습니까?")){
-		location.href="CartDelServlet?num="+num;
+		location.href="delCart?num="+num;
 	}
 	 
  }
- function amountUpdate(num){
+/*  function amountUpdate(num){
 	 var amount = document.getElementById("CART_AMOUNT"+num).value;
-	 location.href="CartAmountUpdateServlet?num="+num+"&amount="+amount;
- }
+	 location.href="cartAmountUpdate?cart_num="+num+"&gAmount="+amount;
+ } */
  
  function allCheck(chk){
 	var check = document.querySelectorAll(".check");
@@ -40,7 +58,7 @@
  
  function delAllCart(f){
 	 if(confirm("전체 삭제하시겠습니까?")){
-	 	f.action="CartDelAllServlet";
+	 	f.action="delAllCart";
 	 	f.submit();
 	 }
  }
@@ -94,13 +112,12 @@ label{
 <form name="myForm">
 		   
 		<c:forEach var="list" items="${cartList}">
-		 <input type="hidden" name="num${list.cart_num}" value="${list.cart_num}" id="num${list.cart_num}">
+		 <%-- <input type="hidden" name="num${list.cart_num}" value="${list.cart_num}" id="num${list.cart_num}">
 		 <input type="hidden" name="gCategory${list.cart_num}" value="${list.gCategory}" id="num"${list.cart_num}">
 		 <input type="hidden" name="gImage1${list.cart_num}" value="${list.gImage1}" id="gImage1${list.cart_num}">
 		 <input type="hidden" name="gName${list.cart_num}" value="${list.gName}" id="gName${list.cart_num}">
-		 <input type="hidden" name="gSize${list.cart_num}" value="${list.gSize}" id="gSize${list.cart_num}">
 		 <input type="hidden" name="gPrice${list.cart_num}" value="${list.gPrice}" id="gPrice${list.cart_num}">
-		 <input type="hidden" name="userid" value="${list.userid}">
+		 <input type="hidden" name="userid" value="${list.userid}"> --%>
 		<tr>
 			<td class="td_default">
 				<!-- checkbox는 체크된 값만 서블릿으로 넘어간다. 따라서 value에 삭제할 num값을 설정한다. --> 
@@ -111,14 +128,15 @@ label{
 			<td class="td_default" width="80">
 				<img src="images/items/${list.gImage1}.jpg" border="0" align="center" width="80" /></td>
 			<td class="td_default" width="300" style='padding-left: 30px'>
-				${list.gName} <br> <font size="2" color="#665b5f">[옵션 : 중량(${list.gSize})] </font>
+				${list.gName} <br> <%-- <font size="2" color="#665b5f">[옵션 : 중량(${list.gSize})] </font> --%>
 			</td>
-			<td class="td_default" align="center" width="110">${list.gPrice}</td>
+			<td class="td_default" align="center" width="110">
+				<span id="gPrice${list.cart_num}">${list.gPrice}</span></td>
 			<td class="td_default" align="center" width="90"><input
 				class="input_default" type="text" name="CART_AMOUNT"
 				id="CART_AMOUNT${list.cart_num}" style="text-align: right" maxlength="3" size="2"
 				value="${list.gAmount}"></input></td>
-			<td><input type="button" value="수정" onclick="amountUpdate('${list.cart_num}')" /></td>
+			<td><input type="button" value="수정" class="updateBtn" data-num="${list.cart_num}" /></td>
 			<td class="td_default" align="center" width="80"
 				style='padding-left: 5px'><span id="sum${list.cart_num}"> ${list.gPrice*list.gAmount} </span></td>
 			<td><input type="button" value="구매" onclick="order('${list.cart_num}','${list.userid}')"></td>

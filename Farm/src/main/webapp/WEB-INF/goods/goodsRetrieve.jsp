@@ -10,36 +10,28 @@
 <script>
 	$(document).ready(function(){
 		$("#cartButton").on("click",function(){
-			if($("#GOODS_SIZE").val()==null){
-				alert('중량 선택 해주세요');
-			}else{
-				/* document.goodRetrieveForm.action ="CartAddServlet"; */
-				$("form").attr('action','CartAddServlet');
-			}
+			/* document.goodRetrieveForm.action ="CartAddServlet"; */
+			$("form").attr('action','cartAdd');
 		});
 		
 		$("#orderButton").on("click",function(){
-			if($("#GOODS_SIZE").val()==null){
-				alert('중량 선택 해주세요');
-			}else{
 				/* document.goodRetrieveForm.action ="OrderConfirmServlet"; */
-				$("form").attr('action','OrderConfirmServlet');
-			}
+				$("form").attr('action','orderConfirm');
 		});
 		
 		$("#up").on("click",function(){
-			var amount = parseInt($("#GOODS_AMOUNT").val());
+			var amount = parseInt($("#gAmount").val());
 			amount+=1;
-			$("#GOODS_AMOUNT").val(amount);
+			$("#gAmount").val(amount);
 		});
 		
 		$("#down").on("click",function(){
-			var amount = parseInt($("#GOODS_AMOUNT").val());
+			var amount = parseInt($("#gAmount").val());
 			amount-=1;
 			 if(amount==0){
 				 amount=1;
 			 }
-			 $("#GOODS_AMOUNT").val(amount);
+			 $("#gAmount").val(amount);
 		});
 		
 		// bottomFix의 button
@@ -49,13 +41,9 @@
 		});
 		
 		$("#bottom_order").on("click",function(){
-			if($("#GOODS_SIZE").val()==null){
-				alert('중량 선택 해주세요');
-			}else{
-				/* document.goodRetrieveForm.action ="OrderConfirmServlet";
-				document.goodRetrieveForm.submit(); */
-				$("form").attr('action','OrderConfirmServlet').submit();
-			}
+			/* document.goodRetrieveForm.action ="OrderConfirmServlet";
+			document.goodRetrieveForm.submit(); */
+			$("form").attr('action','orderConfirm').submit();
 		});
 		
 		
@@ -96,26 +84,30 @@
 						<td class="td_title">배송비</td>
 						<td colspan="2"><font color="#2e56a9" size="2"><b> 무료배송</b> </font> <font size="2">(도서 산간지역 별도 배송비 추가)</font></td>
 					</tr>
-					<tr>
+					<!--<tr>
 						<td class="td_title">상품옵션</td>
 						<td class="row" colspan="2">
-						  <select class="browser-default col s3" size="1" name="GOODS_SIZE" id="GOODS_SIZE">
+						  <select class="browser-default col s3" size="1" name="gSize" id="gSize">
 								<option disabled selected>중량 선택</option>
 								<option value="1kg">1kg</option>
 								<option value="5kg">5kg</option>
 								<option value="10kg">10kg</option>
 						  </select>
 						</td>
-					</tr>
+					</tr>-->
 					<tr>
 						<td class="td_title">주문수량</td>
-						<td class="row">
-						  <input class="input-field col s3" type="text"
-							     name="GOODS_AMOUNT" value="1" id="GOODS_AMOUNT"
-							     style="text-align: right; height: 18px">&nbsp;&nbsp; 
-						  <img src="images/up.PNG" id="up"> 
-						  <img src="images/down.PNG" id="down">
-						</td>
+						
+						 <!--  <td><img src="images/down.PNG" id="down"></td> -->
+						  <td class="row">
+						   	<img class="col s2" src="images/down.PNG" id="down">
+						  	<input class="input-field col s2" type="text"
+							     name="gAmount" value="1" id="gAmount"
+							     style="text-align: right; height: 18px">&nbsp;&nbsp;
+							<img class="col s2" src="images/up.PNG" id="up">
+							<!-- <img src="images/up.PNG" id="up">  -->
+						  </td>
+						
 					</tr> 
 					<tr>
 					 <td colspan="3">
