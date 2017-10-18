@@ -4,15 +4,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<script>
-	$(document).ready(function() {
-		$("#listWrite").click(function() {
-			// 페이지 주소 변경(이동)
-			location.href = "${path}/Farm/FreeBoardWriteUIServlet";
-		});
-
-		$('select').material_select();
-	});
+<script>	
+	function ewrite(){
+		 location.href="/app/write";
+		 f.submit();
+	}
 </script>
 <style>
 table {
@@ -72,11 +68,11 @@ button {
 									<tr bgcolor='#ffffff'>
 										<td width='50' height='25' align='center'><p>${dto.board_num}</td>
 										<td width='280' height='25'><p>
-												<a href="FreeBoardRetrieveServlet?board_num=${dto.board_num}">${dto.title}</a></td>
+												<a href="retrieve/board_num/${dto.board_num}">${dto.title}</a></td>
 										<td width='60' height='25' align='center'><p>${dto.author}</td>
 										<td width='65' height='25' align='center'><p>${dto.writeday}</td>
 										<td width='50' height='25' align='center'><p>${dto.readCnt}</td>
-										<input type="hidden" name="userid" value="${dto.userid }" />
+									<%-- 	<input type="hidden" name="userid" value="${dto.userid }" /> --%>
 									</tr>
 								</c:forEach>
 							</c:if>
@@ -97,7 +93,7 @@ button {
 								<form action="FreeBoardListServlet" class="aa">
 									<div class="input-field inline">
 										<select name="searchName"
-											style="background: #FDFF62; color: black; font-size: 8pt">
+											style="background: #FDFF62; color: black; font-size: 50pt">
 											<option value="title">제목</option>
 											<option value="author">작성자</option>
 											<option value="content">내용</option>
@@ -120,10 +116,11 @@ button {
 	</div>
 	<c:if test="${!empty sessionScope.login}">
 		<center>
-			<button type="button" id="listWrite">글쓰기</button>
+			<!-- <a href="write">글쓰기</a>  -->
+			<input type="button" value="글쓰기"
+				onclick="ewrite()" />
+			
 		</center>
 	</c:if>
 
 </body>
-<%-- 
-<center><input type="button" value="글쓰기" onclick="writer_idchk(id)" id="listWrite"></center> --%>
