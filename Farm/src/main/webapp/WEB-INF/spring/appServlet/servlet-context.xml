@@ -14,7 +14,9 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
 	<context:annotation-config />
-	
+		<!-- <bean id="memberValidator" class="com.validator.MemberValidator"/>-->
+	<mvc:annotation-driven/> <!-- validator="memberValidator" -->
+	<mvc:default-servlet-handler />
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/WEB-INF/" suffix=".jsp"/>
 	</mvc:view-resolvers>

@@ -86,13 +86,13 @@ span:hover { color: hotpink;}
         <li class="col s3">
         	<a><i class="material-icons">menu</i><span>메뉴전체보기</span></a>
         	<ul>
-		       <li><a href="GoodsListServlet?gCategory=rice">쌀/잡곡</a></li>
-		       <li><a href="GoodsListServlet?gCategory=fruit">과일</a></li>
-		       <li><a href="GoodsListServlet?gCategory=meat">축산물</a></li>
-		       <li><a href="GoodsListServlet?gCategory=source">가공식품</a></li>
+		       <li><a href="/app/goodsList?gCategory=rice">쌀/잡곡</a></li>
+		       <li><a href="/app/goodsList?gCategory=fruit">과일</a></li>
+		       <li><a href="/app/goodsList?gCategory=meat">축산물</a></li>
+		       <li><a href="/app/goodsList?gCategory=source">가공식품</a></li>
 		    </ul>
         </li> 
-        <li class="col s3"><a href="GoodsAllServlet">쇼핑하기</a></li>
+        <li class="col s3"><a href="/app/goodsAllList">쇼핑하기</a></li>
         <li class="col s3"><a href="">베스트상품</a></li>
         <li class="col s3"><a href="boardForm">자유게시판</a></li>
       </ul>
