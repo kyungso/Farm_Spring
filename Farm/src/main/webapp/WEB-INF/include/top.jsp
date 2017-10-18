@@ -6,17 +6,17 @@
 
 <c:if test="${empty sessionScope.login}">
 	<div class="right-align" style="margin-top: 2%; margin-right: 2%; font-size: 10pt">
-		<a href="LoginFormServlet" style="color: black">
+		<a href="loginForm" style="color: black">
 		<i class="material-icons" style="font-size: 10pt">lock</i>로그인 
 		</a> 
-		<a href="MemberFormServlet" style="color: black; margin-left: 1%">
+		<a href="memberForm" style="color: black; margin-left: 1%">
 		<i class="material-icons" style="font-size: 10pt">person</i>회원가입
 		</a>
 	</div>
 </c:if>
 <c:if test="${!empty sessionScope.login}">
 	<div class="right-align" style="margin-top: 2%; margin-right: 2%; font-size: 10pt">
-		<a href="LogoutServlet" style="color: black">
+		<a href="logout" style="color: black">
 		<i class="material-icons" style="font-size: 10pt">lock</i>로그아웃 
 		</a> 
 		<a href="main_mypage.jsp" style="color: black; margin-left: 1%" onclick="pointCheck(event)">

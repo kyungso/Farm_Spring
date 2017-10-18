@@ -15,6 +15,11 @@
 <c:if test="${!empty requestScope.orderlist}">
 	<script>alert('${requestScope.orderlist}')</script>
 </c:if>
+
+
+<c:if test="${!empty loginFail}">
+	<script>alert('${loginFail}')</script>
+</c:if>
 <!DOCTYPE html>
 <html>
 <head>
