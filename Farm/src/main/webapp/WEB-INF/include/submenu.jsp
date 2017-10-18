@@ -94,7 +94,7 @@ span:hover { color: hotpink;}
         </li> 
         <li class="col s3"><a href="GoodsAllServlet">쇼핑하기</a></li>
         <li class="col s3"><a href="">베스트상품</a></li>
-        <li class="col s3"><a href="FreeBoardListServlet">자유게시판</a></li>
+        <li class="col s3"><a href="boardForm">자유게시판</a></li>
       </ul>
     </div>
 </div>

@@ -2,6 +2,9 @@ package com.dto;
 
 import java.util.List;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("PageDTO")
 public class PageDTO {
 
 	//전체 데이터

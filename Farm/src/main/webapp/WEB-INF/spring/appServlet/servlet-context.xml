@@ -14,30 +14,39 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
 	<context:annotation-config />
-
-	<!-- <bean id="memberValidator" class="com.validator.MemberValidator"/>-->
-	<mvc:annotation-driven/> <!-- validator="memberValidator" -->
-	<mvc:default-servlet-handler />
 	
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/WEB-INF/" suffix=".jsp"/>
 	</mvc:view-resolvers>
 	
+	
 	<mvc:view-controller path="/" view-name="home"/>
+	
+    <mvc:view-controller path="/memberForm" view-name="memberForm"/>
+	<mvc:view-controller path="/loginForm" view-name="loginForm"/>
+	
+    <mvc:view-controller path="/boardForm" view-name="boardForm"/>
+    <mvc:view-controller path="/retrieve" view-name="retrieve"/>
 	
 	<!-- <mvc:resources location="/WEB-INF/image/" mapping="/image/**" />-->
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
 	<mvc:resources location="/WEB-INF/images/" mapping="/images/**" /> 
 	  
 	<!-- message.properties -->
-	<!-- <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basenames">
-			<list>
-				<value>message</value>
-			</list>
-		</property>
-	</bean>
+	    <bean id="messageSource"
+            class="org.springframework.context.support.ResourceBundleMessageSource">
+          <property name="basenames">
+            <list>
+                <value>message</value>
+            </list>
+          </property>
+        </bean>	
+		
+	<bean id="freeBoardValidator" class="com.validator.FreeBoardValidator"/>	
+	<mvc:annotation-driven  validator="freeBoardValidator"/>
+	<mvc:default-servlet-handler/>
 	
+	<!--
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/loginX/**" />
@@ -52,7 +61,8 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	aop설정
-	<aop:aspectj-autoproxy/>
-	<context:component-scan base-package="com.*" /> -->
+	<aop:aspectj-autoproxy/> -->
+	
+	<context:component-scan base-package="com.*" /> 
 	
 </beans>

@@ -11,28 +11,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-$(document).ready(function(){
-	  //삭제
-    $("#listDelete").click(function(){
-        if(confirm("삭제하시겠습니까?")){
-        	location.href  = "${path}/Farm/FreeBoardDeleteServlet?board_num=${retrieve.board_num}"; 
-        }
-    });
-	  
-     //수정
-    $("#listUpdate").click(function(){
-    	var update ='${path}/Farm/FreeBoardUpdateServlet?board_num=${retrieve.board_num }';
-    	console.log(update);
-        	location.href  = update;
-        $("form");
-         console.log(document.myForm); 
-    });
-      
-     //목록
-        $("#listAll").click(function(){
-        	location.href  = "${path}/Farm/FreeBoardListServlet";
-        });
-});
+
+function bUpdate(){
+	 location.href="/app/boardUpdate";
+	 f.submit();
+}
+
+function bDelete(board_num){
+	 location.href="/app/delete?board_num="+board_num;
+	 f.submit();
+}
+
+function bForm(){
+	 location.href="/app/boardForm";
+	 f.submit();
+}
+
 </script>
 <style>
 table {
@@ -154,11 +148,15 @@ button {
 <td>
 <center>
    <c:if test="${sessionScope.login.userid==retrieve.userid}">
-        <button type="button"  id="listUpdate" class="check">수정</button>
-        <button type="button"  id="listDelete" class="check">삭제</button>
-    </c:if>
-<input type="button"  value="목록" id="listAll" class="check">
+                 <input type="button" value="수정" onclick="bUpdate()" />
+                 <input type="button" value="삭제" 
+                 onclick="bDelete('${retrieve.board_num}')"/>
+                    <!-- <a href="boardWrite">수정</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="delete">삭제</a> &nbsp;&nbsp;&nbsp;&nbsp; -->
 
+    </c:if>
+<input type="button" value="목록" onclick="bForm()" />
+<!-- <a href="boardForm">목록</a> -->
 </center>
 
 </td>

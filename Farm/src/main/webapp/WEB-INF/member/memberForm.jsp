@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 
 <script>
 var result = true;
@@ -65,7 +66,7 @@ $(document).ready(function() {
 		}else{
 		$.ajax({
 			type:"GET",
-			url:"IdCheckServlet",
+			url:"idCheck",
 			data:{
 				userid:$('#userid').val()
 				},	
@@ -152,7 +153,7 @@ tr:hover {
 }
 </style>
 
-<form action="MemberAddServlet" onsubmit="return formCheck();">
+<form action="memberAdd" onsubmit="return formCheck();">
 	<table>
 		<tr>
 			<td>아이디<input type="text" name="userid" id="userid"
@@ -219,8 +220,8 @@ tr:hover {
 		<input type="hidden" id="buycnt" name="buycnt" value="0">
 
 		<tr>
-			<td><input type="submit" value="회원가입"></input> <input
-				type="reset" value="취소"></td>
+			<td><input type="submit" value="회원가입"></input> 
+			<input type="reset" value="취소"></td>
 		</tr>
 
 	</table>

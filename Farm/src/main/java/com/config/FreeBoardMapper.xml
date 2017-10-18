@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.FreeBoardMapper">
+
+	<select id="selectAll" resultType="FreeBoardDTO"  parameterType="hashmap" >
+		select board_num,title,author,to_char(writeday, 'YYYY/MM/dd')writeday,readCnt
+		from freeboard
+		<if test="searchName == 'title'">
+	       where title LIKE '%'||#{searchValue}||'%'
+	    </if>
+	    <if test="searchName == 'author'">
+	       where author LIKE '%'||#{searchValue}||'%'
+	    </if> 
+	    <if test="searchName == 'content'">
+	       where author LIKE '%'||#{searchValue}||'%'
+	    </if> 	    
+	    order by board_num desc
+	</select>
+
+	<insert id="boardWrite"  parameterType="FreeBoardDTO">
+		insert into
+		freeboard(board_num, userid,title,author,content,image)
+		values(board_num_seq.nextval,#{userid}, #{title},#{author},#{content},#{image})
+	</insert>
+
+	<select id="selectByNum" resultType="FreeBoardDTO" parameterType="int">
+		select board_num,author, userid,title,content, to_char(writeday,'YYYY/MM/dd')writeday, readCnt,image
+		from freeboard
+		where board_num=#{board_num}
+	</select>
+
+	<update id="readCnt" parameterType="hashmap">
+		update freeboard
+		set 
+		readCnt = readCnt+1
+		where 
+		board_num=#{board_num}
+	</update>
+	
+	<update id="updateByNum"  parameterType="FreeBoardDTO">
+		update freeboard
+		set title=#{title}, author=#{author}, content=#{content}
+		where board_num=#{board_num}
+	</update>
+
+	<delete id="deleteByNum" parameterType="int">
+		delete from freeboard
+		where
+		board_num = #{board_num}
+	</delete>
+	
+		<select id="search" parameterType="hashmap" resultType="FreeBoardDTO">
+	    select board_num, title,author,to_char(writeday, 'YYYY/MM/dd') writeday,readCnt
+		from freeboard
+		<if test="searchName=='title'">
+		where title like '%'||#{searchValue}||'%'
+		</if>
+		<if test="searchName=='author'">
+		where author like '%'||#{searchValue}||'%'
+		</if>
+			<if test="searchName=='content'">
+		where content like '%'||#{searchValue}||'%'
+		</if>
+	</select>
+	
+	<select id="totalCount" resultType="int">
+	select count(*)
+	from freeboard
+	</select>
+	
+		<select id="totalCount1" resultType="int" parameterType="hashmap">
+	   select count(*)
+	   from freeboard
+	   
+	    <if test="searchName== 'title'">
+	       where title LIKE '%'||#{searchValue}||'%'
+	    </if>
+	    <if test="searchName== 'author'">
+	       where author LIKE '%'||#{searchValue}||'%'
+	    </if> 
+	        <if test="searchName == 'content'">
+	       where content LIKE '%'||#{searchValue}||'%'
+	    </if> 
+	</select>
+	
+
+
+</mapper>

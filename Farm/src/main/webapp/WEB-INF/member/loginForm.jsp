@@ -51,7 +51,7 @@ tr:hover {
 }
 </style>
 <table>
-	<form action="LoginServlet">
+	<form action="login">
 		<tr>
 			<td>아이디<input type="text" name="userid"></td>
 		</tr>
@@ -113,7 +113,7 @@ tr:hover {
 
 <script type="text/javascript">
 function memberJoin(){
-	location.href="MemberFormServlet";
+	location.href="memberForm";
 }
 
 
