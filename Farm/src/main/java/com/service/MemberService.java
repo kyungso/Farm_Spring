@@ -28,5 +28,14 @@ public class MemberService {
 		
 	}
 
+	public MemberDTO memberUpdate(MemberDTO dto) {
+		return dao.memberUpdate(dto);
+	}
+
+	public void memberDelete(String userid) {
+		dao.memberDelete(userid);
+		
+	}
+
 
 }

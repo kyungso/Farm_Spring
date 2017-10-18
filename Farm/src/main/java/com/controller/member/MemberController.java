@@ -1,6 +1,7 @@
 package com.controller.member;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -64,4 +65,24 @@ public class MemberController {
 		m.addAttribute("join", "가입완료");
 		return "home";
 	}
+	
+	@RequestMapping("/memberUpdate")
+	public String memberUpdate(@ModelAttribute MemberDTO dto,Model m,HttpSession session) {
+		System.out.println(dto);
+		MemberDTO mDTO=service.memberUpdate(dto);
+		session.setAttribute("login", mDTO);
+		m.addAttribute("update", "개인정보 수정 완료");
+		return "mypage";
+	}
+	
+	@RequestMapping("/memberDelete")
+	public String memberDelete(HttpSession session, Model m) {
+		MemberDTO dto=(MemberDTO)session.getAttribute("login");
+		service.memberDelete(dto.getUserid());
+		session.invalidate();
+		m.addAttribute("delete", "회원탈퇴 완료");
+		return "home";
+	}
+	
+	
 }

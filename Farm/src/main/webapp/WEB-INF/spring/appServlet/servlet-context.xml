@@ -27,6 +27,10 @@
 	
 	<mvc:view-controller path="/memberForm" view-name="memberForm"/>
 	<mvc:view-controller path="/loginForm" view-name="loginForm"/>
+	<mvc:view-controller path="/main_mypage" view-name="main_mypage"/>
+	<mvc:view-controller path="/mypageForm" view-name="mypage"/>
+	<mvc:view-controller path="/orderList" view-name="orderList"/>
+	
 	
 	<!-- <mvc:resources location="/WEB-INF/image/" mapping="/image/**" />-->
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />

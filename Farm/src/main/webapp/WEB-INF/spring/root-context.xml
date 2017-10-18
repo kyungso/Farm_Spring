@@ -26,6 +26,7 @@
 				<value>classpath:com/config/GoodsMapper.xml</value>
 				<value>classpath:com/config/CartMapper.xml</value>
 				<value>classpath:com/config/OrderMapper.xml</value>
+				<value>classpath:com/config/QnaMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
@@ -34,6 +35,7 @@
 				<value>com.dto.GoodsDTO</value>
 				<value>com.dto.CartDTO</value>
 				<value>com.dto.OrderDTO</value>
+				<value>com.dto.QnaDTO</value>
 			</list>
 		</property>
 	</bean>
