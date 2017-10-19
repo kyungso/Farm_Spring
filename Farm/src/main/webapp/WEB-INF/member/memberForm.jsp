@@ -3,7 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<<<<<<< HEAD
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+=======
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+>>>>>>> branch 'master' of https://github.com/kyungso/Farm_Spring.git
 
 <script>
 var result = true;
@@ -100,7 +104,7 @@ $(document).ready(function() {
 			console.log(">>>",result);
 		}else{
 			$("#errMsg").text("비밀번호 일치");	
-		//	result=true;
+			result=true;
 		};	
 	});	
 	
@@ -126,6 +130,9 @@ $(document).ready(function() {
 			
 			
 			return result;
+			
+			
+			
 
 	}); //ready
 </script>
@@ -156,8 +163,9 @@ tr:hover {
 <form action="memberAdd" onsubmit="return formCheck();">
 	<table>
 		<tr>
-			<td>아이디<input type="text" name="userid" id="userid"
-				placeholder="아이디는 공백없이 10자리이하.."> <span id="result"></span></td>
+			<td>아이디
+			<input type="text" name="userid" id="userid" placeholder="아이디는 공백없이 10자리이하.."> 
+			<span id="result"></span></td>
 		</tr>
 
 		<tr>

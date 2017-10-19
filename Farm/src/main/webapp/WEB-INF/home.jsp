@@ -13,17 +13,18 @@
 		alert('${logout}');
 	</script>
 </c:if>
-<c:if test="${!empty join}">
+
+<c:if test="${!empty sessionScope.login}">
+		<c:if test="${empty join}">
+		<script>
+			alert("로그인 되었습니다");
+		</script>
+		</c:if>
+		<c:if test="${!empty join}">
 	<script>
 		alert('${join}');
 	</script>
 </c:if>
-<c:if test="${!empty sessionScope.login}">
-	<c:if test="${!empty requestScope.login}">
-		<script>
-			alert("로그인 되었습니다");
-		</script>
-	</c:if>
 </c:if>
 
 <!DOCTYPE html>

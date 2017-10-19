@@ -10,6 +10,11 @@
 <script src="js/daum.js"></script>
 <!-- DAUM 주소 라이브러리 끝 -->
 <script>
+$(document).ready(function() {
+    $('select').material_select();
+  });
+         
+
 	var result = true;
 	function formCheck() {
 
@@ -55,6 +60,7 @@
 			result = false;
 		}
 		console.log("result: " + result);
+		
 		return result;
 	}
 </script>
@@ -96,11 +102,11 @@
 				$('#phone3').text("");
 				event.preventDefault();
 				result = false;
-			}
-			;
+			};
 		});
 
 		return result;
+
 
 	}); //ready
 </script>
@@ -123,8 +129,9 @@ tr:hover {
 }
 </style>
 
-<table>
-	<form action="MemberUpdateServlet">
+
+	<form action="memberUpdate"> <!-- 테이블안에 안쓰면 text만 가져감.. -->
+	<table>
 		<tr>
 			<td>아이디<input type="text" name="userid" id="userid"
 				value="${login.userid}" readonly>
@@ -154,28 +161,39 @@ tr:hover {
 			</td>
 		</tr>
 		<tr>
-			<td>휴대폰<select name="phone1" id="phone1">
+				<td>
+				휴대폰
+	
+				<div class="input-field inline">
+				<select name="phone1" id="phone1">
 					<c:choose>
 						<c:when test="${login.phone1 == '010'}">
-							<option value="010" selected>010</option>
+							<option value="010" selected="selected">010</option>
 							<option value="011">011</option>
-							<option value="017">>017</option>
+							<option value="017">017</option>
 						</c:when>
 						<c:when test="${login.phone1 == '011'}">
 							<option value="010">010</option>
-							<option value="011" selected>011</option>
+							<option value="011" selected="selected">011</option>
 							<option value="017">017</option>
 						</c:when>
 						<c:when test="${login.phone1 == '017'}">
 							<option value="010">010</option>
 							<option value="011">011</option>
-							<option value="017" selected>017</option>
+							<option value="017" selected="selected">017</option>
 						</c:when>
 					</c:choose>
-			</select>- <input type="text" name="phone2" id="phone2"
-				value="${login.phone2}">- <input type="text" name="phone3"
-				id="phone3" value="${login.phone3}">
-			</td>
+			</select></div>
+				-- 
+				<div class="input-field inline">
+				<input type="text" name="phone2" id="phone2" value="${login.phone2}">
+				</div>--<div class="input-field inline">
+				<input type="text" name="phone3" id="phone3" value="${login.phone3}">
+				</div>
+				
+			</td> 
+				 
+
 		</tr>
 		<tr>
 			<td>이메일<input type="email" name="email" id="email"
@@ -200,7 +218,8 @@ tr:hover {
 		<tr>
 			<td><input type="submit" value="정보수정"></td>
 		</tr>
+		</table>
 	</form>
-</table>
+
 
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.QnaMapper">
+
+	<select id="selectAllQna" resultType="QnaDTO" parameterType="string">
+		select username,qna_num,title,to_char(writeday, 'YYYY/MM/dd') writeday,state
+		from qna
+		where userid=#{userid}
+		order by qna_num desc
+	</select>
+<select id="selectByNum" parameterType="hashmap" resultType="QnaDTO">
+select userid,username,phone1,phone2,phone3,email,title,content,qna_num,writeday,state
+from qna
+where qna_num=#{qna_num} and userid=#{userid}
+</select>
+
+<update id="qnaUpdate" parameterType="QnaDTO">
+update qna set phone1=#{phone1},phone2=#{phone2},phone3=#{phone3}, email=#{email}, title=#{title}, content=#{content}
+ where userid=#{userid} and qna_num=#{qna_num}
+</update>
+
+<insert id="qnaWrite" parameterType="QnaDTO">
+insert into
+qna(qna_num,title,username,content,phone1,phone2,phone3,email,userid)
+		values(qna_num_seq.nextval, #{title},#{username},#{content},#{phone1},#{phone2},#{phone3},#{email},#{userid})
+</insert>
+
+<delete id="qnaDelete" parameterType="int">
+delete from qna
+where qna_num=#{qna_num}
+</delete>
+</mapper>

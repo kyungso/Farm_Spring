@@ -8,12 +8,12 @@
 	<div class="col s12">
 		<ul>
 
-			<li class="col s3"><a href="MypageFormServlet"
+			<li class="col s3"><a href="mypageForm"
 				onclick="pointCheck(event)">회원정보</a></li>
-			<li class="col s3"><a href="OrderListServlet">포인트&주문내역</a></li>
+			<li class="col s3"><a href="orderList">포인트&주문내역</a></li>
 			<li class="col s3"><a
 				href="QNAListServlet?userid=${sessionScope.login.userid }">1:1문의</a></li>
-			<li class="col s3"><a href="MemberDeleteServlet"
+			<li class="col s3"><a href="memberDelete"
 				onclick="return confirm('탈퇴 하시겠습니까?')">회원탈퇴</a></li>
 		</ul>
 	</div>

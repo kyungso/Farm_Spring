@@ -25,6 +25,21 @@ public class MemberDAO {
 	public void memberAdd(MemberDTO dto) {
 		template.insert("memberJoin", dto);	
 	}
+<<<<<<< HEAD
+=======
+
+	public MemberDTO memberUpdate(MemberDTO dto) {
+		template.update("memberUpdate", dto);
+		HashMap<String, String> map=new HashMap<>();
+		map.put("userid", dto.getUserid());
+		map.put("passwd", dto.getPasswd());
+		return this.memberLogin(map);
+	}
+
+	public void memberDelete(String userid) {
+		template.delete("memberDelete",userid);
+	}
+>>>>>>> branch 'master' of https://github.com/kyungso/Farm_Spring.git
 	
 
 }

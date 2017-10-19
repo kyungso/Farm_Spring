@@ -28,5 +28,17 @@ public class MemberService {
 		
 	}
 
+<<<<<<< HEAD
+=======
+	public MemberDTO memberUpdate(MemberDTO dto) {
+		return dao.memberUpdate(dto);
+	}
+
+	public void memberDelete(String userid) {
+		dao.memberDelete(userid);
+		
+	}
+
+>>>>>>> branch 'master' of https://github.com/kyungso/Farm_Spring.git
 
 }

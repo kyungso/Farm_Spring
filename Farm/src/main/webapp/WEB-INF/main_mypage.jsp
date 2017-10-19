@@ -70,7 +70,7 @@ margin:80px;
 <div class="btn-group" align="center">
   <button class="button" onclick="pointCheck(event)"><i class="material-icons" style="font-size:48px;color:#03A9F4">
 account_circle</i>개인정보 보기</button>
-  <button class="button" onclick="location.href='PointCheckServlet'"><i class="material-icons" style="font-size:48px;color:#03A9F4">
+  <button class="button" onclick="location.href='orderList'"><i class="material-icons" style="font-size:48px;color:#03A9F4">
   notifications</i>포인트&주문내역</button>
 </div>
 </td>
@@ -78,7 +78,7 @@ account_circle</i>개인정보 보기</button>
 <tr>
 <td>
 <div class="btn-group" align="center">
-  <button class="button" onclick="location.href='QNAListServlet?userid=${sessionScope.login.userid }'"><i class="material-icons" style="font-size:48px;color:#03A9F4">live_help</i>1:1문의하기</button>
+  <button class="button" onclick="location.href='QNAList?userid=${sessionScope.login.userid }'"><i class="material-icons" style="font-size:48px;color:#03A9F4">live_help</i>1:1문의하기</button>
   <button class="button" onclick="delCheck()"><i class="material-icons" style="font-size:48px;color:#03A9F4"> pan_tool</i>회원탈퇴</button>
 <button class="button"  onclick="register()"><i class="material-icons" style="font-size:48px;color:#03A9F4">trending_up</i>입점신청</button>
 </div>
@@ -94,15 +94,20 @@ account_circle</i>개인정보 보기</button>
 		 alert("비밀번호를 정확히 입력하세요");
 			event.preventDefault();
 	 }else{
-		 location.href="MypageFormServlet";
+		 location.href="mypageForm";
 	 }
    };
 </script>
 <script>
    function delCheck(){
 	   var r=confirm("정말 탈퇴하시겠습니까?");
-	   if(r==true) location.href="MemberDeleteServlet";
+	   if(r==true) location.href="memberDelete";
    };
+   
+   
+   
+   
+   
    
    
    function register(){

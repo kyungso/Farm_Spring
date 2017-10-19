@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,7 +20,7 @@
 		<a href="logout" style="color: black">
 		<i class="material-icons" style="font-size: 10pt">lock</i>로그아웃 
 		</a> 
-		<a href="main_mypage.jsp" style="color: black; margin-left: 1%" onclick="pointCheck(event)">
+		<a href="main_mypage" style="color: black; margin-left: 1%" onclick="pointCheck(event)">
 		&nbsp;&nbsp;마이페이지
 		</a>
 		<a href="CartListServlet" style="color: black; margin-left: 1%">
