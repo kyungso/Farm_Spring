@@ -117,7 +117,7 @@ label{
 
 	<tr>
 		<td class="td_default" align="center"><a class="a_default"
-			href="OrderListServlet">주문조회 페이지로 이동</a></td>
+			href="orderList">주문조회 페이지로 이동</a></td>
 	</tr>
 
 </table>

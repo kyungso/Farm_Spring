@@ -16,12 +16,12 @@
 <script type="text/javascript">
 	function delOrder(f) {
 		if (confirm("삭제하시겠습니까?")) {
-			f.action = "OrderDelServlet";
+			f.action = "orderDel";
 			f.submit();
 		}
 	}
 	function keepShopping() {
-		location.href = "GoodsAllServlet";
+		location.href = "goodsAllList";
 	}
 
 	function allCheck(chk) {
@@ -32,7 +32,7 @@
 		}
 	}
 	function retrieve(order_num) {
-		location.href = "OrderListDetailServlet?order_num=" + order_num;
+		location.href = "orderListDetail?order_num=" + order_num;
 	}
 	
 	// 달력 시작
@@ -103,7 +103,7 @@
 			  var y = $("#searchValue").val();
 			  var s = $("#datepicker1").val();
 			  var e = $("#datepicker2").val();
-			  location.href = "OrderListServlet?&searchValue="+y+"&start_date="+s+"&end_date="+e;
+			  location.href = "orderList?&searchValue="+y+"&start_date="+s+"&end_date="+e;
 		  });
 		  
 	});
@@ -250,8 +250,6 @@ label {
 				value="${list.gImage1}">
 			<input type="hidden" name="gName${list.order_num}"
 				value="${list.gName}">
-			<input type="hidden" name="gSize${list.order_num}"
-				value="${list.gSize}">
 			<input type="hidden" name="gPrice${list.order_num}"
 				value="${list.gPrice}">
 			<input type="hidden" name="gAmount${list.order_num}"
@@ -286,10 +284,9 @@ label {
 				<td class="td_default"><img
 					src="images/items/${list.gImage1}.jpg" border="0" width="80" /></td>
 				<td class="td_default" width="300"><a
-					href="order/modal.jsp?gName=${list.gName}&gImage1=${list.gImage1}&gPrice=${list.gPrice}&gCode=${list.gCode}"
+					href="modal?gName=${list.gName}&gImage1=${list.gImage1}&gPrice=${list.gPrice}&gCode=${list.gCode}"
 					onClick="return show_hide_box(this,440,300,'1px solid')">
-						${list.gName}</a> <br> <font size="2" color="#665b5f">[옵션
-						: 중량(${list.gSize}) ] </font></td>
+						${list.gName}</a> <br> </td>
 
 				<td class="td_default" align="center" width="110">${list.gPrice}<br>
 					<font size="2" color="#665b5f">[ (${list.gAmount}개) ] </font>

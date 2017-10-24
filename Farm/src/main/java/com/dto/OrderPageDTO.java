@@ -16,24 +16,18 @@ public class OrderPageDTO {
 	
 	//private String searchName;
 	private String searchValue;
-	//private int perBlock = 5; // 페이지 당 보여줄 페이지 번호 갯수
+	private int perBlock = 5; // 페이지 당 보여줄 페이지 번호 갯수
 	
 	private String start_date;
 	private String end_date;
 	
 	
-	/*public int getPerBlock() {
+	public int getPerBlock() {
 		return perBlock;
 	}
 	public void setPerBlock(int perBlock) {
 		this.perBlock = perBlock;
 	}
-	public String getSearchName() {
-		return searchName;
-	}
-	public void setSearchName(String searchName) {
-		this.searchName = searchName;
-	}*/
 
 	public OrderPageDTO() {
 		super();

@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
  function moveGoodsRetrieve(gCode){
-	window.top.location.href="../GoodsRetrieveServlet?gCode="+gCode;
+	window.top.location.href="goodsRetrieve?gCode="+gCode;
   }
 </script>
 
@@ -25,7 +25,7 @@
 			<td colspan="2">주문 상품 정보</td>
 		</tr>
 		<tr>
-			<td><img src="../images/items/${param.gImage1}.jpg" width="250" /></td>
+			<td><img src="images/items/${param.gImage1}.jpg" width="250" /></td>
 			<td><font size="3">${param.gName}</font><br> 상품금액:
 				${param.gPrice} <br> 
 				<input type="button"  value="제품 상세 페이지로 이동" onclick="moveGoodsRetrieve('${param.gCode}')"></td>

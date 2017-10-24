@@ -27,6 +27,9 @@ label{
  function back(){
 	 history.back();
  }
+ function keepShopping() {
+		location.href = "goodsAllList";
+ }
 </script>
 
  <table>

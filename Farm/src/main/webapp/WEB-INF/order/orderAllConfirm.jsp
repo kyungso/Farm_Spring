@@ -78,8 +78,8 @@ label{
 }
 </style>
 
-<form name="myForm" action="OrderAllDoneServlet" onsubmit="return formCheck()">
-
+<form name="myForm" action="orderAllDone" onsubmit="return formCheck()">
+	
 	<table>
 		<tr>
 			<td><b>주문상품 확인</b></td>
@@ -95,13 +95,12 @@ label{
 					</tr>
 					
 				<c:set var="total_cost" value="0"></c:set>
-				<c:forEach var="cDTOlist" items="${cDTO}">
+				<c:forEach var="cDTOlist" items="${cDTO}"> 
 					<input type="hidden" name="cart_num" value="${cDTOlist.cart_num}">
 					<input type="hidden" name="userid" value="${cDTOlist.userid}">
 					<input type="hidden" name="gCode" value="${cDTOlist.gCode}">
 					<input type="hidden" name="gName" value="${cDTOlist.gName}">
 					<input type="hidden" name="gPrice" value="${cDTOlist.gPrice}">
-					<input type="hidden" name="gSize" value="${cDTOlist.gSize}">
 					<input type="hidden" name="gAmount" value="${cDTOlist.gAmount}">
 					<input type="hidden" name="gImage1" value="${cDTOlist.gImage1}">
 					<tr>
@@ -110,16 +109,15 @@ label{
 							src="images/items/${cDTOlist.gImage1}.jpg" border="0" align="center"
 							width="80" /></td>
 						<td class="td_default" width="300" style='padding-left: 30px'>${cDTOlist.gName}
-							<br> <font size="2" color="#665b5f">[옵션 :
-								사이즈(${cDTOlist.gSize}) ] </font>
+							<br> 
 						</td>
 						<td class="td_default" align="center" width="110">${cDTOlist.gPrice}
 						</td>
 						<td class="td_default" align="center" width="90">${cDTOlist.gAmount}</td>
 						<c:set var="total_cost" value="${total_cost+(cDTOlist.gPrice*cDTOlist.gAmount)}"></c:set>
 					</tr>
+				
 				</c:forEach>
-
 					<tr>
 						<td height="30"></td>
 						<td class="td_default" align="right">총 결제 금액 :</td>
@@ -245,7 +243,7 @@ label{
 				</table>
 			</td>
 		</tr>
-
+		
 		<tr>
 			<td class="td_default" align="center">
 				<button id="cancel">취소</button>
@@ -254,5 +252,5 @@ label{
 		</tr>
 
 	</table>
-
+	
 </form>

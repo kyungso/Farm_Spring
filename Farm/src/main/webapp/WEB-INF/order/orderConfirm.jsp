@@ -125,13 +125,12 @@ label{
 }
 </style>
 <c:if test="${!empty cDTO}">
-<form action="OrderDoneServlet" onsubmit="return formCheck()">
+<form action="orderDone" onsubmit="return formCheck()">
 	<input type="hidden" name="cart_num" value="${cDTO.cart_num}">
 	<input type="hidden" name="userid" value="${mDTO.userid}"> 
 	<input type="hidden" name="gCode" value="${cDTO.gCode}"> 
 	<input type="hidden" name="gName" value="${cDTO.gName}"> 
 	<input type="hidden" name="gPrice" value="${cDTO.gPrice}"> 
-	<input type="hidden" name="gSize" value="${cDTO.gSize}"> 
 	<input type="hidden" name="gAmount" value="${cDTO.gAmount}"> 
 	<input type="hidden" name="gImage1" value="${cDTO.gImage1}">
 
@@ -157,8 +156,7 @@ label{
 							src="images/items/${cDTO.gImage1}.jpg" border="0" align="center"
 							width="80" /></td>
 						<td class="td_default" width="300" style='padding-left: 30px'>${cDTO.gName}
-							<br> <font size="2" color="#665b5f">
-							[옵션 : 중량(${cDTO.gSize}) ]</font>
+							<br> 
 						</td>
 						<td class="td_default" align="center" width="110">${cDTO.gPrice}
 						</td>
@@ -308,14 +306,13 @@ label{
 </c:if>
 
 <c:if test="${empty cDTO}">
-<form action="OrderDoneServlet" onsubmit="return formCheck_direct()">
-	<input type="hidden" name="userid_d" value="${memDTO.userid}"> 
-	<input type="hidden" name="gCode_d" value="${gDTO.gCode}"> 
-	<input type="hidden" name="gName_d" value="${gDTO.gName}"> 
-	<input type="hidden" name="gPrice_d" value="${gDTO.gPrice}"> 
-	<input type="hidden" name="gSize_d" value="${gSize}"> 
-	<input type="hidden" name="gAmount_d" value="${gAmount}"> 
-	<input type="hidden" name="gImage1_d" value="${gDTO.gImage1}">
+<form action="orderDone_d" onsubmit="return formCheck_direct()">
+	<input type="hidden" name="userid" value="${memDTO.userid}"> 
+	<input type="hidden" name="gCode" value="${gDTO.gCode}"> 
+	<input type="hidden" name="gName" value="${gDTO.gName}"> 
+	<input type="hidden" name="gPrice" value="${gDTO.gPrice}"> 
+	<input type="hidden" name="gAmount" value="${gAmount}"> 
+	<input type="hidden" name="gImage1" value="${gDTO.gImage1}">
 
 	<table>
 		<tr>
@@ -339,8 +336,7 @@ label{
 							src="images/items/${gDTO.gImage1}.jpg" border="0" align="center"
 							width="80" /></td>
 						<td class="td_default" width="300" style='padding-left: 30px'>${gDTO.gName}
-							<br> <font size="2" color="#665b5f">
-							[옵션 : 중량(${gSize}) ]</font>
+							<br>
 						</td>
 						<td class="td_default" align="center" width="110">${gDTO.gPrice}
 						</td>
@@ -406,7 +402,7 @@ label{
 		</tr>
 		<!--  고객 정보 끝-->
 		<tr>
-			<td class="td_default"><input type="checkbox" name="same_d" id="same_d"> 
+			<td class="td_default"><input type="checkbox" name="same" id="same_d"> 
 			<label for="same_d">배송지가 동일할 경우 선택하세요.</label></td>
 		</tr>
 		<!--  배송지 정보 시작-->
@@ -421,7 +417,7 @@ label{
 					<tr>
 						<td width="125" height="35" class="td_default">이 름</td>
 						<td height="35" class="td_default"><input
-							class="input_default" type="text" id="orderName_d" name="orderName_d"
+							class="input_default" type="text" id="orderName_d" name="orderName"
 							size="20" maxlength="20" value=""></input></td>
 					</tr>
 					<tr>
@@ -429,18 +425,18 @@ label{
 						<td height="35" class="td_default">
 							<!-- 다음주소 시작--> 
 							<div class="input-field inline">
-								<input name="post1_d" id="post1_d" size="5" readonly="">
+								<input name="post1" id="post1_d" size="5" readonly="">
 							</div>
 							 - 
 							<div class="input-field inline">
-								<input name="post2_d" id="post2_d" size="5" readonly="">
+								<input name="post2" id="post2_d" size="5" readonly="">
 							</div> 
 							<div class="input-field inline">
 							<input onclick="openDaumPostcode()" type="button" value="우편번호찾기"><br>
 							</div>
-							<input name="addr1_d" id="addr1_d" size="40" readonly="" placeholder="도로명주소"> <br> 
+							<input name="addr1" id="addr1_d" size="40" readonly="" placeholder="도로명주소"> <br> 
 							<span style="line-height: 10%;"><br></span> 
-							<input name="addr2_d" id="addr2_d" size="40" placeholder="지번주소"> 
+							<input name="addr2" id="addr2_d" size="40" placeholder="지번주소"> 
 							<!-- 다음주소 끝 -->
 						</td>
 					</tr>
@@ -448,7 +444,7 @@ label{
 					<tr>
 						<td height="35" class="td_default">휴대전화</td>
 						<td height="35" class="td_default"><input
-							class="input_default" type="text" id="phone_d" name="phone_d"
+							class="input_default" type="text" id="phone_d" name="phone"
 							size="15" maxlength="15" value=""></input></td>
 					</tr>
 				</table>
@@ -464,12 +460,12 @@ label{
 				<table>
 					<tr>
 						<td width="125" height="35" class="td_default">
-						<input type="radio" name="payMethod_d" id="payMethod1_d" class="with-gap" value="신용카드" checked/> 
-						<label for="payMethod1_d">신용카드</label> 
-						<input type="radio" name="payMethod_d" id="payMethod2_d" class="with-gap" value="계좌이체"/>
-						<label for="payMethod2_d">계좌이체</label> 
-						<input type="radio" name="payMethod_d" id="payMethod3_d" class="with-gap" value="무통장 입금"/> 
-						<label for="payMethod3_d">무통장 입금</label></td>
+						<input type="radio" name="payMethod" id="payMethod1_d" class="with-gap" value="신용카드" checked/> 
+						<label for="payMethod1">신용카드</label> 
+						<input type="radio" name="payMethod" id="payMethod2_d" class="with-gap" value="계좌이체"/>
+						<label for="payMethod2">계좌이체</label> 
+						<input type="radio" name="payMethod" id="payMethod3_d" class="with-gap" value="무통장 입금"/> 
+						<label for="payMethod3">무통장 입금</label></td>
 
 					</tr>
 
