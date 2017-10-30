@@ -3,6 +3,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%-- <c:if test="${!empty requestScope.msg}">
+	<script>alert('${requestScope.msg}')</script>
+</c:if>
+
+<c:if test="${!empty sessionScope.login}">
+		<c:if test="${!empty meg}">
+		<script>
+			alert('${msg}');
+		</script>
+		</c:if>
+</c:if> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,11 +36,10 @@
 	<div class="white">
 		<jsp:include page="include/top.jsp" flush="true" />
 		<div class="center-align">
-			<a href="/app" class="blue-text text-darken-2 center-align" style="font-size: 30pt">RyanFarm</a>
+			<a href="/app/" ><img src="images/m3logo.jpg"  width="270" height="140"></a>
 		</div>
-		<div class="black-text center-align">농산물직거래</div>
 	</div>
-	<hr style="border: solid 1px lightgrey;">
+	<hr style="border: solid 0.5px lightgrey;">
 	<jsp:include page="include/submenu.jsp" flush="true" />
   	<jsp:include page="board/retrieve.jsp" flush="true"/>
 </body>

@@ -3,6 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%-- <c:if test="${empty requestScope.message}">
+	<script>
+		alert('${requestScope.message}');
+	</script>
+</c:if> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +35,6 @@
 	</div>
 	<hr style="border: solid 0.5px lightgrey;">
 	<jsp:include page="include/submenu.jsp" flush="true" />
-  	<jsp:include page="board/boardForm.jsp" flush="true"/>
+  	<jsp:include page="board/passwd.jsp" flush="true"/>
 </body>
 </html>
