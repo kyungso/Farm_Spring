@@ -3,15 +3,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<<<<<<< HEAD
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-=======
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
->>>>>>> branch 'master' of https://github.com/kyungso/Farm_Spring.git
 
 <script>
 var result = true;
+
 function formCheck(){
+	
+
+	
 	var userid =$.trim($('#userid').val());	
 	var passwd =$("#passwd").val();	
 	var passwd2 =$("#passwd2").val();	
@@ -20,6 +20,7 @@ function formCheck(){
 	var email =$("#email").val();				
 	var phone2 = $("#phone2").val();	
 	var phone3 =$("#phone3").val();	
+	
 
 	if(userid == '' || userid.length == 0){
 	alert("ID를 입력하시오");
@@ -78,14 +79,7 @@ $(document).ready(function() {
 			success:function(responseData, status, xhr){
 				console.log(responseData);
 				$("#result").text(responseData).css("color","red").css("font-size","9px");
-			if(responseData.includes("사용가능")){
-				result=true;
-				console.log(result);
-			}else{ 
-				result=false; 
-				console.log(result);
-				}
-			},
+			
 			error: function(xhr, status, e){console.log(status, e);}
 			}); //ajax
 		}
@@ -160,7 +154,7 @@ tr:hover {
 }
 </style>
 
-<form action="memberAdd" onsubmit="return formCheck();">
+<form action="memberAdd" onsubmit="return formCheck();" method="POST">
 	<table>
 		<tr>
 			<td>아이디
@@ -222,11 +216,13 @@ tr:hover {
 			<td>이메일<input type="email" name="email" id="email"
 				placeholder="이메일 형식에 맞게 입력해주세요..">
 			</td>
+			<tr><td>
+			<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+			 <div class="g-recaptcha" id="captcha" data-sitekey="6LdunzUUAAAAANa2UQxd0idzXmF6USh90gI2MgPo"></div>
+			</td></tr>
 		</tr>
-
 		<input type="hidden" id="point" name="point" value="0">
 		<input type="hidden" id="buycnt" name="buycnt" value="0">
-
 		<tr>
 			<td><input type="submit" value="회원가입"></input> 
 			<input type="reset" value="취소"></td>

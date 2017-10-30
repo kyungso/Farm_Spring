@@ -9,6 +9,7 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="js/daum.js"></script>
 <!-- DAUM 주소 라이브러리 끝 -->
+<c:if test="${sessionScope.login.jointype!=1}">
 <script>
 $(document).ready(function() {
     $('select').material_select();
@@ -21,9 +22,10 @@ $(document).ready(function() {
 		var userid = $.trim($('#userid').val());
 		var passwd = $("#passwd").val();
 		var passwd2 = $("#passwd2").val();
-		var username = $("#username").val();
 		var post1 = $("#post1").val();
 		var email = $("#email").val();
+		var username = $("#username").val();
+		
 		var phone2 = $("#phone2").val();
 		var phone3 = $("#phone3").val();
 
@@ -110,7 +112,7 @@ $(document).ready(function() {
 
 	}); //ready
 </script>
-
+</c:if>
 
 
 <style>
@@ -130,6 +132,8 @@ tr:hover {
 </style>
 
 
+<!-- 일반계정 -->
+<c:if test="${sessionScope.login.jointype!=1}">
 	<form action="memberUpdate"> <!-- 테이블안에 안쓰면 text만 가져감.. -->
 	<table>
 		<tr>
@@ -150,10 +154,10 @@ tr:hover {
 		<tr>
 			<td>
 				<!-- 다음주소 시작--> <input name="post1" id="post1" size="5"
-				value="${login.post1}" readonly=""> - <input name="post2"
-				id="post2" size="5" value="${login.post2}" readonly=""> <input
+				value="${login.post1}" readonly> - <input name="post2"
+				id="post2" size="5" value="${login.post2}" readonly> <input
 				onclick="openDaumPostcode()" type="button" value="우편번호찾기"> <br>
-				<input name="addr1" id="addr1" size="40" readonly=""
+				<input name="addr1" id="addr1" size="40" readonly
 				placeholder="도로명주소" value="${login.addr1}"> <br> <span
 				style="line-height: 10%;"><br></span> <input name="addr2"
 				id="addr2" size="40" value="${login.addr2}" placeholder="지번주소">
@@ -220,6 +224,78 @@ tr:hover {
 		</tr>
 		</table>
 	</form>
+	</c:if>
 
+<!-- SNS 계정 -->
+		<c:if test="${sessionScope.login.jointype == 1}">
+<form action="SNSmemberUpdate"> 
+<input type="hidden" name="jointype" value='${login.jointype}'>
+	<table>
+	<tr><td><p style="color:red;">*SNS연동계정은 전화번호만 수정가능합니다</p></td></tr>
+		<tr>
+			<td>아이디<input type="text" name="userid" id="userid"
+				value="${login.userid}" readonly style="font-weight:bold;">
+			</td>
+		</tr>
 
+		<tr>
+			<td>이름<input type="text" name="username" id="username"
+				value="${login.username}" readonly style="font-weight:bold;">
+			</td>
+		</tr>
+		
 
+		<tr>
+				<td>
+				휴대폰
+	
+				<div class="input-field inline">
+				<select name="phone1" id="phone1">
+					<c:choose>
+						<c:when test="${login.phone1 == '010'}">
+							<option value="010" selected="selected">010</option>
+							<option value="011">011</option>
+							<option value="017">017</option>
+						</c:when>
+						<c:when test="${login.phone1 == '011'}">
+							<option value="010">010</option>
+							<option value="011" selected="selected">011</option>
+							<option value="017">017</option>
+						</c:when>
+						<c:when test="${login.phone1 == '017'}">
+							<option value="010">010</option>
+							<option value="011">011</option>
+							<option value="017" selected="selected">017</option>
+						</c:when>
+					</c:choose>
+			</select></div>
+				-- 
+				<div class="input-field inline">
+				<input type="text" name="phone2" id="phone2" value="${login.phone2}">
+				</div>--<div class="input-field inline">
+				<input type="text" name="phone3" id="phone3" value="${login.phone3}">
+				</div>
+				
+			</td> 
+		</tr>
+		<tr>
+			<td>가입일:<input type="text" name="joinday" id="joinday"
+				value="${login.joinday}" readonly="readonly"><br>
+			</td>
+		</tr>
+		<tr>
+			<td>구매횟수:<input type="text" name="buycnt" id="buycnt"
+				value="${login.buycnt}" readonly="readonly"><br>
+			</td>
+		</tr>
+		<tr>
+			<td>적립포인트: <input type="text" name="point" id="point"
+				value="${login.point}" readonly="readonly"><br>
+			</td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="정보수정"></td>
+		</tr>
+		</table>
+	</form>
+		</c:if>

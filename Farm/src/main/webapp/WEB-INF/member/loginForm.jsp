@@ -3,11 +3,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+<head>
 <meta name="google-signin-scope" content="profile email">
 <meta name="google-signin-client_id"
 	content="83117513079-2k0pf4h20vdph70qps0mi8a8l1d9k9h1.apps.googleusercontent.com">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+</head>
+
+
 <style>
 table {
 	margin: 100px;
@@ -50,13 +56,14 @@ tr:hover {
 	border: 2px solid white;
 }
 </style>
-<table>
+
 	<form action="login">
+	<table>
 		<tr>
-			<td>아이디<input type="text" name="userid"></td>
+			<td>아이디<input type="text" name="userid" required></td>
 		</tr>
 		<tr>
-			<td>비밀번호<input type="text" name="passwd">
+			<td>비밀번호<input type="text" name="passwd" required>
 			</td>
 		</tr>
 		<tr>
@@ -66,51 +73,23 @@ tr:hover {
 					type="checkbox" class="filled-in" id="idSaveCheck" /> <label
 					for="idSaveCheck">아이디저장</label></span></td>
 		</tr>
-		<tr>
-			<td>
-				<div>
-					<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-					<a href="#" onclick="signOut();">구글 로그아웃</a>
-				</div>
-			</td>
+		<tr><td>  <div id="naver_id_login"></div>
+				  <script type="text/javascript">
+    var naver_id_login = new naver_id_login("k0KYBOHkL1RTbPlvxpAF",
+      "http://localhost:8090/app/test_callback");
+    var state = naver_id_login.getUniqState();
+    naver_id_login.setButton("green", 3, 40);
+    naver_id_login.setDomain("http://localhost:8090/app/test_login");
+    naver_id_login.setState(state);
+    naver_id_login.init_naver_id_login();
+   </script>
+		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+		</td>
 		</tr>
+		</table>
 	</form>
-</table>
-
-
-<!-- 구글  SSL Tomcat 설정 변경할것-->
-<script>
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://localhost:8090/Farm/GoogleLoginServlet');
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.onload = function() {
-          console.log('Signed in as: ' + xhr.responseText);
-        };
-        xhr.send('idtoken=' + id_token);
-      };
-      
-      
-      function signOut() {
-    	    var auth2 = gapi.auth2.getAuthInstance();
-    	    auth2.signOut().then(function () {
-    	      console.log('User signed out.');
-    	    });
-    	  }
-    </script>
-
+	<button onclick="location.href='findPasswd'">비밀번호 찾기</button>
+	
 <script type="text/javascript">
 function memberJoin(){
 	location.href="memberForm";
@@ -172,3 +151,20 @@ function getCookie(cookieName) {
 }
 
 </script>
+<script>
+
+//GOOGLE
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId());
+        console.log('Full Name: ' + profile.getName());
+        console.log("Email: " + profile.getEmail());
+        
+        location.href = "http://localhost:8090/app/session?state=".concat(googleUser.getAuthResponse().id_token,"&email=",profile.getEmail(),"&nickname=",profile.getName(),"&sns_id=",profile.getId());
+
+
+};
+      </script>    
+
+      
+
