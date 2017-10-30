@@ -6,44 +6,31 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>글쓰기</title>
-
- 
-<script type="text/javascript">
- 
-/* function bWrite(){
-	 location.href="/app/boardWrite";
-	 f.submit();
-} */
-
+<title>글쓰기</title> 
+<script type="text/javascript"> 
 function bForm(){
 	 location.href="/app/boardForm";
-	 f.submit();
-}
-  
-/*  function check() {
-    if (document.post.author.value == "" || document.post.author.value == null) {
+}  
+  function bWrite() {
+    if (document.myForm.author.value == "" || document.myForm.author.value == null) {
         alert("작성자이름을 입력하세요.");
-        document.post.author.focus();
+        document.myForm.author.focus();
         return;
-    } else if (document.post.title.value == "" || document.post.title.value == null) {
+    } else if (document.myForm.title.value == "" || document.myForm.title.value == null) {
         alert("제목을 입력하세요.");
-        document.post.title.focus();
+        document.myForm.title.focus();
         return;
-    } else if (document.post.content.value == "" || document.post.content.value == null) {
+    } else if (document.myForm.content.value == "" || document.myForm.content.value == null) {
         alert("내용을 입력하세요.");
-        document.post.content.focus();
+        document.myForm.content.focus();
         return;
-    }   else if (document.post.image.value == "" || document.post.image.value == null) {
-        alert("이미지를 첨부하세요.");
-        document.post.image.focus();
-        return;
-    }  else {
-        document.post.submit();
+    } else {
+        document.myForm.submit();
     }
-}  */
- 
- 
+}
+ function secret_list(f){
+	   f.action="";	   
+ }
 </script>
 <style>
 .check {
@@ -58,65 +45,80 @@ function bForm(){
     margin: 4px 2px;
     cursor: pointer;
 }
-
 .xx{
   color:red;
 }
 </style>
 </head>
- 
-<body>
+ <body>
   <center>
     <table summary="글쓰기 전체 테이블" >
-        <form:form name="post" method="post" action="boardWrite" 
-        modelAttribute="xxx" enctype="multipart/form-data">
- 			<input type="hidden" name="userid" value="${dto.userid }"/>			
-            <input type="hidden" name="board_num" value="${dto.board_num }"/> 
+        <form name="myForm" method="post" action="boardWrite" enctype="multipart/form-data">
             <colgroup>
                 <col width="20%">
                 <col width="80%">
             </colgroup>
- 
-
             <table summary="테이블 구성" style="width: 800px;">
                 <caption>게시판 글쓰기</caption>
                 <tr>
                     <td>작성자</td>
-                    <td><input type=text name=author size=10 maxlength=8>
-                    <form:errors cssClass="xx" path="author" /></td>
+                    <td><input type="text" name="author" size=10 maxlength=8>
+                  </td>
                 </tr>
                 <tr>
                     <td>제 목</td>
-                    <td><input type=text name=title>
-                     <form:errors cssClass="xx" path="title" /></td>
+                    <td><input type="text" name="title">
+        </td>
                 </tr>
                 <tr>
                     <td>내 용</td>
-                    <td><textarea name=content rows="30" cols="100"></textarea>
-                     <form:errors cssClass="xx" path="content" /></td>
-                </tr>
+                    <td>
+               <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea" data-length="500"
+            name="content"></textarea>
+            <label for="textarea1"></label>
+          </div>
+          </div>
+                   </td>
+                </tr>          
                     <tr>
                     <td>이미지</td>
-                    <td><center><input type=file name=image size='40'  ></center>
-                    <form:errors cssClass="xx" path="image" />
+                    <td>
+                     <div class="file-field input-field">
+                   <div class="btn">
+                   <span>File</span>
+                <input type="file" name="image" multiple>
+              </div>
+                <div class="file-path-wrapper">
+               <input class="file-path validate" type="text" placeholder="Upload file">
+                 </div>
+                 </div>    
                     </td>
                 </tr>
-                
-                
-                
+                <tr>
+                <td>비밀번호 </td>
+                <td>
+                 <center>
+                <input type="checkbox" id="test5"  name="secret"  value="Y"/>
+                <label for="test5">비밀글설정시에만 입력해주세요</label>
+                <center> 
+                <input type="text" name="passwd" >
+             </td>
+                </tr>
+               <!--  컬럼추가
+ALTER TABLE FREEBOARD ADD (SECRET VARCHAR2(4000)); -->                
                 <tr>
                     <td colspan=2><hr size=1></td>
                 </tr>
                 <tr>
                     <td colspan="3"><div align="center">
-                 <input type="submit" value="등록"  />
-                 <input type="button" value="목록" onclick="bForm()" />
-                 <!--    <a href="boardWrite">등록</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="boardForm">목록</a> &nbsp;&nbsp;&nbsp;&nbsp; -->
+                 <input type="button" value="등록" onclick="bWrite()" class="check" />
+                 <input type="button" value="목록" onclick="bForm()" class="check"/>
                         </div>  </td>
                 </tr>
             </table>
-        </form:form>
+            </form>
     </table>
     </center>
  

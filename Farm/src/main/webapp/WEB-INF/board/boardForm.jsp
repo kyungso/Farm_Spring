@@ -7,22 +7,43 @@
 <script>	
 	function ewrite(){
 		 location.href="/app/write";
-		 f.submit();
 	}
+	
+	function searchBoard(f){
+		f.action="boardForm";
+	};
+/* 	$(document).ready(function(){
+	$("[id^='retrieve']").on("click",function(){
+		var x=$(this).children("td").eq(1).text();
+		console.log(x);
+		location.href="boardRetrieve?board_num="+x; 
+		});
+}); */
+	
 </script>
 <style>
 table {
 	margin: 35px;
 	width: 80%;
 }
-
 th, td {
 	padding: 0px;
 	text-align: center;
 }
-
-button {
+.check {
 	background-color: #008CBA;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+.searchSubmit {
+	background-color: #BCC2CA;
 	border: none;
 	color: white;
 	padding: 10px 20px;
@@ -36,24 +57,22 @@ button {
 </style>
 <body>
 	<div align="center">
-		<form action="FreeBoardListServlet">
-			<table style="width: 1000px;">
-				<tr>
+		<form name="myForm">
+						<table class="highlight">
+										<tr>
 					<td align="left"><p>
 							게시물 수 : <font color=red>${ list.getTotalCount()}</font></td>
 				</tr>
 				<tr>
-					<td align='center' valign='top'>
-						<table>
 							<tr bgcolor='#cecfce'>
 								<td height='3' colspan='5' align='center'></td>
 							</tr>
 							<tr>
-								<td bgcolor='#F0F0F0'><strong>글번호</strong></td>
-								<td bgcolor='#F0F0F0'><strong>제 목</strong></td>
-								<td bgcolor='#F0F0F0'><strong>작성자</strong></td>
-								<td bgcolor='#F0F0F0'><strong>등록일</strong></td>
-								<td bgcolor='#F0F0F0'><strong>조회수</strong></td>
+								<th bgcolor='#F0F0F0'><strong>번 호</strong></th>
+								<th bgcolor='#F0F0F0'><strong>제 목</strong></th>
+								<th bgcolor='#F0F0F0'><strong>작성자</strong></th>
+								<th bgcolor='#F0F0F0'><strong>등록일</strong></th>
+								<th bgcolor='#F0F0F0'><strong>조회수</strong></th>
 							</tr>
 							<c:if test="${list.getList().size()==0 }">
 								<tr>
@@ -66,13 +85,19 @@ button {
 										<td height='1' colspan='5' align='center' bgcolor='#cecfce'></td>
 									</tr>
 									<tr bgcolor='#ffffff'>
-										<td width='50' height='25' align='center'><p>${dto.board_num}</td>
-										<td width='280' height='25'><p>
-												<a href="retrieve/board_num/${dto.board_num}">${dto.title}</a></td>
+										<td width='50' height='25' align='center'><p>&nbsp;&nbsp;${dto.board_num}										
+										<c:if test="${dto.secret==y}">
+										<img src="images/write_default.gif">
+										</c:if>
+										<c:if test="${dto.secret!=y}">										
+										<img src="images/write_lock.gif">
+										</c:if>
+										</td>
+										<td width='280' height='25' id="retrieve${dto.board_num}"><p>
+													<a href="boardRetrieve?board_num=${dto.board_num}">${dto.title}</a></td>
 										<td width='60' height='25' align='center'><p>${dto.author}</td>
 										<td width='65' height='25' align='center'><p>${dto.writeday}</td>
 										<td width='50' height='25' align='center'><p>${dto.readCnt}</td>
-									<%-- 	<input type="hidden" name="userid" value="${dto.userid }" /> --%>
 									</tr>
 								</c:forEach>
 							</c:if>
@@ -88,26 +113,21 @@ button {
 				</tr>
 				<tr>
 					<td>
-							<center>
-							<div style="width: 500px; height: 20px;">
-								<form action="FreeBoardListServlet" class="aa">
-									<div class="input-field inline">
-										<select name="searchName"
-											style="background: #FDFF62; color: black; font-size: 50pt">
-											<option value="title">제목</option>
+									<!--  <div class="input-field col s12"> -->
+										<select name="searchName" class="browser-default">
+											<option value="title" >제목</option>
 											<option value="author">작성자</option>
 											<option value="content">내용</option>
 										</select>
-									</div>
+									<!-- </div> -->
 									<div class="input-field inline">
 										<input type="text" name="searchValue">
 									</div>
 									<div class="input-field inline">
-										<input type="submit" value="검색" class="searchsubmit">
+										<input type="submit" value="검색" class="searchSubmit"
+										onclick="searchBoard(myForm)">
 									</div>
-								</form>
-						</div>
-						</center>
+
 					</td>
 				</tr>
 			</table>
@@ -116,10 +136,8 @@ button {
 	</div>
 	<c:if test="${!empty sessionScope.login}">
 		<center>
-			<!-- <a href="write">글쓰기</a>  -->
 			<input type="button" value="글쓰기"
-				onclick="ewrite()" />
-			
+				onclick="ewrite()" class="check"/>			
 		</center>
 	</c:if>
 

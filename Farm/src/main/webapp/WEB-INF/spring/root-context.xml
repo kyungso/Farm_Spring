@@ -26,11 +26,9 @@
 				<value>classpath:com/config/GoodsMapper.xml</value>
 				<value>classpath:com/config/CartMapper.xml</value>
 				<value>classpath:com/config/OrderMapper.xml</value>
-<<<<<<< HEAD
 				<value>classpath:com/config/FreeBoardMapper.xml</value>
-=======
 				<value>classpath:com/config/QnaMapper.xml</value>
->>>>>>> branch 'master' of https://github.com/kyungso/Farm_Spring.git
+				<value>classpath:com/config/CommentMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
@@ -39,11 +37,9 @@
 				<value>com.dto.GoodsDTO</value>
 				<value>com.dto.CartDTO</value>
 				<value>com.dto.OrderDTO</value>
-<<<<<<< HEAD
 				<value>com.dto.FreeBoardDTO</value>
-=======
 				<value>com.dto.QnaDTO</value>
->>>>>>> branch 'master' of https://github.com/kyungso/Farm_Spring.git
+				<value>com.dto.CommentDTO</value>
 			</list>
 		</property>
 	</bean>
@@ -53,4 +49,7 @@
 	</bean>
 	<!-- //////////////////////////////////////////////// -->
 
+
+
 </beans>
+

@@ -18,7 +18,6 @@
 <c:set var="searchValue" value="${xxx.searchValue }" />
 <c:set var="perBlock" value="${xxx.perBlock }" />
 
-
 <!-- 현재 페이지번호의 블럭번호 구하기 -->	
 <fmt:parseNumber var="curBlock" integerOnly="true"
 	value="${(curPage/perBlock)+1 }" />
@@ -37,26 +36,18 @@
 
 <!--  첫 페이지로 바로 이동 -->
 <c:if test="${curPage==1 }">
-[처음]
+<img src="images/page/page_start.gif" width="30" height="20">
 </c:if>
 <c:if test="${curPage!=1 }">
-	<a href="FreeBoardListServlet?curPage=1&searchName=searchName &searchValue= searchValue">[처음]</a>
+	<a href="boardForm?curPage=1&searchName=searchName &searchValue= searchValue"><img src="images/page/page_start.gif"width="30" height="20"></a>
 </c:if>
-
-<%-- <!--  이전 페이지 블럭으로 이동 -->
-<c:if test="${startPage==1 }">
-&lt;&lt;
-</c:if>
-<c:if test="${startPage!=1 }">
-	<a href="FreeBoardListServlet?curPage=${(startPage-1)}&searchName=searchName &searchValue=searchValue">&lt;&lt;</a>
-</c:if> --%>
 
 <!-- 이전 페이지로 이동 -->
 <c:if test="${curPage==1 }">
-[이전]
+<img src="images/page/page_prev.gif" width="30" height="20">
 </c:if>
 <c:if test="${curPage!=1 }">
-	<a href="FreeBoardListServlet?curPage=${(curPage-1)}&searchName=searchName &searchValue=searchValue">[이전]</a>
+	<a href="boardForm?curPage=${(curPage-1)}&searchName=searchName &searchValue=searchValue"><img src="images/page/page_prev.gif" width="30" height="20"></a>
 </c:if>
 
 <!-- 페이지번호들 -->
@@ -65,37 +56,22 @@
 ${status.index }
 </c:if>
 <c:if test="${curPage!=status.index }">
-		<a href='FreeBoardListServlet?curPage=${status.index}&searchName=searchName &searchValue=searchValue'>${status.index }</a>
+		<a href='boardForm?curPage=${status.index}&searchName=searchName &searchValue=searchValue'>${status.index }</a>
 </c:if>
 </c:forEach>
 
-<%-- <c:if test="${curPage==endPage }">
-${endPage }
-</c:if>
-<c:if test="${curPage!=endPage }">
-	<a href="FreeBoardListServlet?curPage=${endPage}&searchName=searchName &searchValue=searchValue">${endPage }</a>
-</c:if> --%>
-
 <!-- 다음 페이지로 이동 -->
 <c:if test="${curPage==totalNum }">
-[다음]
+<img src="images/page/page_next.gif" width="30" height="20">
 </c:if>
 <c:if test="${curPage!=totalNum }">
-	<a href="FreeBoardListServlet?curPage=${(curPage+1)}&searchName=searchName &searchValue=searchValue">[다음]</a>
+	<a href="boardForm?curPage=${(curPage+1)}&searchName=searchName &searchValue=searchValue"><img src="images/page/page_next.gif" width="30" height="20"></a>
 </c:if>
-
-<%-- <!-- 다음 페이지 블럭으로 이동   -->
-<c:if test="${endPage==totalNum }">
-&gt;&gt;
-</c:if>
-<c:if test="${endPage!=totalNum }">
-	<a href="FreeBoardListServlet?curPage=${(endPage+1)}&searchName=searchName &searchValue=searchValue">&gt;&gt;</a>
-</c:if> --%>
 
 <!-- 마지막 페이지로 바로 이동 -->
 <c:if test="${curPage==totalNum }">
-[끝]
+<img src="images/page/page_end.gif" width="30" height="20">
 </c:if>
 <c:if test="${curPage!=totalNum }">
-	<a href="FreeBoardListServlet?curPage=${totalNum}&searchName=searchName &searchValue=searchValue">[끝]</a>
+	<a href="boardForm?curPage=${totalNum}&searchName=searchName &searchValue=searchValue"><img src="images/page/page_end.gif" width="30" height="20"></a>
 </c:if>

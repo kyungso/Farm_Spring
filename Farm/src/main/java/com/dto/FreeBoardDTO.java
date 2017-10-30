@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Arrays;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 @Alias("FreeBoardDTO")
 public class FreeBoardDTO {
@@ -14,17 +15,11 @@ public class FreeBoardDTO {
 	 private String author;
 	 private String content;
 	 private String writeday;
-	 private String image;
+	 private CommonsMultipartFile image;
+	 private String imageName;
 	 private int readCnt;
-	 private String[] files;
-	 
-	 
-	@Override
-	public String toString() {
-		return "FreeBoardDTO [board_num=" + board_num + ", userid=" + userid + ", title=" + title + ", author=" + author
-				+ ", content=" + content + ", writeday=" + writeday + ", image=" + image + ", readCnt=" + readCnt
-				+ ", files=" + Arrays.toString(files) + "]";
-	}
+	 private String secret;
+	 private String passwd;
 	public int getBoard_num() {
 		return board_num;
 	}
@@ -61,11 +56,17 @@ public class FreeBoardDTO {
 	public void setWriteday(String writeday) {
 		this.writeday = writeday;
 	}
-	public String getImage() {
+	public CommonsMultipartFile getImage() {
 		return image;
 	}
-	public void setImage(String image) {
+	public void setImage(CommonsMultipartFile image) {
 		this.image = image;
+	}
+	public String getImageName() {
+		return imageName;
+	}
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 	public int getReadCnt() {
 		return readCnt;
@@ -73,14 +74,46 @@ public class FreeBoardDTO {
 	public void setReadCnt(int readCnt) {
 		this.readCnt = readCnt;
 	}
-	public String[] getFiles() {
-		return files;
+	public String getSecret() {
+		return secret;
 	}
-	public void setFiles(String[] files) {
-		this.files = files;
+	public void setSecret(String secret) {
+		this.secret = secret;
+	}
+	public String getPasswd() {
+		return passwd;
+	}
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
+	}
+	@Override
+	public String toString() {
+		return "FreeBoardDTO [board_num=" + board_num + ", userid=" + userid + ", title=" + title + ", author=" + author
+				+ ", content=" + content + ", writeday=" + writeday + ", image=" + image + ", imageName=" + imageName
+				+ ", readCnt=" + readCnt + ", secret=" + secret + ", passwd=" + passwd + "]";
+	}
+	public FreeBoardDTO(int board_num, String userid, String title, String author, String content, String writeday,
+			CommonsMultipartFile image, String imageName, int readCnt, String secret, String passwd) {
+		super();
+		this.board_num = board_num;
+		this.userid = userid;
+		this.title = title;
+		this.author = author;
+		this.content = content;
+		this.writeday = writeday;
+		this.image = image;
+		this.imageName = imageName;
+		this.readCnt = readCnt;
+		this.secret = secret;
+		this.passwd = passwd;
+	}
+	public FreeBoardDTO() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	 
-
+	
 	 
+	 	 
 
 }
