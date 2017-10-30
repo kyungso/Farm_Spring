@@ -35,17 +35,19 @@
 </style>
 </head>
 <body>
+	<div align="center">
    <form name="myForm" >
             <center>
-         <table border="0" cellspacing="0">
-            <tbody>
-            <center>
+         <table border="1" cellspacing="1" style="width: 300px;">
+            <thead>
             <tr>
-           <th scope="row" colspan="1" >회원비밀번호를 입력하세요.</th>
+           <th  class="brand-logo center" style="size: 20px;">
+            <i class="small material-icons" >network_locked</i>           
+           등록한 비밀번호를 입력하세요.</th>
             </tr>
-            </center>
+            </thead>
+            <tbody>
             <tr>
-            
                <td colspan="1">
                      <input type="text" id="passwd" name="passwd" />
                </td>
@@ -57,6 +59,7 @@
             <input type="button" value="목록" onclick="history.back();"  class="check" />               
             </center>
    </form>
+   </div>
 
 </body>
 </html>

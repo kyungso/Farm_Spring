@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			where author LIKE '%'||#{searchValue}||'%'
 		</if>
 		<if test="searchName == 'content'">
-			where author LIKE '%'||#{searchValue}||'%'
+			where content LIKE '%'||#{searchValue}||'%'
 		</if>
 		order by board_num desc
 	</select>
