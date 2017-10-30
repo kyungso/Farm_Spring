@@ -24,20 +24,23 @@
 	
 	<mvc:view-controller path="/" view-name="home"/>
 	
-<<<<<<< HEAD
+
     <mvc:view-controller path="/memberForm" view-name="memberForm"/>
 	<mvc:view-controller path="/loginForm" view-name="loginForm"/>
 	
     <mvc:view-controller path="/boardForm" view-name="boardForm"/>
     <mvc:view-controller path="/retrieve" view-name="retrieve"/>
-=======
 	<mvc:view-controller path="/memberForm" view-name="memberForm"/>
 	<mvc:view-controller path="/loginForm" view-name="loginForm"/>
 	<mvc:view-controller path="/main_mypage" view-name="main_mypage"/>
 	<mvc:view-controller path="/mypageForm" view-name="mypage"/>
 	<mvc:view-controller path="/orderList" view-name="orderList"/>
+	<mvc:view-controller path="/test_callback" view-name="test_callback"/>
+	<mvc:view-controller path="/feedback" view-name="feedback"/>
+	<mvc:view-controller path="/member/register" view-name="member/register"/> 
+	<mvc:view-controller path="/findPasswd" view-name="member/findPasswd"/>
+	<mvc:view-controller path="/newPw" view-name="member/newPw"/>
 	
->>>>>>> branch 'master' of https://github.com/kyungso/Farm_Spring.git
 	
 	<!-- <mvc:resources location="/WEB-INF/image/" mapping="/image/**" />-->
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
@@ -73,11 +76,8 @@
 	
 	aop설정
 	<aop:aspectj-autoproxy/> -->
-<<<<<<< HEAD
+
 	
 	<context:component-scan base-package="com.*" /> 
-=======
-	<context:component-scan base-package="com.*" />
->>>>>>> branch 'master' of https://github.com/kyungso/Farm_Spring.git
-	
+
 </beans>
