@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.CommentMapper">
+
+	<insert id="insertComment" parameterType="CommentDTO">
+		insert into
+		boardcomment(co_num,board_num,userid,cocontent)
+		values (co_num_seq.nextval,#{board_num},#{userid},#{cocontent})
+	</insert>
+
+	<select id="selectComment" resultType="CommentDTO"
+		parameterType="hashmap">
+		select co_num,board_num, userid,cowriteday,cocontent
+		from boardcomment
+		where board_num=#{board_num}
+	</select>
+
+	<delete id="deleteByComment" parameterType="int">
+		delete from
+		boardcomment
+		where
+		co_num = #{co_num}
+	</delete>
+
+
+</mapper>
