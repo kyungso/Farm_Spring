@@ -13,20 +13,6 @@
 		alert('${logout}');
 	</script>
 </c:if>
-
-<c:if test="${!empty sessionScope.login}">
-		<c:if test="${empty join}">
-		<script>
-			alert("로그인 되었습니다");
-		</script>
-		</c:if>
-		<c:if test="${!empty join}">
-	<script>
-		alert('${join}');
-	</script>
-</c:if>
-</c:if>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +23,15 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <!--Let browser know website is optimized for mobile-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<style type="text/css">
+	.album-wrap {position:relative; width:800px; height:350px; margin:0 auto; overflow:hidden;}
+	.album-wrap ul.album {position:absolute;}
+	.album-wrap ul.album li {float:left; width:800px;}
+	
+	ul.bt-roll {width:60px; margin:0 auto; margin-top:0px;}
+		ul.bt-roll li {float:left; margin-right:5px;}
+</style>
 
 </head>
 <body>
@@ -45,16 +39,32 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-	
+		
 	<div class="white">
 		<jsp:include page="include/top.jsp" flush="true" />
 		<div class="center-align">
-			<a href="/app/" class="blue-text text-darken-2 center-align" style="font-size: 30pt">RyanFarm</a>
+			<a href="/app/" ><img src="images/m3logo.jpg"  width="270" height="140"></a>
 		</div>
-		<div class="black-text center-align">농산물직거래</div>
 	</div>
-	<hr style="border: solid 1px lightgrey;">
+	<hr style="border: solid 0.5px lightgrey;">
 	<jsp:include page="include/submenu.jsp" flush="true" />
+
+</head>
+<body>
+
+<!-- 메인 배너 -->
+<div class="album-wrap">
+	<ul class="album clfix">
+		<li><a href="#"><img src="images/ban_week.jpg" alt="" width="800" height="300"></a></li>
+		<li><a href="#"><img src="images/ban_grate.jpg" alt="" width="800" height="300"></a></li>
+		<li><a href="#"><img src="images/ban_hat.jpg" alt="" width="800" height="300"></a></li>
+	</ul>
+</div>
+<ul class="bt-roll">
+	<li><a href="#"><img src="images/btn_circle_.png" alt=""></a></li>
+	<li><a href="#"><img src="images/btn_circle.png" alt=""></a></li>
+	<li><a href="#"><img src="images/btn_circle.png" alt=""></a></li>
+</ul>	
 
 	<!-- 라이언 팝업 -->
 	<div class="dim"></div>
@@ -69,8 +79,68 @@
 				src="images/x.png" alt="팝업 닫기"></a>
 		</div>
 	</div>
+	
+	
 </body>
+<script type="text/javascript">
+	var $list = $('ul.album');
+	var size = $list.children().outerWidth();
+	var len =  $list.children().length;
+	var speed = 2500;
+	var timer = null;
+	var auto = true;
+	var cnt = 1;
 
+	$list.css('width',len*size);
+
+	if(auto) timer = setInterval(autoSlide, speed);
+
+	$list.children().bind({
+		'mouseenter': function(){
+			if(!auto) return false;
+			clearInterval(timer);
+			auto = false;
+		},
+		'mouseleave': function(){
+			timer = setInterval(autoSlide, speed);
+			auto = true;
+		}
+	})
+
+	$('.bt-roll').children().bind({
+		'click': function(){
+			var idx = $('.bt-roll').children().index(this);
+			cnt = idx;
+			autoSlide();
+			return false;
+		},
+		'mouseenter': function(){
+			if(!auto) return false;
+			clearInterval(timer);
+			auto = false;
+		},
+		'mouseleave': function(){
+			timer = setInterval(autoSlide, speed);
+			auto = true;
+		}
+	});		
+
+	function autoSlide(){
+		if(cnt>len-1){
+			cnt = 0;
+		}
+
+		$list.animate({'left': -(cnt*size)+'px' },'normal');
+
+		var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
+		$('.bt-roll').children().find('img').attr('src',source2);
+
+		var source = $('.bt-roll').children().find('img').attr('src').replace('.png','_.png');
+		$('.bt-roll').children().eq(cnt).find('img').attr('src',source);
+
+		cnt++;
+	}
+</script>
 <script>
 	function setUserCookie(cName, cValue, cDay) {
 		var expire = new Date();
