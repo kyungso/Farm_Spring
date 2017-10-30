@@ -28,9 +28,6 @@ function bForm(){
         document.myForm.submit();
     }
 }
- function secret_list(f){
-	   f.action="";	   
- }
 </script>
 <style>
 .check {

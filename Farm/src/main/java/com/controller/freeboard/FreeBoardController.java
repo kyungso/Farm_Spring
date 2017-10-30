@@ -27,7 +27,6 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.CommentDTO;
-import com.dto.FileDTO;
 import com.dto.FreeBoardDTO;
 import com.dto.MemberDTO;
 import com.dto.PageDTO;
@@ -42,8 +41,6 @@ public class FreeBoardController {
 	FreeBoardService service;	
 	@Autowired
 	CommentService cService;	
-	@Autowired
-	MemberService mService;
 	
 	@RequestMapping("/boardForm")
 	public String boardList(@RequestParam(defaultValue="title") String searchName,
@@ -63,8 +60,6 @@ public class FreeBoardController {
 		return "boardWriteUI";
 	}
 	
-	//컬럼추가
-	//ALTER TABLE FREEBOARD ADD (IMAGENAME VARCHAR2(100));
 	@RequestMapping(value="/boardWrite" , method= RequestMethod.POST)
 	public ModelAndView boardWrite(@ModelAttribute FreeBoardDTO bdto,
 			HttpSession session, HashMap<String, String> map,

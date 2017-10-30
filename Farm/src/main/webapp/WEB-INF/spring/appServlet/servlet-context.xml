@@ -29,7 +29,8 @@
 	<mvc:view-controller path="/loginForm" view-name="loginForm"/>
 	
     <mvc:view-controller path="/boardForm" view-name="boardForm"/>
-    <mvc:view-controller path="/retrieve" view-name="retrieve"/>
+    <mvc:view-controller path="/boardRetrieve" view-name="boardRetrieve"/>
+    <mvc:view-controller path="/boardWrite" view-name="boardWrite"/>
 	<mvc:view-controller path="/memberForm" view-name="memberForm"/>
 	<mvc:view-controller path="/loginForm" view-name="loginForm"/>
 	<mvc:view-controller path="/main_mypage" view-name="main_mypage"/>
@@ -42,7 +43,7 @@
 	<mvc:view-controller path="/newPw" view-name="member/newPw"/>
 	
 	
-	<!-- <mvc:resources location="/WEB-INF/image/" mapping="/image/**" />-->
+	<mvc:resources location="/WEB-INF/image/" mapping="/image/**" />
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**" />
 	<mvc:resources location="/WEB-INF/images/" mapping="/images/**" /> 
 	  
@@ -59,6 +60,13 @@
 	<bean id="freeBoardValidator" class="com.validator.FreeBoardValidator"/>	
 	<mvc:annotation-driven  validator="freeBoardValidator"/>
 	<mvc:default-servlet-handler/>
+	
+	<bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <!-- one of the properties available; the maximum file size in bytes -->
+    <property name="maxUploadSize" value="-1"/> 	
+	<property name="defaultEncoding" value="UTF-8"></property>
+</bean>
 	
 	<!--
 	<mvc:interceptors>

@@ -16,32 +16,7 @@
 function bForm(){
 	 location.href="/app/boardForm";
 }
-/*  $(document).ready(function(){
-    $("#bUpdate").click(function(){
-        var title = $("#title").val();
-        var content = $("#content").val();
-        var author = $("#author").val();
-        if(title == ""){
-            alert("제목을 입력하세요");
-            document.myForm.title.focus();
-            return;
-        }
-        if(content == ""){
-            alert("내용을 입력하세요");
-            document.myForm.content.focus();
-            return;
-        }
-        if(author == ""){
-            alert("이름을 입력하세요");
-            document.myForm.author.focus();
-            return;
-        } 
-        document.myForm.action="${path}/app/boardUpdateWrite"
-        document.myForm.submit();
-        
-    });
-}); */
-/*      function bUpdate(f) {
+      function bUpdate(f) {
         if (document.myForm.author.value == "" || document.myForm.author.value == null) {
             alert("작성자이름을 입력하세요.");
             document.myForm.author.focus();
@@ -57,16 +32,9 @@ function bForm(){
             document.myForm.content.focus();
             return;
         } else{
-        	document.myForm.action="/app/boardUpdateWrite";
             document.myForm.submit();
             }
-        }   */
-/*    $(document).ready(function(){
-    $("#listUpdate").click(function(){
-             document.myForm.action="FreeBoardUpdateWriteServlet?board_num=${dto.board_num }";
-             document.myForm.submit();         
-        }); 
-     */
+        }   
 </script>
 <style>
 

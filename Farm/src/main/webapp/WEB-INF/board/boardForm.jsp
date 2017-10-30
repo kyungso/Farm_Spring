@@ -12,13 +12,6 @@
 	function searchBoard(f){
 		f.action="boardForm";
 	};
-/* 	$(document).ready(function(){
-	$("[id^='retrieve']").on("click",function(){
-		var x=$(this).children("td").eq(1).text();
-		console.log(x);
-		location.href="boardRetrieve?board_num="+x; 
-		});
-}); */
 	
 </script>
 <style>

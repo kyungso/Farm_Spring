@@ -32,9 +32,6 @@ public class CommentDAO {
 		return template.delete("deleteByComment",co_num);
 	}
 	
-
-	
-
 	
 
 }

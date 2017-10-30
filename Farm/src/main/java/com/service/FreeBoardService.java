@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.dao.FreeBoardDAO;
 import com.dto.FreeBoardDTO;
+import com.dto.MemberDTO;
 import com.dto.PageDTO;
 
 @Service("freeBoardService")
@@ -20,8 +21,8 @@ public class FreeBoardService {
 		return dao.selectAll();
 	}
 	
-	public int boardWrite(FreeBoardDTO dto) {
-		return dao.boardWrite(dto);		
+	public int boardWrite(HashMap<String, String> map) {
+		return dao.boardWrite(map);		
 	}
 	
 	public FreeBoardDTO selectByNum(int board_num) {
@@ -30,8 +31,8 @@ public class FreeBoardService {
 		return dto;
 	}
 	
-	public int updateByNum(FreeBoardDTO dto) {
-		return dao.updateByNum(dto);
+	public int updateByNum(HashMap<String, String> map) {
+		return dao.updateByNum(map);
 	}
 	
 	public int deleteByNum(int board_num) {
