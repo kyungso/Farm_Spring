@@ -182,6 +182,41 @@
     <artifactId>bxslider-4</artifactId>
     <version>4.2.5</version>
 </dependency>
+<!-- Mail -->  
+<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>mail</artifactId>
+    <version>1.4.7</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context-support</artifactId>
+    <version>4.2.5.RELEASE</version>
+</dependency>
+<!-- http://repo1.maven.org/maven2/javax/mail/javax.mail-api/1.5.6/javax.mail-api-1.5.6.jar -->
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>javax.mail-api</artifactId>
+    <version>1.5.6</version>
+</dependency>
+
+
+<!-- JSON 만드는 라이브러리 -->
+<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+<dependency>
+    <groupId>com.googlecode.json-simple</groupId>
+    <artifactId>json-simple</artifactId>
+    <version>1.1.1</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.glassfish/javax.json -->
+<dependency>
+    <groupId>org.glassfish</groupId>
+    <artifactId>javax.json</artifactId>
+    <version>1.0.4</version>
+</dependency>
+
 
 	
 
