@@ -58,18 +58,34 @@ create sequence review_num_seq START WITH 1;
  create sequence cart_num_seq START WITH 1;
  
 
-  create table freeboard
-( board_num NUMBER(10) CONSTRAINT freeboard_num_pk PRIMARY KEY,
-  userid VARCHAR2(10) NOT NULL,
-  title VARCHAR2(20) NOT NULL,
-  author VARCHAR2(10) NOT NULL,
+ drop table freeboard;
+
+ create table freeboard
+( board_num NUMBER(20) PRIMARY KEY,
+  userid VARCHAR2(20) NOT NULL,
+  title VARCHAR2(50) NOT NULL,
+  author VARCHAR2(50) NOT NULL,
   content VARCHAR2(4000),
   writeday DATE DEFAULT SYSDATE,
-  image VARCHAR2(20) DEFAULT 'X' ,
-  readcnt NUMBER(10) DEFAULT 0 );
+  image VARCHAR2(100)  ,
+  readcnt NUMBER(10) DEFAULT 0 ,
+  imageName VARCHAR2(100),
+  secret VARCHAR2(100),
+  passwd VARCHAR2(100) );
+  
+drop sequence  board_num_seq;
 
- 
- create sequence freeboard_NUM_seq START WITH 1;
+create sequence  board_num_seq start with 1;
+
+ create table boardcomment
+( board_num NUMBER(20) ,
+  co_num NUMBER(20) ,
+  userid VARCHAR2(20) ,
+  cowriteday DATE DEFAULT SYSDATE,
+  cocontent VARCHAR2(1000) );
+  
+create sequence co_num_seq start with 1;
+
 
 
 
