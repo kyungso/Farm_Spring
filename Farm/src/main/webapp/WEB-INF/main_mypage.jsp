@@ -26,7 +26,7 @@
 	<div class="white">
 		<jsp:include page="include/top.jsp" flush="true" />
 		<div class="center-align">
-			<a href="/" class="blue-text text-darken-2 center-align" style="font-size: 30pt">RyanFarm</a>
+			<a href="/app/" class="blue-text text-darken-2 center-align" style="font-size: 30pt">RyanFarm</a>
 		</div>
 		<div class="black-text center-align">농산물직거래</div>
 	</div>
@@ -69,11 +69,12 @@ margin:80px;
 <td>
 <div class="btn-group" align="center">
   <button class="button" 
-  onclick="<c:if test="${sessionScope.login.jointype!=1}">pointCheck(event)</c:if>
-  <c:if test="${sessionScope.login.jointype==1}">location.href='mypageForm'</c:if>"><i class="material-icons" style="font-size:48px;color:#03A9F4">
+  onclick="<c:if test='${sessionScope.login.jointype!=1}'>pointCheck(event)</c:if>
+  <c:if test='${sessionScope.login.jointype==1}'>location.href='mypageForm'</c:if>">
+  <i class="material-icons" style="font-size:48px;color:#03A9F4">
 account_circle</i>개인정보 보기</button>
   <button class="button" onclick="location.href='orderList'"><i class="material-icons" style="font-size:48px;color:#03A9F4">
-  notifications</i>주문내역</button>
+  notifications</i>포인트&주문내역</button>
 </div>
 </td>
 </tr>
