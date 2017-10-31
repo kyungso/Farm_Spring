@@ -43,9 +43,9 @@ public class FreeBoardController {
 	CommentService cService;	
 	
 	@RequestMapping("/boardForm")
-	public String boardList(@RequestParam(defaultValue="title") String searchName,
-			@RequestParam(defaultValue="") String searchValue,
-			@RequestParam(defaultValue="1") int curPage,
+	public String boardList(@RequestParam(required=false,defaultValue="title") String searchName,
+			@RequestParam(required=false,defaultValue="") String searchValue,
+			@RequestParam(required=false,defaultValue="1") int curPage,
 			@RequestParam HashMap<String, String> map, Model m) {
      	map.put("searchName", searchName);
 		map.put("searchValue", searchValue);

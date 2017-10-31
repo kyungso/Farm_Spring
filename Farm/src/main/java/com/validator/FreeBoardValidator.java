@@ -26,9 +26,6 @@ public class FreeBoardValidator implements Validator {
 		if(dto.getContent().length()==0) {
 			e.rejectValue("content", "length3");
 		}
-		if(dto.getImage().length()==0) {
-			e.rejectValue("image", "length4");
-		}
 
 	}
 

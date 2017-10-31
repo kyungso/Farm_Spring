@@ -38,6 +38,10 @@
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <!--Let browser know website is optimized for mobile-->
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 <style type="text/css">
 	.album-wrap {position:relative; width:800px; height:350px; margin:0 auto; overflow:hidden;}
@@ -47,14 +51,8 @@
 	ul.bt-roll {width:60px; margin:0 auto; margin-top:0px;}
 		ul.bt-roll li {float:left; margin-right:5px;}
 </style>
-
 </head>
 <body>
-	<!--Import jQuery before materialize.js-->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-		
 	<div class="white">
 		<jsp:include page="include/top.jsp" flush="true" />
 		<div class="center-align">
@@ -63,10 +61,6 @@
 	</div>
 	<hr style="border: solid 0.5px lightgrey;">
 	<jsp:include page="include/submenu.jsp" flush="true" />
-
-</head>
-<body>
-
 <!-- 메인 배너 -->
 <div class="album-wrap">
 	<ul class="album clfix">
@@ -85,7 +79,7 @@
 	<div class="dim"></div>
 	<div class="popup">
 		<div class="pop_area">
-			<li><img src="images/welcome_ryan.gif" alt="라이언"></li>
+			<img src="images/welcome_ryan.gif" alt="라이언">
 		</div>
 		<div class="not_open">
 			<input type="checkbox" onclick="javascript:cookie_main();"
