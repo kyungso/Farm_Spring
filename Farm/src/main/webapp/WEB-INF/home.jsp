@@ -105,11 +105,8 @@
 	var timer = null;
 	var auto = true;
 	var cnt = 1;
-
 	$list.css('width',len*size);
-
 	if(auto) timer = setInterval(autoSlide, speed);
-
 	$list.children().bind({
 		'mouseenter': function(){
 			if(!auto) return false;
@@ -121,7 +118,6 @@
 			auto = true;
 		}
 	})
-
 	$('.bt-roll').children().bind({
 		'click': function(){
 			var idx = $('.bt-roll').children().index(this);
@@ -139,20 +135,15 @@
 			auto = true;
 		}
 	});		
-
 	function autoSlide(){
 		if(cnt>len-1){
 			cnt = 0;
 		}
-
 		$list.animate({'left': -(cnt*size)+'px' },'normal');
-
 		var source2 = $('.bt-roll').children().find('img').attr('src').replace('_.png','.png');
 		$('.bt-roll').children().find('img').attr('src',source2);
-
 		var source = $('.bt-roll').children().find('img').attr('src').replace('.png','_.png');
 		$('.bt-roll').children().eq(cnt).find('img').attr('src',source);
-
 		cnt++;
 	}
 </script>
@@ -165,7 +156,6 @@
 			cookies += ';expires=' + expire.toGMTString() + ';';
 		document.cookie = cookies;
 	}
-
 	function getUserCookie(cName) {
 		cName = cName + '=';
 		var cookieData = document.cookie;
@@ -185,12 +175,9 @@
 <script>
 	$(document).ready(
 			function() {
-
 				var startdate = "201705170600";
 				var enddate = "201705170630";
-
 				var now = new Date(); //현재시간
-
 				year = now.getFullYear();
 				month = now.getMonth() + 1;
 				if ((month + "").length < 2) {
@@ -204,14 +191,11 @@
 				if ((hour + "").length < 2) {
 					hour = "0" + hour;
 				}
-
 				mm = now.getMinutes();
 				if ((mm + "").length < 2) {
 					mm = "0" + mm;
 				}
-
 				today = year + "" + month + "" + date + "" + hour + "" + mm; //오늘 날짜 완성.
-
 				if ((eval(today) > eval(startdate))
 						&& ((eval(today) < eval(enddate)))) {
 					$('.popup').css("display", "block");
@@ -219,9 +203,7 @@
 				if (getUserCookie('main_pop_cookie') == "Y") {
 					$('.popup').hide();
 				}
-
 			});
-
 	var cookie_main = function(cName, cValue, cDay) {
 		if ($("input:checkbox[id='close_pop']").is(":checked")) {
 			setUserCookie('main_pop_cookie', 'Y', 1);
@@ -229,7 +211,6 @@
 			setUserCookie('main_pop_cookie', '', -1);
 		}
 	};
-
 	var close_pop = function() {
 		$('.popup').hide();
 	};

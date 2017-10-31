@@ -28,8 +28,6 @@ public class MemberService {
 		
 	}
 
-<<<<<<< HEAD
-=======
 	public MemberDTO memberUpdate(MemberDTO dto) {
 		return dao.memberUpdate(dto);
 	}
@@ -39,6 +37,41 @@ public class MemberService {
 		
 	}
 
->>>>>>> branch 'master' of https://github.com/kyungso/Farm_Spring.git
+	public MemberDTO findSnsId(String sns_id) {
+		return dao.findSnsId(sns_id);
+	}
+
+	public void snsAdd(MemberDTO dto) {
+		dao.snsAdd(dto);
+		
+	}
+
+	public MemberDTO SNSmemberUpdate(HashMap<String, String> map) {
+		return dao.snsUpdate(map);
+	}
+
+	public String emailCheck(String email) {
+		return dao.emailCheck(email);
+	}
+
+	public void changePw(HashMap<String, String> map) {
+		dao.changePw(map);
+		
+	}
+
+	public String idCheckForPw(String userid) {
+		return dao.idCheckForPw(userid);
+	}
+
+	public String NameCheck(HashMap<String, String> map) {
+		return dao.NameCheck(map);
+	}
+
+	public void changePw_id(HashMap<String, String> map) {
+		 dao.changePw_id(map);
+		
+	}
+
+
 
 }

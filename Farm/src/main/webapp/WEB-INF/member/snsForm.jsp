@@ -34,7 +34,7 @@ alert('${mesg}');
 </c:if>
 <body>
    <h4>SNS 연동 가입</h4>
-   <form action="snsAdd" onsubmit="return formCheck();">
+   <form action="snsAdd" onsubmit="return formCheck();" method="POST">
 <table>
 <tr><td><input type="hidden" name="jointype" id="jointype" value="1">
 <input type="hidden" name="sns_id" id="sns_id" value="${sns_id}"></td></tr>
@@ -60,9 +60,9 @@ alert('${mesg}');
 					<option value="017">017</option>
 				</select></div>-- 
 				<div class="input-field inline">
-				<input type="text" name="phone2" id="phone2" maxlength="4" placeholder="숫자 4자리">
+				<input type="text" name="phone2" id="phone2" maxlength="4" placeholder="숫자 4자리" pattern="^[0-9]+$" title="숫자 4자리만 유효">
 				</div>--<div class="input-field inline">
-				<input type="text" name="phone3" id="phone3" maxlength="4" placeholder="숫자 4자리">
+				<input type="text" name="phone3" id="phone3" maxlength="4" placeholder="숫자 4자리" pattern="^[0-9]+$" title="숫자 4자리만 유효">
 				</div>
 				
 			</td>

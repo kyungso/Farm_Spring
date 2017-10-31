@@ -25,8 +25,6 @@ public class MemberDAO {
 	public void memberAdd(MemberDTO dto) {
 		template.insert("memberJoin", dto);	
 	}
-<<<<<<< HEAD
-=======
 
 	public MemberDTO memberUpdate(MemberDTO dto) {
 		template.update("memberUpdate", dto);
@@ -39,7 +37,43 @@ public class MemberDAO {
 	public void memberDelete(String userid) {
 		template.delete("memberDelete",userid);
 	}
->>>>>>> branch 'master' of https://github.com/kyungso/Farm_Spring.git
-	
+
+	public MemberDTO findSnsId(String sns_id) {
+		return template.selectOne("findSnsId",sns_id);
+	}
+
+	public void snsAdd(MemberDTO dto) {
+		template.insert("snsAdd", dto);
+		
+	}
+
+	public MemberDTO snsUpdate(HashMap<String, String> map) {
+		template.update("snsUpdate", map);
+		return template.selectOne("selectBySnsId", map.get("userid"));
+		
+	}
+
+	public String emailCheck(String email) {
+		return template.selectOne("emailCheck", email);
+	}
+
+	public void changePw(HashMap<String, String> map) {
+		template.update("changePw", map);
+		
+	}
+
+	public String idCheckForPw(String userid) {
+		return template.selectOne("idCheckForPw",userid);
+		
+	}
+
+	public String NameCheck(HashMap<String, String> map) {
+		return template.selectOne("NameCheck",map);
+	}
+
+	public void changePw_id(HashMap<String, String> map) {
+		template.update("changePw_id",map);
+	}
+
 
 }

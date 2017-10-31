@@ -19,21 +19,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-var result=false;	
+var result=false;
+
 
 $(document).ready(function() {
-$("#searchVal").on("blur",function(event){
+	
+	
+	
+$("#searchVal").on("keyup",function(event){
 	console.log($('#searchVal').val());
 	
 	if($.trim($('#searchVal').val())==''){
-		alert("빈값");
+		alert("빈 값");
 		result=false;
+		event.stopPropagation();
 
 	}else if($("#test1").is(":checked") == true)
 	{
+	$('#searchVal').attr('pattern', '[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$');
+	$('#searchVal').attr('title', '올바른 이메일형식이 아닙니다');
 	$('#myForm').attr('action', 'emailAuth');
-	result=true;
-	/*
+	
 	
 	$.ajax({
 			type:"GET",
@@ -41,34 +47,51 @@ $("#searchVal").on("blur",function(event){
 			data:{email:$('#searchVal').val()},	
 			dataType:"text",
 			success:function(responseData, status, xhr){
-			$("#result").text(responseData).css("color","red");
-			if(responseData=="")
-				{
-				result=true;
-				console.log("메일 유효성 확인됨" + result);
-				$("#result").text(responseData);
+			if(responseData == "false"){
+				$("#result").text("일치하는 메일주소가 없습니다").css("color","red");
+				result= false;
+				event.stopPropagation();
+			}else{
+				$("#result").hide();
+				result= true;
 				}
 			}//success
 		});  //ajax
 		
 		
-		*/
+	
 
 	}//if
 	else if($("#test2").is(":checked") == true)
 	{
-
+		$('#searchVal').attr('pattern', '^[a-zA-Z0-9]{1,12}$');
+		$('#searchVal').attr('title', '올바른 아이디형식이 아닙니다');
 	$('#myForm').attr('action', 'idAuth');
-	result=true;
 	
-//	$.ajax({
-	//		});  //ajax
+	$.ajax({
+		type:"GET",
+		url:"idCheckForPw",
+		data:{userid:$('#searchVal').val()},	
+		dataType:"text",
+		success:function(responseData, status, xhr){
+		if(responseData == "false"){
+			$("#result").text("일치하는 아이디가 없습니다").css("color","red");
+			result= false;
+			event.stopPropagation();
+		}else{
+			$("#result").hide(event);
+			result= true;
+			}
+		}//success
+	});
 	
 	}
-	return result;
+
 }); //click
 	
-	
+});//ready
+
+
 
 
 function valChk(){
@@ -76,8 +99,6 @@ function valChk(){
 		return result;
 }	
 	
-	
-});//ready
 </script>
 	
 	<div class="white">
@@ -92,8 +113,9 @@ function valChk(){
 		<hr style="border: solid 1px lightgrey;">
 
 <!-- 비번찾기폼 -->
-<form id="myForm" onsubmit="return valChk();" action="#">
+<form id="myForm" onsubmit="return valChk()" action="#">
 <table border="1" class="centered">
+<tr><td style="font-weight:bold;">* SNS 연동회원 비밀찾기는 직접 사이트에 가서 찾아야 합니다</td></tr>
 <tr><td style="color:red;"> * 입력할 값을 선택해주세요</td></tr>
 <tr><td>
       <input name="searchName" type="radio" required id="test1" value="byMail" onclick="$('#searchInsert').text('* 가입한 당시 적은 Mail주소를 입력해주세요.');"/>
@@ -106,7 +128,7 @@ function valChk(){
 
 <tr><td><div class="row" >
     <div class="input-field col s5" style="text-align: center">
-      <input name="searchVal" id="searchVal" type="text" class="validate" required>
+      <input name="searchVal" id="searchVal" type="text" class="validate" required pattern="#">
     </div>
   </div>
   <p id="result"></p></td></tr>

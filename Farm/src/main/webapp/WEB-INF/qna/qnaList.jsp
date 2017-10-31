@@ -36,7 +36,7 @@ table {
 <tr>
 <td>${qna.qna_num }</td>
 <td>${qna.username }</td>
-<td><a href="QNARetrieveServlet?qna_num=${qna.qna_num}&userid=${sessionScope.login.userid}">${qna.title }</a></td>
+<td><a href="QNARetrieve?qna_num=${qna.qna_num}&userid=${sessionScope.login.userid}">${qna.title }</a></td>
 <td>${qna.writeday }</td>
 <td>
 <c:if test="${qna.state=='처리중'}">

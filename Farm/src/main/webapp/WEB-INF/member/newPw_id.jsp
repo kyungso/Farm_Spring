@@ -28,20 +28,22 @@
 	<hr style="border: solid 1px lightgrey;">
 	<jsp:include page="../include/submenu.jsp" flush="true" />
 		<hr style="border: solid 1px lightgrey;">
-<script>
-// ${authNum} ==승인번호
-$(document).ready(function() {
-	$("#xx").hide();	
 
-$("#nextPage").on("click", function(){
+<script>
+$(document).ready(function() {
 	
-	var authNum=${authNum};
-	console.log(authNum);
+	$("#xx").hide();
+$("#sub").on("click", function(){
 	
-	if($("#chkNum").val()==authNum){
+	var newPw=$("#newPw").val();
+	var newPw2=$("#newPw2").val();
+	console.log(newPw , newPw2);
+	
+	if(newPw == newPw2){
 				console.log("일치");
-				$("#xx").hide();	
-		return true;		
+				$("#xx").hide();
+		return true;
+		
 	}else{
 		$("#xx").show();
 		return false;
@@ -51,16 +53,16 @@ $("#nextPage").on("click", function(){
 
 });//ready
 </script>
-<form action="newPw">
+<form action="changePw_id">
 <table>
-<tr><td><input type="hidden" name="email" value="${email}">
-<c:set var="email" value='${email}' scope="session" />
+<tr><td>아이디:<input type="text" name="userid" value="${userid}" readonly style="font-weight:bold;">
 <tr><td>
-승인번호:<input type="text" id="chkNum" name="chkNum">
+새로운 비밀번호:<input type="text" id="newPw" name="newPw" maxlength="10">
 </td></tr>
-<tr><td><p id="xx" style='color:red;'>인증번호가 일치하지 않습니다</p></td></tr>
+<tr><td><p id="xx" style='color:red;'>비밀번호가 서로 일치하지 않습니다</p></td></tr>
+<tr><td>다시한번 입력:<input type="password" id="newPw2" maxlength="10"></td></tr>
 <tr><td>
-<input type="submit" id="nextPage" value="인증">
+<input type="submit" value="변경" id="sub">
 </td></tr>
 </table>
 </form>

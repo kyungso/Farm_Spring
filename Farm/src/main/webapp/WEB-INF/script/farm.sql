@@ -1,19 +1,21 @@
 
 create table member
- ( userid VARCHAR2(10) PRIMARY KEY,
-   passwd VARCHAR2(10) NOT NULL,
+ ( userid VARCHAR2(30) PRIMARY KEY,
+   passwd VARCHAR2(10) ,
    username VARCHAR2(10) NOT NULL,
-   post1 VARCHAR2(3) NOT NULL,
-   post2 VARCHAR2(3) NOT NULL,
-   addr1 VARCHAR2(500) NOT NULL,
-   addr2 VARCHAR2(500) NOT NULL,
+   post1 VARCHAR2(3) ,
+   post2 VARCHAR2(3) ,
+   addr1 VARCHAR2(500) ,
+   addr2 VARCHAR2(500) ,
    phone1 VARCHAR2(3) NOT NULL,
    phone2 VARCHAR2(4) NOT NULL,
    phone3 VARCHAR2(4) NOT NULL,
-   email VARCHAR2(50) NOT NULL,
+   email VARCHAR2(50) ,
    point NUMBER(10) DEFAULT 0,
    buycnt NUMBER(10) DEFAULT 0,
-   joinday DATE DEFAULT SYSDATE);
+   joinday DATE DEFAULT SYSDATE,
+   jointype number(1) default 0,            /*1 = SNS 통한 가입*/
+   sns_id varchar2(22));    
 
 
 create table goods

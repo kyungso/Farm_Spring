@@ -67,11 +67,15 @@ tr:hover {
 			</td>
 		</tr>
 		<tr>
-			<td><input class="button " type="submit" value="로그인"> <input
-				class="button" type='button' value='회원가입'
-				onclick="javascript:memberJoin()"> <span> <input
-					type="checkbox" class="filled-in" id="idSaveCheck" /> <label
-					for="idSaveCheck">아이디저장</label></span></td>
+			<td>
+			<input class="button " type="submit" value="로그인"> 
+			<input	class="button" type='button' value='회원가입' onclick="javascript:memberJoin()"> 
+				<input	class="button" type='button' value='비번찾기' onclick="location.href='findPasswd'">
+				<span> 
+				<input type="checkbox" class="filled-in" id="idSaveCheck" /> 
+				<label for="idSaveCheck">아이디저장</label>
+					</span>
+			</td>
 		</tr>
 		<tr><td>  <div id="naver_id_login"></div>
 				  <script type="text/javascript">
@@ -83,13 +87,12 @@ tr:hover {
     naver_id_login.setState(state);
     naver_id_login.init_naver_id_login();
    </script>
+   <div class="input-field inline">
 		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 		</td>
 		</tr>
 		</table>
 	</form>
-	<button onclick="location.href='findPasswd'">비밀번호 찾기</button>
-	
 <script type="text/javascript">
 function memberJoin(){
 	location.href="memberForm";

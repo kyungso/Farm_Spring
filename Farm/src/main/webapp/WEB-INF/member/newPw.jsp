@@ -32,17 +32,20 @@
 <script>
 $(document).ready(function() {
 	
-
-$("#final").on("click", function(){
+	$("#xx").hide();
+$("#sub").on("click", function(){
 	
 	var newPw=$("#newPw").val();
 	var newPw2=$("#newPw2").val();
+	console.log(newPw , newPw2);
 	
 	if(newPw == newPw2){
 				console.log("일치");
-		return true;		
+				$("#xx").hide();
+		return true;
+		
 	}else{
-		$("#newPw2").after("<p style='color:red;'>비밀번호가 일치하지 않습니다</p>");
+		$("#xx").show();
 		return false;
 	}
 	
@@ -54,11 +57,12 @@ $("#final").on("click", function(){
 <table>
 <tr><td>메일주소:<input type="text" name="email" value="${email}" readonly style="font-weight:bold;">
 <tr><td>
-새로운 비밀번호:<input type="text" id="newPw" name="newPw">
+새로운 비밀번호:<input type="text" id="newPw" name="newPw" maxlength="10">
 </td></tr>
-<tr><td>다시한번 입력:<input type="password" id="newPw2"></td></tr>
+<tr><td><p id="xx" style='color:red;'>비밀번호가 서로 일치하지 않습니다</p></td></tr>
+<tr><td>다시한번 입력:<input type="password" id="newPw2" maxlength="10"></td></tr>
 <tr><td>
-<input type="submit" value="변경" id="final">
+<input type="submit" value="변경" id="sub">
 </td></tr>
 </table>
 </form>

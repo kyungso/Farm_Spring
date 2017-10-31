@@ -68,7 +68,9 @@ margin:80px;
 <tr>
 <td>
 <div class="btn-group" align="center">
-  <button class="button" onclick="pointCheck(event)"><i class="material-icons" style="font-size:48px;color:#03A9F4">
+  <button class="button" 
+  onclick="<c:if test="${sessionScope.login.jointype!=1}">pointCheck(event)</c:if>
+  <c:if test="${sessionScope.login.jointype==1}">location.href='mypageForm'</c:if>"><i class="material-icons" style="font-size:48px;color:#03A9F4">
 account_circle</i>개인정보 보기</button>
   <button class="button" onclick="location.href='orderList'"><i class="material-icons" style="font-size:48px;color:#03A9F4">
   notifications</i>포인트&주문내역</button>
@@ -111,7 +113,7 @@ account_circle</i>개인정보 보기</button>
    
    
    function register(){
-	    window.open("member/register.jsp","_blank","width=650,height=600");
+	    window.open("member/register","_blank","width=650,height=600");
    }
 
     </script>   

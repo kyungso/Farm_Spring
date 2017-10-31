@@ -14,9 +14,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<c:if test="${!empty mesg}">
-	<script>alert('${mesg}')</script>
-</c:if>
+
 </head>
 <body>
 	<!--Import jQuery before materialize.js-->
@@ -37,6 +35,6 @@
 	</div>
 	<hr style="border: solid 1px lightgrey;">
 	<jsp:include page="include/submenu.jsp" flush="true" />
-  	<jsp:include page="member/memberForm.jsp" flush="true"/>
+  	<jsp:include page="member/snsForm.jsp" flush="true"/>
 </body>
 </html>

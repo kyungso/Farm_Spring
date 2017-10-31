@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -16,5 +17,9 @@ public class QnaDAO {
 	
 	public List<QnaDTO> qnaList(String userid){
 		return template.selectList("selectAllQna", userid);
+	}
+
+	public QnaDTO qnaRetrieve(HashMap<String, String> map) {
+		return template.selectOne("selectByNum", map);
 	}
 }
