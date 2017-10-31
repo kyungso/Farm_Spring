@@ -9,10 +9,11 @@
 		<ul>
 
 			<li class="col s3"><a href="mypageForm"
-				onclick="pointCheck(event)">회원정보</a></li>
+				onclick="<c:if test="${sessionScope.login.jointype!=1}">pointCheck(event)</c:if>
+				  <c:if test="${sessionScope.login.jointype==1}">location.href='mypageForm'</c:if>">회원정보</a></li>
 			<li class="col s3"><a href="orderList">포인트&주문내역</a></li>
 			<li class="col s3"><a
-				href="QNAListServlet?userid=${sessionScope.login.userid }">1:1문의</a></li>
+				href="QNAList?userid=${sessionScope.login.userid }">1:1문의</a></li>
 			<li class="col s3"><a href="memberDelete"
 				onclick="return confirm('탈퇴 하시겠습니까?')">회원탈퇴</a></li>
 		</ul>
