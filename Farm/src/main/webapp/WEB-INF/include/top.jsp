@@ -4,6 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+	<div class="left-align" >
+	<img src="images/semilogo.jpg" >
+	</div>
 
 <c:if test="${empty sessionScope.login}">
 	<div class="right-align" style="margin-top: 2%; margin-right: 2%; font-size: 10pt">
