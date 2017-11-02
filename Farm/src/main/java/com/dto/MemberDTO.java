@@ -19,6 +19,16 @@ public class MemberDTO {
 	private int point;
 	private int buycnt;
 	private String joinday;
+	private int jointype;
+	private String sns_id;
+
+	public String getSns_id() {
+		return sns_id;
+	}
+
+	public void setSns_id(String sns_id) {
+		this.sns_id = sns_id;
+	}
 
 	public MemberDTO() {
 		super();
@@ -26,8 +36,8 @@ public class MemberDTO {
 	}
 
 	public MemberDTO(String userid, String passwd, String username, String post1, String post2, String addr1,
-			String addr2, String phone1, String phone2, String phone3, String email1, String email2, int point,
-			int buycnt, String joinday) {
+			String addr2, String phone1, String phone2, String phone3, int point,
+			int buycnt, String joinday,int jointype, String email,String sns_id) {
 		super();
 		this.userid = userid;
 		this.passwd = passwd;
@@ -43,6 +53,8 @@ public class MemberDTO {
 		this.point = point;
 		this.buycnt = buycnt;
 		this.joinday = joinday;
+		this.jointype=jointype;     //SNS or 일반 가입자
+		this.sns_id=sns_id;
 	}
 
 
@@ -52,7 +64,7 @@ public class MemberDTO {
 		return "MemberDTO [userid=" + userid + ", passwd=" + passwd + ", username=" + username + ", post1=" + post1
 				+ ", post2=" + post2 + ", addr1=" + addr1 + ", addr2=" + addr2 + ", phone1=" + phone1 + ", phone2="
 				+ phone2 + ", phone3=" + phone3 + ", email=" + email + ", point=" + point + ", buycnt=" + buycnt
-				+ ", joinday=" + joinday + "]";
+				+ ", joinday=" + joinday + " , joinType : " + jointype + "sns_id : " +sns_id;
 	}
 
 	public String getUserid() {
@@ -137,6 +149,14 @@ public class MemberDTO {
 
 	public String getEmail() {
 		return email;
+	}
+
+	public int getJointype() {
+		return jointype;
+	}
+
+	public void setJointype(int jointype) {
+		this.jointype = jointype;
 	}
 
 	public void setEmail(String email) {
