@@ -29,9 +29,8 @@
 	<div class="white">
 		<jsp:include page="include/top.jsp" flush="true" />
 		<div class="center-align">
-			<a href="home.jsp" class="blue-text text-darken-2 center-align" style="font-size: 30pt">RyanFarm</a>
+			<a href="/app/" ><img src="images/ryanlogo.jpg" ></a>
 		</div>
-		<div class="black-text center-align">농산물직거래</div>
 	</div>
 	<hr style="border: solid 1px lightgrey;">
 	<jsp:include page="include/submenu.jsp" flush="true" />

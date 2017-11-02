@@ -11,16 +11,15 @@
 	
 	function searchBoard(f){
 		f.action="boardForm";
-	};
-	
+	};	
 </script>
 <style>
 table {
 	margin: 35px;
-	width: 80%;
+	width: 70%;
 }
 th, td {
-	padding: 0px;
+	padding: 8px;
 	text-align: center;
 }
 .check {
@@ -50,23 +49,23 @@ th, td {
 </style>
 <body>
 	<div align="center">
-		<form name="myForm">
-						<table class="highlight">
+		<form name="myForm" >
+						<table class="highlight" >
 										<tr>
 					<td align="left"><p>
 							게시물 수 : <font color=red>${ list.getTotalCount()}</font></td>
 				</tr>
 				<tr>
 							<tr bgcolor='#cecfce'>
-								<td height='3' colspan='5' align='center'></td>
+								<td height='1' colspan='5'></td>
 							</tr>
 							<tr>
-								<th bgcolor='#F0F0F0'><strong>번 호</strong></th>
-								<th bgcolor='#F0F0F0'><strong>제 목</strong></th>
-								<th bgcolor='#F0F0F0'><strong>작성자</strong></th>
-								<th bgcolor='#F0F0F0'><strong>등록일</strong></th>
-								<th bgcolor='#F0F0F0'><strong>조회수</strong></th>
-							</tr>
+								<th bgcolor='#F0F0F0'>번 호</th>
+								<th bgcolor='#F0F0F0'>제 목</th>
+								<th bgcolor='#F0F0F0'>작성자</th>
+								<th bgcolor='#F0F0F0'>등록일</th>
+								<th bgcolor='#F0F0F0'>조회수</th>
+							</tr><br>
 							<c:if test="${list.getList().size()==0 }">
 								<tr>
 									<td>작성된 글이 없습니다.</td>
@@ -75,10 +74,7 @@ th, td {
 							<c:if test="${list.getList().size()!=0 }">
 								<c:forEach items="${list.getList() }" var="dto">
 									<tr>
-										<td height='1' colspan='5' align='center' bgcolor='#cecfce'></td>
-									</tr>
-									<tr bgcolor='#ffffff'>
-										<td width='50' height='25' align='center'><p>&nbsp;&nbsp;${dto.board_num}										
+										<td >${dto.board_num}										
 										<c:if test="${dto.secret==y}">
 										<img src="images/write_default.gif">
 										</c:if>
@@ -86,17 +82,15 @@ th, td {
 										<img src="images/write_lock.gif">
 										</c:if>
 										</td>
-										<td width='280' height='25' id="retrieve${dto.board_num}"><p>
+										<td id="retrieve${dto.board_num}">
 													<a href="boardRetrieve?board_num=${dto.board_num}">${dto.title}</a></td>
-										<td width='60' height='25' align='center'><p>${dto.author}</td>
-										<td width='65' height='25' align='center'><p>${dto.writeday}</td>
-										<td width='50' height='25' align='center'><p>${dto.readCnt}</td>
+										<td >${dto.author}</td>
+										<td>${dto.writeday}</td>
+										<td >${dto.readCnt}</td>
 									</tr>
 								</c:forEach>
 							</c:if>
-							<tr>
-								<td height='1' colspan='5' align='center' bgcolor='#cecfce'></td>
-							</tr>
+				
 						</table>
 					</td>
 				</tr>
@@ -107,7 +101,7 @@ th, td {
 				<tr>
 					<td>
 									<!--  <div class="input-field col s12"> -->
-										<select name="searchName" class="browser-default">
+										<select class="browser-default col s3"  style="" name="searchName" >
 											<option value="title" >제목</option>
 											<option value="author">작성자</option>
 											<option value="content">내용</option>

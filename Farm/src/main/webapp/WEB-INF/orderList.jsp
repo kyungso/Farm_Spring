@@ -25,8 +25,8 @@
 	<div class="white">
 		<jsp:include page="include/top.jsp" flush="true" />
 		<div class="center-align">
-			<a href="/app/" ><img src="images/m3logo.jpg"  width="270" height="140"></a>
-		</div>
+			<a href="/app/" ><img src="images/ryanlogo.jpg" ></a>
+		</div>v>
 	</div>
 	<hr style="border: solid 1px lightgrey;">
 	<jsp:include page="include/sub_mypage.jsp" flush="true" />
