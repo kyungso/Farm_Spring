@@ -26,9 +26,9 @@
 		<jsp:include page="include/top.jsp" flush="true" />
 		<div class="center-align">
 			<a href="/app/" ><img src="images/ryanlogo.jpg" ></a>
-		</div>v>
+		</div>
 	</div>
-	<hr style="border: solid 1px lightgrey;">
+	<hr style="border: solid 0.5px lightgrey;">
 	<jsp:include page="include/sub_mypage.jsp" flush="true" />
 	<jsp:include page="pointCheck.jsp"></jsp:include>
 	<jsp:include page="order/orderList.jsp" flush="true"/>

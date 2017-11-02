@@ -29,7 +29,7 @@
 			<a href="/app/" ><img src="images/ryanlogo.jpg" ></a>
 		</div>
 	</div>
-	<hr style="border: solid 1px lightgrey;">
+	<hr style="border: solid 0.5px lightgrey;">
 	<jsp:include page="include/submenu.jsp" flush="true" />
 	<jsp:include page="order/orderListDetail.jsp" flush="true"/>
 </body>

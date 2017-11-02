@@ -127,5 +127,5 @@ th, td {
 				onclick="ewrite()" class="check"/>			
 		</center>
 	</c:if>
-
+<br>
 </body>

@@ -28,12 +28,11 @@
 
 	<script src="js/materialize.min.js"></script>
 	<div class="white">
-		<jsp:include page="include/top.jsp" flush="true" />
 		<div class="center-align">
 			<a href="/app/" ><img src="images/ryanlogo.jpg" ></a>
 		</div>
 	</div>
-	<hr style="border: solid 1px lightgrey;">
+	<hr style="border: solid 0.5px lightgrey;">
 	<jsp:include page="include/sub_mypage.jsp" flush="true" />
 	<hr style="border: solid 1px lightgrey;">
 	<jsp:include page="qna/qnawrite.jsp" flush="true" />

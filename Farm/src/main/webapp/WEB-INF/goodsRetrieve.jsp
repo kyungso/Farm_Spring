@@ -23,11 +23,11 @@
 	<div id="content">
 	<div class="white">
 		<jsp:include page="include/top.jsp" flush="true" />
-			<div class="center-align">
+		<div class="center-align">
 			<a href="/app/" ><img src="images/ryanlogo.jpg" ></a>
 		</div>
-		</div>
-	<hr style="border: solid 1px lightgrey;">
+	</div>
+	<hr style="border: solid 0.5px lightgrey;">
 	<jsp:include page="include/submenu.jsp" flush="true" />
 	
 	<jsp:include page="include/menu.jsp" flush="true"/>
