@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -27,4 +28,10 @@ public class GoodsDAO {
 	public GoodsDTO goodsRetrieve(String gcode) {
 		return template.selectOne("goodsRetrieve",gcode);
 	}
+	
+	public int goodsWrite(HashMap<String, String> map) {
+		int n = template.insert("goodsWrite",map);
+		return n;
+	}
+	
 }

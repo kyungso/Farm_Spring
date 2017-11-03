@@ -15,8 +15,9 @@
 </script>
 <style>
 table {
-	margin: 35px;
-	width: 70%;
+	margin: 40px;
+	width: 60%;
+	margin: auto;
 }
 th, td {
 	padding: 8px;
@@ -90,23 +91,22 @@ th, td {
 									</tr>
 								</c:forEach>
 							</c:if>
-				
-						</table>
-					</td>
-				</tr>
-				<tr>
+				<tr bgcolor='#cecfce'>
+								<td height='1' colspan='5'></td>
+							</tr>
+                    <tr>
 					<td align="center" colspan="5"><jsp:include page="page.jsp"
 							flush="true" /></td>
 				</tr>
 				<tr>
 					<td>
-									<!--  <div class="input-field col s12"> -->
-										<select class="browser-default col s3"  style="" name="searchName" >
+									  <div class="browser-default col s1" style="border-left: 20px;"> 
+										<select class="browser-default col s3"   name="searchName" >
 											<option value="title" >제목</option>
 											<option value="author">작성자</option>
 											<option value="content">내용</option>
 										</select>
-									<!-- </div> -->
+									 </div> 
 									<div class="input-field inline">
 										<input type="text" name="searchValue">
 									</div>

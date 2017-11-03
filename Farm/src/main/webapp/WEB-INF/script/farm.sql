@@ -19,13 +19,14 @@ create table member
 
 
 create table goods
-   ( gCode varchar2(20) PRIMARY KEY, --��ǰ�ڵ�
-     gCategory varchar2(20) not null,
-     gName varchar2(50) not null,
-     gContent varchar2(4000) not null,
-     gPrice NUMBER(10) not null,
-     gImage1 varchar2(20) not null,
-     gImage2 varchar2(20) not null );
+   ( gcode varchar2(20) PRIMARY KEY, --��ǰ�ڵ�
+     gcategory varchar2(20) not null,
+     gname varchar2(50) not null,
+     gcontent varchar2(4000) not null,
+     gprice NUMBER(10) not null,
+     gimage1 varchar2(20) not null,
+     gimage2 varchar2(20) not null
+     image varchar2(20)); --이미지업로드용
      
 
 
@@ -58,8 +59,6 @@ create sequence review_num_seq START WITH 1;
  create sequence cart_num_seq START WITH 1;
  
 
- drop table freeboard;
-
  create table freeboard
 ( board_num NUMBER(20) PRIMARY KEY,
   userid VARCHAR2(20) NOT NULL,
@@ -72,8 +71,6 @@ create sequence review_num_seq START WITH 1;
   imageName VARCHAR2(100),
   secret VARCHAR2(100),
   passwd VARCHAR2(100) );
-  
-drop sequence  board_num_seq;
 
 create sequence  board_num_seq start with 1;
 
@@ -85,8 +82,6 @@ create sequence  board_num_seq start with 1;
   cocontent VARCHAR2(1000) );
   
 create sequence co_num_seq start with 1;
-
-
 
 
 create table orderinfo
