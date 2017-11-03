@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.mybatis.MemberMapper">
 
 <insert id="memberJoin" parameterType="MemberDTO">
-insert into member(userid,passwd,username,post1,post2,addr1,addr2,phone1,phone2,phone3,email,point,buycnt,joinday)
-values (#{userid},#{passwd},#{username},#{post1},#{post2},#{addr1},#{addr2},#{phone1},#{phone2},#{phone3},#{email},#{point},#{buycnt},sysdate)
+insert into member(userid,passwd,username,post1,post2,addr1,addr2,phone1,phone2,phone3,email,point,buycnt,joinday,isSeller)
+values (#{userid},#{passwd},#{username},#{post1},#{post2},#{addr1},#{addr2},#{phone1},#{phone2},#{phone3},#{email},#{point},#{buycnt},sysdate,'N')
 </insert>
 <insert id="snsAdd" parameterType="MemberDTO">
 insert into member(userid,username,phone1,phone2,phone3,joinday,jointype,sns_id)
