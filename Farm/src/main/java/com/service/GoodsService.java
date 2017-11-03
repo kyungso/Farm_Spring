@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,9 @@ public class GoodsService {
 	public GoodsDTO goodsRetrieve(String gcode) {
 		return dao.goodsRetrieve(gcode);
 	}
+	
+	public int goodsWrite(HashMap<String, String> map) {
+		return dao.goodsWrite(map);		
+	}
+	
 }

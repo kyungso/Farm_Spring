@@ -17,22 +17,22 @@
 					<td>
 						<table style='padding: 15px'>
 							<tr>
-								<td><a href="goodsRetrieve?gCode=${goodsAllList.gCode}"> 
-									<img src="images/items/${goodsAllList.gImage1}.jpg" border="0" align="center" width="200">
-								</a></td>
+								<td><a href="goodsRetrieve?gCode=${goodsAllList.gcode}"> 
+									<img src="images/items/${goodsAllList.gimage1}.jpg" border="0" align="center" width="200">
+					      <img src="/images/${goodsAllList.gimage1}" border="0" align="center" width="200" >		</a></td>
 							</tr>
 							<tr>
 								<td class="td_default" align="center">
-								<a class="a_black" href="goodsRetrieve?gCode=${goodsAllList.gCode}">${goodsAllList.gName}<br>
+								<a class="a_black" href="goodsRetrieve?gCode=${goodsAllList.gcode}">${goodsAllList.gname}<br>
 								</a> <font color="gray"> -------------------------------- </font></td>
 							</tr>
 							<tr>
-								<td class="td_gray" align="center">${goodsAllList.gContent}
+								<td class="td_gray" align="center">${goodsAllList.gcontent}
 								</td>
 							</tr>
 							<tr>
 								<td class="td_red" align="center"><font color="red"><strong>
-											${goodsAllList.gPrice} </strong></font></td>
+											${goodsAllList.gprice} </strong></font></td>
 							</tr>
 						</table>
 					</td> 
@@ -51,4 +51,32 @@
 		<td height="10">
 	</tr>
 </table>
+	<c:if test="${!empty sessionScope.login}">
+		<center>
+			<input type="button" value="상품올리기"
+				onclick="gWrite()" class="check"/>			
+		</center>
+	</c:if>
+	<br>
+
+<style>
+.check {
+	background-color: #008CBA;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+</style>
+<script>
+function gWrite(){
+	 location.href="/app/gWrite";
+}
+</script>
+
 

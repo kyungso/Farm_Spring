@@ -21,4 +21,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  where gcode=#{gCode}
 </select>
 
+<insert id="goodsWrite" parameterType="hashmap">
+	insert into
+	goods(gcode,gcategory,gname,gcontent,gprice,gimage1,gimage2 )
+	values(#{gcode},#{gcategory},#{gname},#{gcontent},#{gprice},#{gimage1},#{gimage2})
+</insert>
+
+
+
 </mapper>

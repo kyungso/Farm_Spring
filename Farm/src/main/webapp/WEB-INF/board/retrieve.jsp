@@ -62,9 +62,11 @@ function bForm(){
 </script>
 <style>
 table {
-	margin: 30px;
-	width: 90%;
+	margin: 0px;
+	width: 80%;
 	overflow:auto;
+	margin-left: auto;
+    margin-right: auto;
 }
 th, td {
 	padding: 0px;
@@ -114,7 +116,7 @@ th, td {
 	<input type="hidden" name="author" value="${retrieve.author}"/>
 	<input type="hidden" name="content" value="${retrieve.content}"/>
 	<input type="hidden" name="image" value="${retrieve.image}"/>
-<table width='95%' height='100%' border='0' cellpadding='0' cellspacing='0' >
+<table width='95%' height='100%' border='0' cellpadding='0' cellspacing='0'  >
 	<tr>	
 		<td height='100%' valign='top'> 
 			<table width='100%' height='500' border='0' cellpadding='0' cellspacing='0' bgcolor='#FFFFFF'>
@@ -151,9 +153,9 @@ th, td {
 								<td height='1' colspan='6' align='center'></td>
 							</tr>
 							<tr align='center' valign='top'> 
-								<td colspan='6' align='center'  > 
+								<td colspan='6' align='center'  style=”word-break:break-all; width="100px;" "> 
 								<div align='justify' class='text3'>
-					      ${retrieve.content }<br>			    
+					      ${retrieve.content }		<br><br><br>			     	    
 					      <c:if test="${retrieve.imageName != null}">   
 					      <img src="/images/${retrieve.imageName}"  >	
 					      </c:if>
@@ -187,6 +189,7 @@ th, td {
 	</tr>
 <tr>
 <td>
+<br>
 <center>
    <c:if test="${sessionScope.login.userid==retrieve.userid}">
                  <input type="button" value="수정" 
@@ -252,3 +255,4 @@ th, td {
 			</tr> 	
 		</table>
 		</c:if> 
+		<br>

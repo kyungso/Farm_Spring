@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 	${goodsList.size()}
-<table width="100%" cellspacing="0" cellpadding="0">
+<table width="100%" cellspacing="0" cellpadding="0" ">
 	
 	<tr>
 		<td>
@@ -16,22 +16,23 @@
 					<td>
 						<table style='padding: 15px'>
 							<tr>
-								<td><a href="goodsRetrieve?gCode=${goodsList.gCode}"> 
-									<img src="images/items/${goodsList.gImage1}.jpg" border="0" align="center" width="200">
+								<td><a href="goodsRetrieve?gCode=${goodsList.gcode}"> 
+									<img src="images/items/${goodsList.gimage1}.jpg" border="0" align="center" width="200">
+									<img src="/images/${goodsList.gimage1}"border="0" align="center" width="200"   >
 								</a></td>
 							</tr>
 							<tr>
 								<td class="td_default" align="center">
-								<a class="a_black" href="goodsRetrieve?gCode=${goodsList.gCode}">${goodsList.gName}<br>
+								<a class="a_black" href="goodsRetrieve?gCode=${goodsList.gcode}">${goodsList.gname}<br>
 								</a> <font color="gray"> --------------------------------------------- </font></td>
 							</tr>
 							<tr>
-								<td class="td_gray" align="center">${goodsList.gContent}
+								<td class="td_gray" align="center">${goodsList.gcontent}
 								</td>
 							</tr>
 							<tr>
 								<td class="td_red" align="center"><font color="red"><strong>
-											${goodsList.gPrice} </strong></font></td>
+											${goodsList.gprice} </strong></font></td>
 							</tr>
 						</table>
 					</td> 

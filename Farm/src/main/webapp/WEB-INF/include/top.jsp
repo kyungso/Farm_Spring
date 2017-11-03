@@ -9,7 +9,7 @@
 	</div>
 
 <c:if test="${empty sessionScope.login}">
-	<div class="right-align" style="margin-top: 2%; margin-right: 2%; font-size: 10pt">
+	<div class="right-align" style="margin-top: 1%; margin-right: 2%; font-size: 10pt">
 		<a href="loginForm" style="color: black">
 		<i class="material-icons" style="font-size: 10pt">lock</i>로그인 
 		</a> 
@@ -19,7 +19,7 @@
 	</div>
 </c:if>
 <c:if test="${!empty sessionScope.login}">
-	<div class="right-align" style="margin-top: 2%; margin-right: 2%; font-size: 10pt">
+	<div class="right-align" style="margin-top: 1%; margin-right: 2%; font-size: 10pt">
 		<a href="logout" style="color: black">
 		<i class="material-icons" style="font-size: 10pt">lock</i>로그아웃 
 		</a> 

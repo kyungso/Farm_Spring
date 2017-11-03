@@ -60,21 +60,6 @@
 	<li><a href="#"><img src="images/btn_circle.png" alt=""></a></li>
 	<li><a href="#"><img src="images/btn_circle.png" alt=""></a></li>
 </ul>	
-
-	<!-- 라이언 팝업 -->
-	<div class="dim"></div>
-	<div class="popup">
-		<div class="pop_area">
-			<img src="images/welcome_ryan.gif" alt="라이언">
-		</div>
-		<div class="not_open">
-			<input type="checkbox" onclick="javascript:cookie_main();"
-				id="close_pop" /> <label for="close_pop">오늘 하루 이창을 열지않음</label> <a
-				href="#" onclick="javascript:close_pop();" class="close_pop"><img
-				src="images/x.png" alt="팝업 닫기"></a>
-		</div>
-	</div>
-	
 	
 </body>
 <script type="text/javascript">

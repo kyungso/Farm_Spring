@@ -3,7 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+<!DOCTYPE html>
+<html>
 <!-- <script type="text/javascript">
 	$(document).ready(function() {
 		$('.button-collapse').sideNav({
@@ -80,9 +81,9 @@ span:hover { color: hotpink;}
     <li><a href="#!">회원정보</a></li>
   </ul>
    -->
-<div class="row" style="margin-top: 2%">
-    <div class="col s12">
-      <ul class="zeta-menu">
+<div class="row" style="margin-top: 1%; margin: auto; ">
+    <div class="col s12" >
+      <ul class="zeta-menu" style="margin: auto; vertical-align: center; padding-left: 350px;">
         <li class="col s3">
         	<a><i class="material-icons">menu</i><span>메뉴전체보기</span></a>
         	<ul>
@@ -92,10 +93,11 @@ span:hover { color: hotpink;}
 		       <li><a href="/app/goodsList?gCategory=source">가공식품</a></li>
 		    </ul>
         </li> 
-        <li class="col s3"><a href="/app/goodsAllList">쇼핑하기</a></li>
-        <li class="col s3"><a href="">베스트상품</a></li>
-        <li class="col s3"><a href="boardForm">자유게시판</a></li>
+        <li class="col s2"><a href="/app/goodsAllList">쇼핑하기</a></li>
+        <li class="col s2"><a href="">베스트상품</a></li>
+        <li class="col s2"><a href="boardForm">자유게시판</a></li>
       </ul>
     </div>
 </div>
 
+</html>
