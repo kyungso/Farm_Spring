@@ -17,11 +17,23 @@ public class QnaDTO {
 	private String writeday;
 	private String state;
 	private String match;
+	private int group_no;
+	
 	public QnaDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
+
+	public int getGroup_no() {
+		return group_no;
+	}
+
+
+	public void setGroup_no(int group_no) {
+		this.group_no = group_no;
+	}
+
 
 	public String getMatch() {
 		return match;
@@ -33,8 +45,11 @@ public class QnaDTO {
 	}
 
 
+
+
+
 	public QnaDTO(String userid, String username, int phone1, int phone2, int phone3, String email, String title,
-			String content, String qna_num, String writeday, String state, String match) {
+			String content, String qna_num, String writeday, String state, String match, int group_no) {
 		super();
 		this.userid = userid;
 		this.username = username;
@@ -48,6 +63,7 @@ public class QnaDTO {
 		this.writeday = writeday;
 		this.state = state;
 		this.match = match;
+		this.group_no = group_no;
 	}
 
 

@@ -39,28 +39,28 @@ table {
 <td><a href="QNARetrieve?qna_num=${qna.qna_num}&userid=${sessionScope.login.userid}">${qna.title }</a></td>
 <td>${qna.writeday }</td>
 <td>
-<c:if test="${qna.state=='처리중'}">
+  <c:if test="${qna.state =='처리중' }">
   <div class="progress">
     <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
      ${qna.state }
     </div>
   </div>
-</c:if>  
-  
-<c:if test="${qna.state=='답변완료'}">
-   <div class="progress">
-<div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-		      ${qna.state }
-		    </div>
-		  </div>
-</c:if>  
+  </c:if>
+  <c:if test="${qna.state =='답변완료' }">
+  <div class="progress">
+  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100"
+  aria-valuemin="0" aria-valuemax="100" style="width:100%">
+    ${qna.state}
+  </div>
+</div>
+</c:if>
 </td>
 </tr>
 </c:forEach>
 </c:if>
 </tbody>
 </table>
-<button onClick="location.href='QNAWriteUIServlet'">문의하기</button>
+<button onClick="location.href='QNAWriteUI'">문의하기</button>
 
 </body>
 </html>

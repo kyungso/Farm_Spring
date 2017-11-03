@@ -22,4 +22,18 @@ public class QnaDAO {
 	public QnaDTO qnaRetrieve(HashMap<String, String> map) {
 		return template.selectOne("selectByNum", map);
 	}
+
+	public void QNAWrite(QnaDTO dto) {
+		template.insert("qnaWrite", dto);
+	}
+
+	public void QNAUpdate(QnaDTO dto) {
+		template.update("qnaUpdate",dto);
+		
+	}
+
+	public void QNADelete(int qna_num) {
+		template.delete("qnaDelete", qna_num);
+		
+	}
 }

@@ -23,8 +23,8 @@ update qna set phone1=#{phone1},phone2=#{phone2},phone3=#{phone3}, email=#{email
 
 <insert id="qnaWrite" parameterType="QnaDTO">
 insert into
-qna(qna_num,title,username,content,phone1,phone2,phone3,email,userid)
-		values(qna_num_seq.nextval, #{title},#{username},#{content},#{phone1},#{phone2},#{phone3},#{email},#{userid})
+qna(qna_num,title,username,content,phone1,phone2,phone3,email,userid,writeday,state)
+		values(qna_num_seq.nextval, #{title},#{username},#{content},#{phone1},#{phone2},#{phone3},#{email},#{userid},sysdate,'처리중')
 </insert>
 
 <delete id="qnaDelete" parameterType="int">
