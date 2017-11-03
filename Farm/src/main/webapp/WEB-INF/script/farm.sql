@@ -15,7 +15,8 @@ create table member
    buycnt NUMBER(10) DEFAULT 0,
    joinday DATE DEFAULT SYSDATE,
    jointype number(1) default 0,            /*1 = SNS 통한 가입*/
-   sns_id varchar2(22));    
+   sns_id varchar2(22)
+   isSeller varchar2(2) default 'N');   
 
 
 create table goods

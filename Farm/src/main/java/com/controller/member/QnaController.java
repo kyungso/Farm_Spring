@@ -70,4 +70,12 @@ public class QnaController {
 		return "redirect:QNAList?userid="+dto.getUserid();
 	}
 
+	@RequestMapping(value="/QNAReplyForm")
+	public String QNAReplyForm(@ModelAttribute QnaDTO dto,Model m ){
+		m.addAttribute("qna_num", dto.getQna_num());
+		m.addAttribute("title", dto.getTitle());
+		return "qnaReply";
+	}
+	
+	
 }

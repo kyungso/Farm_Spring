@@ -72,7 +72,6 @@
 				
 					<td height='25' colspan='4'><input type="submit" value="수정 완료">  
                     <input type=reset  value="다시 수정"> 
-					<input type="button" value="목록" onclick="#"/></td>
 					
 				</tr>
 				<tr> 
@@ -86,12 +85,5 @@
 	</tr>
 </table>
 	</form>
-<script>
-$(document).ready(function(){
-    $("#").on("click",function(){
-     document.myForm.action="QNAUpdate?qna_num=${qdto.qna_num}&userid=${sessionScope.login.userid}";
-     document.myForm.submit();         
-        }); 
-}); 
-</script>
+
 

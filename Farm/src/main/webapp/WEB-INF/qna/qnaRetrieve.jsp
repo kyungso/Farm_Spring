@@ -109,7 +109,7 @@ $(document).ready(function(){
 	
 	$("#qnaReply").on("click",function(){
 		
-        document.myForm.action="QNAReplyFormServlet";
+        document.myForm.action="QNAReplyForm";
         document.myForm.submit();    
 		
 	});
