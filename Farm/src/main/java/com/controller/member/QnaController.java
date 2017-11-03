@@ -43,10 +43,18 @@ public class QnaController {
 	
 	@RequestMapping(value="/QNAWrite", method=RequestMethod.POST)
 	public String QNAWrite(@ModelAttribute QnaDTO dto ){
-		System.out.println(dto);
 		service.QNAWrite(dto);
+		System.out.println(dto);
 		return "redirect:QNAList?userid="+dto.getUserid();
 	}
+	
+	@RequestMapping(value="/QNAReplyWrite", method=RequestMethod.POST)
+	public String QNAReplyWrite(@ModelAttribute QnaDTO dto ){
+		System.out.println(dto);
+		service.QNAReplyWrite(dto);
+		return "redirect:QNAList?userid="+dto.getUserid();
+	}
+	
 
 	
 	@RequestMapping(value="/QNAUpdateForm")

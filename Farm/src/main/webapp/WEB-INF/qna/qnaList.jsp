@@ -20,6 +20,7 @@ table {
 <thead>
 <tr>
 <th>글번호</th>
+<th>그룹</th>
 <th>작성자</th>
 <th>제목</th>
 <th>작성일</th>
@@ -35,6 +36,7 @@ table {
 <c:forEach var="qna" items="${qnaList}">
 <tr>
 <td>${qna.qna_num }</td>
+<td>${qna.group_no}</td>
 <td>${qna.username }</td>
 <td><a href="QNARetrieve?qna_num=${qna.qna_num}&userid=${sessionScope.login.userid}">${qna.title }</a></td>
 <td>${qna.writeday }</td>

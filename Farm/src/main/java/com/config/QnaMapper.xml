@@ -5,13 +5,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.mybatis.QnaMapper">
 
 	<select id="selectAllQna" resultType="QnaDTO" parameterType="string">
-		select username,qna_num,title,to_char(writeday, 'YYYY/MM/dd') writeday,state
+		select username,qna_num,title,to_char(writeday, 'YYYY/MM/dd') writeday,state,group_no
 		from qna
 		where userid=#{userid}
-		order by qna_num desc
+		order by group_no, qna_num desc
 	</select>
 <select id="selectByNum" parameterType="hashmap" resultType="QnaDTO">
-select userid,username,phone1,phone2,phone3,email,title,content,qna_num,writeday,state
+select userid,username,phone1,phone2,phone3,email,title,content,qna_num,writeday,state,group_no
 from qna
 where qna_num=#{qna_num} and userid=#{userid}
 </select>
@@ -23,12 +23,17 @@ update qna set phone1=#{phone1},phone2=#{phone2},phone3=#{phone3}, email=#{email
 
 <insert id="qnaWrite" parameterType="QnaDTO">
 insert into
-qna(qna_num,title,username,content,phone1,phone2,phone3,email,userid,writeday,state)
-		values(qna_num_seq.nextval, #{title},#{username},#{content},#{phone1},#{phone2},#{phone3},#{email},#{userid},sysdate,'처리중')
+qna(qna_num, group_no, title,username,content,phone1,phone2,phone3,email,userid,writeday <if test="state !=null">,state</if>)
+		values(qna_num_seq.nextval, group_no_seq.nextval, #{title},#{username},#{content},#{phone1},#{phone2},#{phone3},#{email},#{userid},sysdate<if test="state !=null">,#{state}</if>)
 </insert>
 
 <delete id="qnaDelete" parameterType="int">
 delete from qna
 where qna_num=#{qna_num}
 </delete>
+
+<update id="stateUpdate" parameterType="int">
+update qna set state='답변완료'
+where qna_num=#{qna_num}
+</update>
 </mapper>

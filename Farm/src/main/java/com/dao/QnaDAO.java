@@ -36,4 +36,9 @@ public class QnaDAO {
 		template.delete("qnaDelete", qna_num);
 		
 	}
+
+	public void tx(QnaDTO dto) {
+		template.update("stateUpdate",Integer.parseInt(dto.getQna_num()));
+		template.insert("qnaWrite", dto);
+	}
 }

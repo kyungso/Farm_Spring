@@ -16,7 +16,6 @@ public class QnaDTO {
 	private String qna_num;
 	private String writeday;
 	private String state;
-	private String match;
 	private int group_no;
 	
 	public QnaDTO() {
@@ -35,21 +34,8 @@ public class QnaDTO {
 	}
 
 
-	public String getMatch() {
-		return match;
-	}
-
-
-	public void setMatch(String match) {
-		this.match = match;
-	}
-
-
-
-
-
 	public QnaDTO(String userid, String username, int phone1, int phone2, int phone3, String email, String title,
-			String content, String qna_num, String writeday, String state, String match, int group_no) {
+			String content, String qna_num, String writeday, String state, int group_no) {
 		super();
 		this.userid = userid;
 		this.username = username;
@@ -62,7 +48,6 @@ public class QnaDTO {
 		this.qna_num = qna_num;
 		this.writeday = writeday;
 		this.state = state;
-		this.match = match;
 		this.group_no = group_no;
 	}
 
@@ -70,12 +55,18 @@ public class QnaDTO {
 	public String getUserid() {
 		return userid;
 	}
+
+	
+	
+	
 	@Override
 	public String toString() {
 		return "QnaDTO [userid=" + userid + ", username=" + username + ", phone1=" + phone1 + ", phone2=" + phone2
 				+ ", phone3=" + phone3 + ", email=" + email + ", title=" + title + ", content=" + content + ", qna_num="
-				+ qna_num + ", writeday=" + writeday + ", state=" + state + "]";
+				+ qna_num + ", writeday=" + writeday + ", state=" + state + ", group_no=" + group_no + "]";
 	}
+
+
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
