@@ -28,9 +28,9 @@
 	  	});
 	</script>
 
-	<c:if test="${!empty update }">
+	<c:if test="${!empty mesg }">
 		<script>
-			alert('${update}');
+			alert('${mesg}');
 		</script>
 	</c:if>
 

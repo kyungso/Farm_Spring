@@ -49,11 +49,12 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 	
-	@RequestMapping("/login")
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String memberLogin(@RequestParam HashMap<String, String> map, HttpSession session, Model m ) {
 		MemberDTO dto = service.memberLogin(map);
 		if(dto != null) {
 		session.setAttribute("login",dto);
+		m.addAttribute("mesg","로그인 되었습니다");
 		return "home";
 		}else {
 			m.addAttribute("mesg", "비밀번호/아이디를 다시 확인해주세요.");
@@ -65,7 +66,7 @@ public class MemberController {
 	@RequestMapping("/logout")
 	public String memberLogout(HttpSession session,Model m) {
 		session.invalidate();
-		m.addAttribute("logout", "로그아웃 완료");
+		m.addAttribute("mesg", "로그아웃 완료");
 		return "home";
 	}
 	
@@ -137,7 +138,7 @@ public class MemberController {
      		map.put("passwd", dto.getPasswd());
      		MemberDTO mDTO=service.memberLogin(map);
      		session.setAttribute("login", mDTO);
-     		m.addAttribute("join", "가입완료");
+     		m.addAttribute("mesg", "가입완료");
 			}else {
 			m.addAttribute("mesg", "가입실패. 빠진 부분 없이 다시 가입형식을 작성해주세요");	
 			return "memberForm";
@@ -145,18 +146,18 @@ public class MemberController {
 		return "home";
 		
 		}catch(Exception e){
-			m.addAttribute("join", "가입실패");	
+			m.addAttribute("mesg", "가입실패");	
 			return "home";
 		}
 	}
 		
 	
-	@RequestMapping("/memberUpdate")
+	@RequestMapping(value="/memberUpdate", method=RequestMethod.POST)
 	public String memberUpdate(@ModelAttribute MemberDTO dto,Model m,HttpSession session) {
 		System.out.println(dto);
 		MemberDTO mDTO=service.memberUpdate(dto);
 		session.setAttribute("login", mDTO);
-		m.addAttribute("update", "개인정보 수정 완료");
+		m.addAttribute("mesg", "개인정보 수정 완료");
 		return "mypage";
 	}
 	

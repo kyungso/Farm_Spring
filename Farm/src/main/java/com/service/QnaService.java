@@ -22,5 +22,17 @@ public class QnaService {
 	public QnaDTO QNARetrieve(HashMap<String, String> map) {
 		return dao.qnaRetrieve(map);
 	}
+
+	public void QNAWrite(QnaDTO dto) {
+		dao.QNAWrite(dto);
+	}
+
+	public void QNAUpdate(QnaDTO dto) {
+		dao.QNAUpdate(dto);
+	}
+
+	public void QNADelete(int qna_num) {
+		dao.QNADelete(qna_num);
+	}
 	
 }

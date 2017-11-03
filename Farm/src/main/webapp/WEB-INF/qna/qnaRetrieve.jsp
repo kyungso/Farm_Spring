@@ -21,9 +21,8 @@ table {
     width : 80%;
 }
 </style>
-<form name="myForm">
-<input type="hidden" name="qna_num" value="${qnaRetrieve.qna_num }"/>
-<input type="hidden" name="userid" value="${qnaRetrieve.userid}"/>
+<form name="myForm" action="QNAUpdateForm" >
+
 			<table width='100%' height='200' border='0' cellpadding='0' cellspacing='0' bgcolor='#FFFFFF'>
 				<tr> 
 					<td align='center' valign='top'>
@@ -31,6 +30,8 @@ table {
 							<tr align='center'> 
 								<td height='3' colspan='4' align='center' bgcolor='#cecfce'> </td>
 							</tr>
+							<tr><td><input type="hidden" name="qna_num" value="${qnaRetrieve.qna_num }"/>
+<input type="hidden" name="userid" value="${qnaRetrieve.userid}"/></td></tr>
 							<tr > 
 							
 								<td  width='50' height='25' align='center' bgcolor='#F0F0F0'><b>제목</b> </td>
@@ -50,18 +51,21 @@ table {
 							</tr>
 							<tr > 
 								<td width='50' height='29' align='center' bgcolor='#F0F0F0' ><b>작성자</b></td>
-								<td width='150' >${qnaRetrieve.username }</td>
+								<td width='150' ><input style="text" name="username" value="${qnaRetrieve.username }" readonly="readonly"></td>
 								<td width='50' align='center' bgcolor='#F0F0F0' ><b>등록일</b></td>
-								<td width='150' >${qnaRetrieve.writeday }</td>	
+								<td width='150' ><input readonly value="${qnaRetrieve.writeday }" name="writeday"></td>	
+								<c:set var="writeday" value="${qnaRetrieve.writeday}" scope="session"/>
 							</tr>
 								<tr align='center' bgcolor='#cecfce'> 
 								<td height='1' colspan='4' align='center'></td>
 							</tr>
 							<tr>
 								<td width='50' height='29' align='center' bgcolor='#F0F0F0' ><b>전화번호</b></td>
-								<td width='150' >${qnaRetrieve.phone1 }-${qnaRetrieve.phone2 }-${qnaRetrieve.phone3}</td>
+								<td width='150' ><input type="text" name="phone1" value="${qnaRetrieve.phone1}" readonly="readonly">-
+								<input type="text" name="phone2" value="${qnaRetrieve.phone2}" readonly="readonly">-
+								<input type="text" name="phone3" value="${qnaRetrieve.phone3}" readonly="readonly"></td>
 								<td width='50' align='center' bgcolor='#F0F0F0' ><b>이메일</b></td>
-								<td width='150' >${qnaRetrieve.email }</td>	
+								<td width='150' ><input type="text" name="email" readonly="readonly" value="${qnaRetrieve.email }"></td>	
 							</tr>
 							<tr align='center' bgcolor='#cecfce'> 
 								<td height='1' colspan='4' align='center'></td>
@@ -69,7 +73,7 @@ table {
 							<tr align='center' valign='top'> 
 								<td colspan='4' align='center'> 
 								<div align='justify' class='text3'>
-					     ${qnaRetrieve.content }
+					    <textarea rows="50" cols="50" name="content" readonly="readonly"> ${qnaRetrieve.content }</textarea>
 								</div>
 								</td>
 							</tr>
@@ -82,7 +86,7 @@ table {
 							</tr>
 							<tr>
 							<c:if test="${qnaRetrieve.userid==sessionScope.login.userid}">
-								<td><input type="button" id="qnaUpdate" value="수정" /></td>
+								<td><input type="submit" id="qnaUpdate" value="수정" /></td>
 								<td><input type="button" id="qnaDelete" value="삭제"></td>
 								</c:if>
 								<td><input type="button" id="qnaReply" value="댓글"></td>
@@ -95,25 +99,17 @@ table {
 						
 <script>
 $(document).ready(function(){
-	
-	$("#qnaUpdate").on("click",function(){
 		
-        document.myForm.action="QNAUpdateFormServlet";
-        document.myForm.submit();    
-		
-	});
-		
-	
 	$("#qnaDelete").on("click",function(){
 		
-        document.myForm.action="QNADeleteFormServlet";
+        document.myForm.action="QNADelete";
         document.myForm.submit();  
 		});
 	
 	
 	$("#qnaReply").on("click",function(){
 		
-        document.myForm.action="QNAReplyFormServlet";
+        document.myForm.action="QNAReplyForm";
         document.myForm.submit();    
 		
 	});

@@ -21,9 +21,18 @@ public class MemberDTO {
 	private String joinday;
 	private int jointype;
 	private String sns_id;
+	private String isSeller;
 
 	public String getSns_id() {
 		return sns_id;
+	}
+
+	public String getIsSeller() {
+		return isSeller;
+	}
+
+	public void setIsSeller(String isSeller) {
+		this.isSeller = isSeller;
 	}
 
 	public void setSns_id(String sns_id) {
@@ -35,9 +44,13 @@ public class MemberDTO {
 		// TODO Auto-generated constructor stub
 	}
 
+
+
+
+
 	public MemberDTO(String userid, String passwd, String username, String post1, String post2, String addr1,
-			String addr2, String phone1, String phone2, String phone3, int point,
-			int buycnt, String joinday,int jointype, String email,String sns_id) {
+			String addr2, String phone1, String phone2, String phone3, String email, int point, int buycnt,
+			String joinday, int jointype, String sns_id, String isSeller) {
 		super();
 		this.userid = userid;
 		this.passwd = passwd;
@@ -53,11 +66,10 @@ public class MemberDTO {
 		this.point = point;
 		this.buycnt = buycnt;
 		this.joinday = joinday;
-		this.jointype=jointype;     //SNS or 일반 가입자
-		this.sns_id=sns_id;
+		this.jointype = jointype;
+		this.sns_id = sns_id;
+		this.isSeller = isSeller;
 	}
-
-
 
 	@Override
 	public String toString() {

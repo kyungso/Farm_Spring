@@ -134,7 +134,7 @@ tr:hover {
 
 <!-- 일반계정 -->
 <c:if test="${sessionScope.login.jointype!=1}">
-	<form action="memberUpdate"> <!-- 테이블안에 안쓰면 text만 가져감.. -->
+	<form action="memberUpdate" method="POST"> <!-- 테이블안에 안쓰면 text만 가져감.. -->
 	<table>
 		<tr>
 			<td>아이디<input type="text" name="userid" id="userid"
@@ -190,9 +190,9 @@ tr:hover {
 			</select></div>
 				-- 
 				<div class="input-field inline">
-				<input type="text" name="phone2" id="phone2" value="${login.phone2}">
+				<input type="text" name="phone2" id="phone2" value="${login.phone2}" maxlength="4">
 				</div>--<div class="input-field inline">
-				<input type="text" name="phone3" id="phone3" value="${login.phone3}">
+				<input type="text" name="phone3" id="phone3" value="${login.phone3}" maxlength="4">
 				</div>
 				
 			</td> 

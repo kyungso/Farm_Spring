@@ -44,7 +44,7 @@
 	
 	<mvc:view-controller path="/idAuth" view-name="member/idAuth"/>
 	<mvc:view-controller path="/newPw_id" view-name="member/newPw_id"/>
-	
+	<mvc:view-controller path="/QNAWriteUI" view-name="qnawrite"/>
 	
 	
 	<mvc:resources location="/WEB-INF/image/" mapping="/image/**" />

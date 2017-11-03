@@ -15,16 +15,15 @@ table {
 </style>
 </head>
 <body>
-<center>
 
+	<form action='QNAWrite' method="POST">
 <table width='95%' height='500' border='0' cellpadding='0' cellspacing='0' bgcolor='#FFFFFF'>
 	<tr> 
 		<td align='center' valign='top'>
 			<table width='100%' border='0' cellpadding='0' cellspacing='0' >
-
-			<form action='QNAWriteServlet'>
+			<tr><td>
 			<input type="hidden" name="state" value="처리중">
-			<input type="hidden" name="userid" value="${sessionScope.login.userid}">
+			<input type="hidden" name="userid" value="${sessionScope.login.userid}"></td></tr>
 				<tr> 
 					<td height='1' colspan='4' align='center' bgcolor='#cecfce'></td>
 				</tr>
@@ -50,9 +49,9 @@ table {
 				</tr>
 					<tr> 
 					<td width='15%' height='25'  bgcolor='#F0F0F0' align='right'  >전화번호 : </td>
-					<td ><input name='phone1' type='text' size='16' value='${sessionScope.login.phone1}'>
-					-<input name='phone2' type='text' size='16' value='${sessionScope.login.phone2}'>
-					-<input name='phone3' type='text' size='16' value='${sessionScope.login.phone3}'></td>
+					<td ><input name='phone1' type='text' size='16' value='${sessionScope.login.phone1}' maxlength="3">
+					-<input name='phone2' type='text' size='16' value='${sessionScope.login.phone2}' maxlength="4">
+					-<input name='phone3' type='text' size='16' value='${sessionScope.login.phone3}' maxlength="4"></td>
 				</tr>
 				<tr> 
 					<td height='1' colspan='4' bgcolor='#cecfce'></td>
@@ -71,7 +70,7 @@ table {
 	
 					</td>
 					<td height='25' colspan='3' valign='top'>
-						&nbsp;<textarea name='content' cols='60' rows='20' wrap='VIRTUAL' ></textarea>
+						&nbsp;<textarea name='content' cols='60' rows='40' wrap='VIRTUAL' ></textarea>
 					</td>
 				</tr>
 				<tr> 
@@ -87,7 +86,6 @@ table {
 				</tr>
 				<tr> 
 					<td colspan='4'>&nbsp;</td>
-							</form>
 				</tr>
 
 			</table>
@@ -98,7 +96,7 @@ table {
 		<td>&nbsp;</td>
 	</tr>
 </table>
-
+</form>
 
 </body>
 </html>

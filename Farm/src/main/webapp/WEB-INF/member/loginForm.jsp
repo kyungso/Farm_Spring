@@ -57,7 +57,7 @@ tr:hover {
 }
 </style>
 
-	<form action="login">
+	<form action="login" method="POST">
 	<table>
 		<tr>
 			<td>아이디<input type="text" name="userid" required></td>
