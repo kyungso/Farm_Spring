@@ -26,7 +26,7 @@
 		<a href="main_mypage" style="color: black; margin-left: 1%">
 		&nbsp;&nbsp;마이페이지
 		</a>
-		<a href="CartListServlet" style="color: black; margin-left: 1%">
+		<a href="cartList" style="color: black; margin-left: 1%">
 		&nbsp;&nbsp;장바구니
 		</a>
 	</div>
