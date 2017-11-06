@@ -75,5 +75,8 @@ public class MemberDAO {
 		template.update("changePw_id",map);
 	}
 
+	public MemberDTO mypage(String userid) {
+		return template.selectOne("mypage",userid);
+	}
 
 }
