@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.QnaDAO;
 import com.dto.QnaDTO;
@@ -33,6 +34,12 @@ public class QnaService {
 
 	public void QNADelete(int qna_num) {
 		dao.QNADelete(qna_num);
+	}
+
+	@Transactional
+	public void QNAReplyWrite(QnaDTO dto) {
+		dao.tx(dto);
+		
 	}
 	
 }
