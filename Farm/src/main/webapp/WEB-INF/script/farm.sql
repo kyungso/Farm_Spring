@@ -44,22 +44,7 @@ create table review
    gsize VARCHAR2(10) NOT NULL);
 
 create sequence review_num_seq START WITH 1;
-
- create table cart
- (  cart_num NUMBER(10) PRIMARY KEY,
-    gCategory VARCHAR2(20) not null,
-    gCode varchar2(20) not null,
-    gName varchar2(50) not null,
-    gPrice NUMBER(10) not null,
-    gAmount NUMBER(10) not null,
-    gImage1 VARCHAR2(20) not null,
-    userid VARCHAR2(10) not null,
-    gSize VARCHAR2(10) not null
- );  
  
- create sequence cart_num_seq START WITH 1;
- 
-
  create table freeboard
 ( board_num NUMBER(20) PRIMARY KEY,
   userid VARCHAR2(20) NOT NULL,
@@ -85,31 +70,6 @@ create sequence  board_num_seq start with 1;
 create sequence co_num_seq start with 1;
 
 
-create table orderinfo
-(
- 
-USERID VARCHAR2(10) PRIMARY KEY,
-ORDERNUM NUMBER(10) NOT NULL,
-ORDERNAME NUMBER(10) NOT NULL,
-PHONE VARCHAR2(15) NOT NULL,
-POST1 VARCHAR2(3) NOT NULL,
-POST2 VARCHAR2(3) NOT NULL,
-ADDR1 VARCHAR2(500) DEFAULT 'x',
-ADDR2 VARCHAR2(500) NOT NULL,
-GCODE VARCHAR2(20) NOT NULL,
-GNAME VARCHAR2(50) NOT NULL,
-GPRICE NUMBER(10) NOT NULL,
-GSIZE VARCHAR2(10) NOT NULL,
-GIMAGE VARCHAR2(20) NOT NULL,
-PAYMETHOD VARCHAR2(10) NOT NULL,
-GAMOUNT NUMBER(10) NOT NULL,
-ORDERDAY DATE DEFAULT SYSDATE
-
-);
-
-
-
-
 create table QNA(
  
 USERID VARCHAR2(30) NOT NULL ,
@@ -128,3 +88,37 @@ GROUP_NO NUMBER(10)
 
  create sequence QNA_NUM_seq START WITH 1;
  
+ -- cart
+ create table cart
+ (  cart_num NUMBER(10) PRIMARY KEY,
+    gCategory VARCHAR2(20) not null,
+    gCode varchar2(20) not null,
+    gName varchar2(50) not null,
+    gPrice NUMBER(10) not null,
+    gAmount NUMBER(10) not null,
+    gImage1 VARCHAR2(20) not null,
+    userid VARCHAR2(10) not null);  
+ drop sequence cart_num_seq;
+ create sequence cart_num_seq start with 1; 
+
+ --order
+ create table orderInfo(
+ORDER_NUM NUMBER(10) PRIMARY KEY,
+USERID VARCHAR2(10) NOT NULL,
+ORDERNAME VARCHAR2(10) NOT NULL,
+PHONE VARCHAR2(15) NOT NULL,
+POST1 VARCHAR2(3) NOT NULL,
+POST2 VARCHAR2(3) NOT NULL,
+ADDR1 VARCHAR2(500) DEFAULT 'X',
+ADDR2 VARCHAR2(500) NOT NULL,
+GCODE VARCHAR2(20) NOT NULL,
+GNAME VARCHAR2(50) NOT NULL,
+GPRICE NUMBER(10) NOT NULL,
+GIMAGE1 VARCHAR2(20) NOT NULL,
+PAYMETHOD VARCHAR2(10) NOT NULL,
+GAMOUNT NUMBER(10) NOT NULL,
+ORDERDAY DATE DEFAULT SYSDATE
+);
+
+drop sequence order_num_seq;
+create sequence order_num_seq START WITH 1;
