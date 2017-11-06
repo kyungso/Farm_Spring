@@ -13,12 +13,13 @@
 <input type="hidden" name="phone2" value="${sessionScope.login.phone2}">
 <input type="hidden" name="phone3" value="${sessionScope.login.phone3}">
 <input type="hidden" name="email" value="${sessionScope.login.email}">
+<input type="hidden" name="group_no" value="${group_no}">
 <table style="margin:50px;width:80%;">
 <tr>
 <td>글번호 : <input type="text" value="${qna_num}" name="qna_num" readonly="readonly"></td>
 <td>작성자 : <input type="text" value="${sessionScope.login.userid}" name="userid" readonly="readonly"></td>
 </tr>
-<tr><td>글제목 : <input type="text" value='└──RE:&nbsp;${title}' name="title" readonly style="font-weight:bold"></td></tr>
+<tr><td>글제목 : <input type="text" value="└──RE: ${title}" name="title" readonly style="font-weight:bold"></td></tr>
 <tr><td>답변 내용</td></tr>
 </table>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

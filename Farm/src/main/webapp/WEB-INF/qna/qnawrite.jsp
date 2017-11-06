@@ -12,6 +12,32 @@ table {
     margin: 30px;
     width : 80%;
 }
+
+.button {
+	background-color: #64b5f6;
+	border: none;
+	color: white;
+	padding: 8px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 2px 2px;
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+
+.button {
+	background-color: white;
+	color: black;
+	border: 2px solid gray;
+}
+
+.button:hover {
+	background-color: #64b5f6;
+	color: white;
+	border: 2px solid white;
+}
 </style>
 </head>
 <body>
@@ -42,7 +68,7 @@ table {
 				</tr>
 					<tr> 
 					<td width='15%' height='25'  bgcolor='#F0F0F0' align='right'  >이메일 : </td>
-					<td height='25' colspan='3'>&nbsp;<input name='email' type='email' size='16' value='${sessionScope.login.email}'></td>
+					<td height='25' colspan='3'>&nbsp;<input name='email' type='email' size='16' value='${sessionScope.login.email}' required></td>
 				</tr>
 				<tr> 
 					<td height='1' colspan='4' bgcolor='#cecfce'></td>
@@ -59,7 +85,7 @@ table {
 				<tr> 
 					<td height='25'  bgcolor='#F0F0F0'  align='right' class='b' >제 목 : </td>
 					<td height='25' colspan='3'>
-						&nbsp;<input name='title' type='text' size='50'>
+						&nbsp;<input name='title' type='text' size='50' required>
 					</td>
 				</tr>
 				<tr> 
@@ -70,7 +96,7 @@ table {
 	
 					</td>
 					<td height='25' colspan='3' valign='top'>
-						&nbsp;<textarea name='content' cols='60' rows='40' wrap='VIRTUAL' ></textarea>
+						&nbsp;<textarea name='content' cols='60' rows='40' wrap='VIRTUAL' required></textarea>
 					</td>
 				</tr>
 				<tr> 
@@ -82,7 +108,7 @@ table {
 				</tr>
 
 				<tr align='center'> 
-					<td height='25' colspan='4'><input type="submit" value="글쓰기"></td>
+					<td height='25' colspan='4'><input class="button" type="submit" value="글쓰기"></td>
 				</tr>
 				<tr> 
 					<td colspan='4'>&nbsp;</td>

@@ -13,14 +13,40 @@ table {
     margin: 50px;
     width : 80%;
 }
+
+.button {
+	background-color: #64b5f6;
+	border: none;
+	color: white;
+	padding: 8px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 2px 2px;
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+
+.button {
+	background-color: white;
+	color: black;
+	border: 2px solid gray;
+}
+
+.button:hover {
+	background-color: #64b5f6;
+	color: white;
+	border: 2px solid white;
+}
 </style>
 
+
 <h1>&nbsp;&nbsp;&nbsp;Q & A</h1>
-<table >
+<table>
 <thead>
 <tr>
 <th>글번호</th>
-<th>그룹</th>
 <th>작성자</th>
 <th>제목</th>
 <th>작성일</th>
@@ -36,7 +62,6 @@ table {
 <c:forEach var="qna" items="${qnaList}">
 <tr>
 <td>${qna.qna_num }</td>
-<td>${qna.group_no}</td>
 <td>${qna.username }</td>
 <td><a href="QNARetrieve?qna_num=${qna.qna_num}&userid=${sessionScope.login.userid}">${qna.title }</a></td>
 <td>${qna.writeday }</td>
@@ -60,19 +85,15 @@ table {
 </tr>
 </c:forEach>
 </c:if>
+<tr><td><button class='button' onClick="location.href='QNAWriteUI'">문의하기</button></td></tr>
 </tbody>
 </table>
-<button onClick="location.href='QNAWriteUI'">문의하기</button>
+
 
 </body>
 </html>
-<c:if test="${!empty qnaWrite }">
+<c:if test="${!empty mesg }">
 <script>
-alert("${qnaWrite}");
-</script>
-</c:if>
-<c:if test="${!empty qnaDelete }">
-<script>
-alert("${qnaDelete}");
+alert("${mesg}");
 </script>
 </c:if>

@@ -39,6 +39,6 @@ public class QnaDAO {
 
 	public void tx(QnaDTO dto) {
 		template.update("stateUpdate",Integer.parseInt(dto.getQna_num()));
-		template.insert("qnaWrite", dto);
+		template.insert("qnaReplyWrite", dto);
 	}
 }

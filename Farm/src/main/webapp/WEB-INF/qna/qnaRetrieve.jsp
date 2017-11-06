@@ -7,6 +7,33 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.button {
+	background-color: #64b5f6;
+	border: none;
+	color: white;
+	padding: 8px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 14px;
+	margin: 2px 2px;
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+
+.button {
+	background-color: white;
+	color: black;
+	border: 2px solid gray;
+}
+
+.button:hover {
+	background-color: #64b5f6;
+	color: white;
+	border: 2px solid white;
+}
+</style>
 
 
  <c:if test="${!empty qnaUpdate}">
@@ -21,6 +48,7 @@ table {
     width : 80%;
 }
 </style>
+
 <form name="myForm" action="QNAUpdateForm" >
 
 			<table width='100%' height='200' border='0' cellpadding='0' cellspacing='0' bgcolor='#FFFFFF'>
@@ -31,6 +59,7 @@ table {
 								<td height='3' colspan='4' align='center' bgcolor='#cecfce'> </td>
 							</tr>
 							<tr><td><input type="hidden" name="qna_num" value="${qnaRetrieve.qna_num }"/>
+							<input type="hidden" name="group_no" value="${qnaRetrieve.group_no }"/>
 <input type="hidden" name="userid" value="${qnaRetrieve.userid}"/></td></tr>
 							<tr > 
 							
@@ -85,11 +114,13 @@ table {
 								<td colspan='4' align='center'>&nbsp;</td>
 							</tr>
 							<tr>
-							<c:if test="${qnaRetrieve.userid==sessionScope.login.userid}">
-								<td><input type="submit" id="qnaUpdate" value="수정" /></td>
-								<td><input type="button" id="qnaDelete" value="삭제"></td>
-								</c:if>
-								<td><input type="button" id="qnaReply" value="댓글"></td>
+								<c:if test = "${!fn:contains(qnaRetrieve.title, '└──RE:')}">
+								<td><input type="button" class="button" id="qnaDelete" value="삭제"></td>
+							<c:if test="${qnaRetrieve.state !='답변완료'}">
+							<td><input type="submit" class="button" id="qnaUpdate" value="수정"></td>
+								<td><input type="button" class="button" id="qnaReply" value="댓글"></td>
+							</c:if>
+							</c:if>
 							</tr>
 							</table>
 							</td>

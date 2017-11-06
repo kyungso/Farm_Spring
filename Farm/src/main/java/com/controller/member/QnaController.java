@@ -81,6 +81,7 @@ public class QnaController {
 	@RequestMapping(value="/QNAReplyForm")
 	public String QNAReplyForm(@ModelAttribute QnaDTO dto,Model m ){
 		m.addAttribute("qna_num", dto.getQna_num());
+		m.addAttribute("group_no",dto.getGroup_no());
 		m.addAttribute("title", dto.getTitle());
 		return "qnaReply";
 	}
