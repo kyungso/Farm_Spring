@@ -91,16 +91,17 @@ th, td {
 									</tr>
 								</c:forEach>
 							</c:if>
-				<tr bgcolor='#cecfce'>
-								<td height='1' colspan='5'></td>
-							</tr>
-                    <tr>
+				
+						</table>
+					</td>
+				</tr>
+				<tr>
 					<td align="center" colspan="5"><jsp:include page="page.jsp"
 							flush="true" /></td>
 				</tr>
 				<tr>
 					<td>
-									  <div class="browser-default col s1" style="border-left: 20px;"> 
+									  <div class="browser-default col s1" style="padding-left: 10px;"> 
 										<select class="browser-default col s3"   name="searchName" >
 											<option value="title" >제목</option>
 											<option value="author">작성자</option>
