@@ -22,6 +22,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
@@ -50,8 +51,17 @@ public class MemberController {
 	MemberService service;
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String memberLogin(@RequestParam HashMap<String, String> map, HttpSession session, Model m ) {
+	public String memberLogin(@RequestParam HashMap<String, String> map, HttpSession session, 
+							  Model m, HttpServletRequest request ) {
+		
 		MemberDTO dto = service.memberLogin(map);
+		
+		//관리자 
+				if(request.getAttribute("admin")==null) {
+					return "forward:adminLogin";
+				}
+		////////////////////////////////////////////////////////
+				
 		if(dto != null) {
 		session.setAttribute("login",dto);
 		m.addAttribute("mesg","로그인 되었습니다");

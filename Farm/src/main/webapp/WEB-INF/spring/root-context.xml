@@ -29,6 +29,7 @@
 				<value>classpath:com/config/FreeBoardMapper.xml</value>
 				<value>classpath:com/config/QnaMapper.xml</value>
 				<value>classpath:com/config/CommentMapper.xml</value>
+				<value>classpath:com/config/AdminMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
@@ -40,6 +41,7 @@
 				<value>com.dto.FreeBoardDTO</value>
 				<value>com.dto.QnaDTO</value>
 				<value>com.dto.CommentDTO</value>
+				<value>com.dto.AdminDTO</value>
 			</list>
 		</property>
 	</bean>

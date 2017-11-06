@@ -82,6 +82,15 @@
 	aop설정
 	<aop:aspectj-autoproxy/> -->
 
+	<!-- admin 로그인 관리 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**" />
+				<bean class="com.interceptor.AdminHandlerInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	<!-- ================================== -->
+	
 	<bean id="transcationManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	<property name="dataSource" ref="dataSource"></property>
 	</bean>
