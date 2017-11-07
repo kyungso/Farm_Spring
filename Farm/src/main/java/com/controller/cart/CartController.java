@@ -15,36 +15,53 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.CartDTO;
 import com.dto.MemberDTO;
 import com.service.CartService;
 
 @Controller
-//@RequestMapping("/loginX")
 public class CartController {
 
 	@Autowired
 	CartService service;
 	
 	@RequestMapping("/cartAdd")
-	public String cartAdd(@ModelAttribute("cartDTO")CartDTO dto, Model m, HttpSession session) {
+	public ModelAndView cartAdd(@ModelAttribute("cartDTO")CartDTO dto, Model m, HttpSession session,
+								RedirectAttributes redirectAttributes) {
+		ModelAndView mav = new ModelAndView();
+		
 		MemberDTO mem = (MemberDTO)session.getAttribute("login");
-		dto.setUserid(mem.getUserid());
-		service.addCart(dto);
-		//m.addAttribute("cart","장바구니에"+dto.getgName()+" 상품이 잘 담겼습니다.");
-		String gCode = dto.getgCode();
-		return "redirect:goodsRetrieve?gCode="+gCode;
+		if(mem == null) {
+			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			mav.setViewName("redirect:loginForm");
+		}
+		else{
+			dto.setUserid(mem.getUserid());
+			service.addCart(dto);
+			String gCode = dto.getgCode();
+			//mav.addObject("cart","장바구니에 "+dto.getgName()+" 상품이 잘 담겼습니다.");
+			redirectAttributes.addFlashAttribute("cart","장바구니에 "+dto.getgName()+" 상품이 잘 담겼습니다." );
+			mav.setViewName("redirect:goodsRetrieve?gCode="+gCode);
+		}
+		return mav;
 	}
 	
 	@RequestMapping("/cartList")
-	public ModelAndView cartList(HttpSession session) {
+	public ModelAndView cartList(HttpSession session, RedirectAttributes redirectAttributes) {
 		MemberDTO mem = (MemberDTO)session.getAttribute("login");
-		List<CartDTO> list = service.cartList(mem.getUserid());
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("cartList");
-		mav.addObject("cartList",list);
-		return mav;
+		if(mem == null) {
+			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			mav.setViewName("redirect:loginForm");
+			return mav;
+		}else {
+			List<CartDTO> list = service.cartList(mem.getUserid());
+			mav.setViewName("cartList");
+			mav.addObject("cartList",list);
+			return mav;
+		}
 	}
 	
 	@RequestMapping("/cartAmountUpdate")
