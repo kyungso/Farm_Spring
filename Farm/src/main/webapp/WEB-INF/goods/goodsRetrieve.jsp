@@ -10,36 +10,28 @@
 <script>
 	$(document).ready(function(){
 		$("#cartButton").on("click",function(){
-			if($("#GOODS_SIZE").val()==null){
-				alert('중량 선택 해주세요');
-			}else{
-				/* document.goodRetrieveForm.action ="CartAddServlet"; */
-				$("form").attr('action','CartAddServlet');
-			}
+			/* document.goodRetrieveForm.action ="CartAddServlet"; */
+			$("form").attr('action','cartAdd');
 		});
 		
 		$("#orderButton").on("click",function(){
-			if($("#GOODS_SIZE").val()==null){
-				alert('중량 선택 해주세요');
-			}else{
 				/* document.goodRetrieveForm.action ="OrderConfirmServlet"; */
-				$("form").attr('action','OrderConfirmServlet');
-			}
+				$("form").attr('action','orderConfirm_d');
 		});
 		
 		$("#up").on("click",function(){
-			var amount = parseInt($("#GOODS_AMOUNT").val());
+			var amount = parseInt($("#gAmount").val());
 			amount+=1;
-			$("#GOODS_AMOUNT").val(amount);
+			$("#gAmount").val(amount);
 		});
 		
 		$("#down").on("click",function(){
-			var amount = parseInt($("#GOODS_AMOUNT").val());
+			var amount = parseInt($("#gAmount").val());
 			amount-=1;
 			 if(amount==0){
 				 amount=1;
 			 }
-			 $("#GOODS_AMOUNT").val(amount);
+			 $("#gAmount").val(amount);
 		});
 		
 		// bottomFix의 button
@@ -49,13 +41,9 @@
 		});
 		
 		$("#bottom_order").on("click",function(){
-			if($("#GOODS_SIZE").val()==null){
-				alert('중량 선택 해주세요');
-			}else{
-				/* document.goodRetrieveForm.action ="OrderConfirmServlet";
-				document.goodRetrieveForm.submit(); */
-				$("form").attr('action','OrderConfirmServlet').submit();
-			}
+			/* document.goodRetrieveForm.action ="OrderConfirmServlet";
+			document.goodRetrieveForm.submit(); */
+			$("form").attr('action','orderConfirm').submit();
 		});
 		
 		
@@ -64,11 +52,11 @@
 </script>
 
 <form name="goodRetrieveForm" >
-	<input type="hidden" name="gimage1" value="${goodsRetrieve.gimage1}">
-	<input type="hidden" name="gcategory" value="${goodsRetrieve.gcategory}">
-	<input type="hidden" name="gcode" value="${goodsRetrieve.gcode}">
-	<input type="hidden" name="gname" value="${goodsRetrieve.gname}">
-	<input type="hidden" name="gprice" value="${goodsRetrieve.gprice}">
+	<input type="hidden" name="gImage1" value="${goodsRetrieve.gImage1}">
+	<input type="hidden" name="gCategory" value="${goodsRetrieve.gCategory}">
+	<input type="hidden" name="gCode" value="${goodsRetrieve.gCode}">
+	<input type="hidden" name="gName" value="${goodsRetrieve.gName}">
+	<input type="hidden" name="gPrice" value="${goodsRetrieve.gPrice}">
 
 	<table width="100%" cellspacing="0" cellpadding="0">
 		<tr>
@@ -80,43 +68,46 @@
 					</tr>
 					<tr>
 						<td rowspan="7">
-						 <img src="images/items/${goodsRetrieve.gimage1}.jpg" border="0" align="center" width="300" />
-					      <img src="/images/${goodsRetrieve.gimage1}"border="0" align="center" width="200"   >	</td>
+						 <img src="images/items/${goodsRetrieve.gImage1}.jpg" border="0" align="center" width="300" /></td>
 						<td class="td_title">제품코드</td>
-						<td class="td_default" colspan="2">${goodsRetrieve.gcode}</td>
+						<td class="td_default" colspan="2">${goodsRetrieve.gCode}</td>
 					</tr>
 					<tr>
 						<td class="td_title">상품명</td>
-						<td class="td_default" colspan="2">${goodsRetrieve.gname}</td>
+						<td class="td_default" colspan="2">${goodsRetrieve.gName}</td>
 					</tr>
 					<tr>
 						<td class="td_title">가격</td>
-						<td class="td_red" colspan="2">${goodsRetrieve.gprice}</td>
+						<td class="td_red" colspan="2">${goodsRetrieve.gPrice}</td>
 					</tr>
 					<tr>
 						<td class="td_title">배송비</td>
 						<td colspan="2"><font color="#2e56a9" size="2"><b> 무료배송</b> </font> <font size="2">(도서 산간지역 별도 배송비 추가)</font></td>
 					</tr>
-					<tr>
+					<!--<tr>
 						<td class="td_title">상품옵션</td>
 						<td class="row" colspan="2">
-						  <select class="browser-default col s3" size="1" name="GOODS_SIZE" id="GOODS_SIZE">
+						  <select class="browser-default col s3" size="1" name="gSize" id="gSize">
 								<option disabled selected>중량 선택</option>
 								<option value="1kg">1kg</option>
 								<option value="5kg">5kg</option>
 								<option value="10kg">10kg</option>
 						  </select>
 						</td>
-					</tr>
+					</tr>-->
 					<tr>
 						<td class="td_title">주문수량</td>
-						<td class="row">
-						  <input class="input-field col s3" type="text"
-							     name="GOODS_AMOUNT" value="1" id="GOODS_AMOUNT"
-							     style="text-align: right; height: 18px">&nbsp;&nbsp; 
-						  <img src="images/up.PNG" id="up"> 
-						  <img src="images/down.PNG" id="down">
-						</td>
+						
+						 <!--  <td><img src="images/down.PNG" id="down"></td> -->
+						  <td class="row">
+						   	<img class="col s2" src="images/down.PNG" id="down">
+						  	<input class="input-field col s2" type="text"
+							     name="gAmount" value="1" id="gAmount"
+							     style="text-align: right; height: 18px">&nbsp;&nbsp;
+							<img class="col s2" src="images/up.PNG" id="up">
+							<!-- <img src="images/up.PNG" id="up">  -->
+						  </td>
+						
 					</tr> 
 					<tr>
 					 <td colspan="3">
@@ -134,9 +125,6 @@
 
 <hr style="border: solid 1px lightgrey;">
  <div align="center" style="margin-top: 50px">
-  <img src="images/items/${goodsRetrieve.gimage2}.jpg" border="0" align="center" />
-  						   <c:if test="${goodsRetrieve.gimage2 != null}">   
-					      <img src="/images/${goodsRetrieve.gimage2}"  >	
-					      </c:if></td>
+  <img src="images/items/${goodsRetrieve.gImage2}.jpg" border="0" align="center" /></td>
  </div>
  
