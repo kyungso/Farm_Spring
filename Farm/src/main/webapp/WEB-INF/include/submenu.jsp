@@ -36,7 +36,6 @@ $(function(){
 .zeta-menu li {
   float: left;
   list-style:none;
-  position: relative;
 }
 
 .zeta-menu a {
@@ -51,7 +50,6 @@ $(function(){
   border: 1px solid silver;
   display: none;
   padding: 0;
-  position: relative;
   left: 0;
   top: 100%;
   width: 180px;
@@ -83,7 +81,7 @@ span:hover { color: hotpink;}
    -->
 <div class="row" style="margin-top: 1%; margin: auto; ">
     <div class="col s12" >
-      <ul class="zeta-menu" style="margin: auto; vertical-align: center; padding-left: 350px;">
+      <ul class="zeta-menu" style="margin: auto; vertical-align: center; padding-left: 250px;">
         <li class="col s3">
         	<a><i class="material-icons">menu</i><span>메뉴전체보기</span></a>
         	<ul>
