@@ -20,18 +20,18 @@
 		});
 		
 		$("#up").on("click",function(){
-			var amount = parseInt($("#gAmount").val());
+			var amount = parseInt($("#gamount").val());
 			amount+=1;
-			$("#gAmount").val(amount);
+			$("#gamount").val(amount);
 		});
 		
 		$("#down").on("click",function(){
-			var amount = parseInt($("#gAmount").val());
+			var amount = parseInt($("#gamount").val());
 			amount-=1;
 			 if(amount==0){
 				 amount=1;
 			 }
-			 $("#gAmount").val(amount);
+			 $("#gamount").val(amount);
 		});
 		
 		// bottomFix의 button
@@ -52,11 +52,11 @@
 </script>
 
 <form name="goodRetrieveForm" >
-	<input type="hidden" name="gImage1" value="${goodsRetrieve.gImage1}">
-	<input type="hidden" name="gCategory" value="${goodsRetrieve.gCategory}">
-	<input type="hidden" name="gCode" value="${goodsRetrieve.gCode}">
-	<input type="hidden" name="gName" value="${goodsRetrieve.gName}">
-	<input type="hidden" name="gPrice" value="${goodsRetrieve.gPrice}">
+	<input type="hidden" name="gimage1" value="${goodsRetrieve.gimage1}">
+	<input type="hidden" name="gcategory" value="${goodsRetrieve.gcategory}">
+	<input type="hidden" name="gcode" value="${goodsRetrieve.gcode}">
+	<input type="hidden" name="gname" value="${goodsRetrieve.gname}">
+	<input type="hidden" name="gprice" value="${goodsRetrieve.gprice}">
 
 	<table width="100%" cellspacing="0" cellpadding="0">
 		<tr>
@@ -68,17 +68,17 @@
 					</tr>
 					<tr>
 						<td rowspan="7">
-						 <img src="images/items/${goodsRetrieve.gImage1}.jpg" border="0" align="center" width="300" /></td>
+						 <img src="images/items/${goodsRetrieve.gimage1}.jpg" border="0" align="center" width="300" /></td>
 						<td class="td_title">제품코드</td>
-						<td class="td_default" colspan="2">${goodsRetrieve.gCode}</td>
+						<td class="td_default" colspan="2">${goodsRetrieve.gcode}</td>
 					</tr>
 					<tr>
 						<td class="td_title">상품명</td>
-						<td class="td_default" colspan="2">${goodsRetrieve.gName}</td>
+						<td class="td_default" colspan="2">${goodsRetrieve.gname}</td>
 					</tr>
 					<tr>
 						<td class="td_title">가격</td>
-						<td class="td_red" colspan="2">${goodsRetrieve.gPrice}</td>
+						<td class="td_red" colspan="2">${goodsRetrieve.gprice}</td>
 					</tr>
 					<tr>
 						<td class="td_title">배송비</td>
@@ -100,11 +100,11 @@
 						
 						 <!--  <td><img src="images/down.PNG" id="down"></td> -->
 						  <td class="row">
-						   	<img class="col s2" src="images/down.PNG" id="down">
+						   	<img class="col s1" src="images/down.PNG" id="down">
 						  	<input class="input-field col s2" type="text"
-							     name="gAmount" value="1" id="gAmount"
+							     name="gamount" value="1" id="gamount"
 							     style="text-align: right; height: 18px">&nbsp;&nbsp;
-							<img class="col s2" src="images/up.PNG" id="up">
+							<img class="col s1" src="images/up.PNG" id="up">
 							<!-- <img src="images/up.PNG" id="up">  -->
 						  </td>
 						
@@ -125,6 +125,6 @@
 
 <hr style="border: solid 1px lightgrey;">
  <div align="center" style="margin-top: 50px">
-  <img src="images/items/${goodsRetrieve.gImage2}.jpg" border="0" align="center" /></td>
+  <img src="images/items/${goodsRetrieve.gimage2}.jpg" border="0" align="center" /></td>
  </div>
  

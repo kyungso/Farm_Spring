@@ -98,23 +98,23 @@ label{
 				<c:forEach var="cDTOlist" items="${cDTO}"> 
 					<input type="hidden" name="cart_num" value="${cDTOlist.cart_num}">
 					<input type="hidden" name="userid" value="${cDTOlist.userid}">
-					<input type="hidden" name="gCode" value="${cDTOlist.gCode}">
-					<input type="hidden" name="gName" value="${cDTOlist.gName}">
-					<input type="hidden" name="gPrice" value="${cDTOlist.gPrice}">
-					<input type="hidden" name="gAmount" value="${cDTOlist.gAmount}">
-					<input type="hidden" name="gImage1" value="${cDTOlist.gImage1}">
+					<input type="hidden" name="gcode" value="${cDTOlist.gcode}">
+					<input type="hidden" name="gname" value="${cDTOlist.gname}">
+					<input type="hidden" name="gprice" value="${cDTOlist.gprice}">
+					<input type="hidden" name="gamount" value="${cDTOlist.gamount}">
+					<input type="hidden" name="gimage1" value="${cDTOlist.gimage1}">
 					<tr>
 						<td class="td_default" width="80">${cDTOlist.cart_num}</td>
 						<td class="td_default" width="80"><img
-							src="images/items/${cDTOlist.gImage1}.jpg" border="0" align="center"
+							src="images/items/${cDTOlist.gimage1}.jpg" border="0" align="center"
 							width="80" /></td>
-						<td class="td_default" width="300" style='padding-left: 30px'>${cDTOlist.gName}
+						<td class="td_default" width="300" style='padding-left: 30px'>${cDTOlist.gname}
 							<br> 
 						</td>
-						<td class="td_default" align="center" width="110">${cDTOlist.gPrice}
+						<td class="td_default" align="center" width="110">${cDTOlist.gprice}
 						</td>
-						<td class="td_default" align="center" width="90">${cDTOlist.gAmount}</td>
-						<c:set var="total_cost" value="${total_cost+(cDTOlist.gPrice*cDTOlist.gAmount)}"></c:set>
+						<td class="td_default" align="center" width="90">${cDTOlist.gamount}</td>
+						<c:set var="total_cost" value="${total_cost+(cDTOlist.gprice*cDTOlist.gamount)}"></c:set>
 					</tr>
 				
 				</c:forEach>

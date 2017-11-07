@@ -76,14 +76,14 @@ label{
 				<c:set var="result" value="0"></c:set>
 				<c:forEach var="oDTO" items="${oDTOlist}">
 				<tr>
-					<td height="35" class="td_default"><span class="a_default">${oDTO.gName}</span>
+					<td height="35" class="td_default"><span class="a_default">${oDTO.gname}</span>
 					</td>
 					<td height="35" class="td_default" align="center"><span
-						id="price1">${oDTO.gPrice}</span>원</td>
+						id="price1">${oDTO.gprice}</span>원</td>
 					<td height="35" class="td_default" align="center"><span
-						id="num1">${oDTO.gAmount}</span>개</td>
-					<td height="35" class="td_default" align="center"><span>${oDTO.gPrice*oDTO.gAmount}</span>원
-					<c:set var="result" value="${result+(oDTO.gPrice*oDTO.gAmount)}"></c:set>
+						id="num1">${oDTO.gamount}</span>개</td>
+					<td height="35" class="td_default" align="center"><span>${oDTO.gprice*oDTO.gamount}</span>원
+					<c:set var="result" value="${result+(oDTO.gprice*oDTO.gamount)}"></c:set>
 					</td>
 				</tr>
 				</c:forEach>

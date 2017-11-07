@@ -7,27 +7,27 @@ public class CartDTO {
 
 	private int cart_num;
 	private String userid;
-	private String gCategory;
-	private String gCode;
-	private String gName;
-	private int gPrice;
-	private int gAmount;
-	private String gImage1;
+	private String gcategory;
+	private String gcode;
+	private String gname;
+	private int gprice;
+	private int gamount;
+	private String gimage1;
 	public CartDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CartDTO(int cart_num, String userid, String gCategory, String gCode, String gName, int gPrice, int gAmount,
-			String gImage1) {
+	public CartDTO(int cart_num, String userid, String gcategory, String gcode, String gname, int gprice, int gamount,
+			String gimage1) {
 		super();
 		this.cart_num = cart_num;
 		this.userid = userid;
-		this.gCategory = gCategory;
-		this.gCode = gCode;
-		this.gName = gName;
-		this.gPrice = gPrice;
-		this.gAmount = gAmount;
-		this.gImage1 = gImage1;
+		this.gcategory = gcategory;
+		this.gcode = gcode;
+		this.gname = gname;
+		this.gprice = gprice;
+		this.gamount = gamount;
+		this.gimage1 = gimage1;
 	}
 	public int getCart_num() {
 		return cart_num;
@@ -41,48 +41,46 @@ public class CartDTO {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public String getgCategory() {
-		return gCategory;
+	public String getGcategory() {
+		return gcategory;
 	}
-	public void setgCategory(String gCategory) {
-		this.gCategory = gCategory;
+	public void setGcategory(String gcategory) {
+		this.gcategory = gcategory;
 	}
-	public String getgCode() {
-		return gCode;
+	public String getGcode() {
+		return gcode;
 	}
-	public void setgCode(String gCode) {
-		this.gCode = gCode;
+	public void setGcode(String gcode) {
+		this.gcode = gcode;
 	}
-	public String getgName() {
-		return gName;
+	public String getGname() {
+		return gname;
 	}
-	public void setgName(String gName) {
-		this.gName = gName;
+	public void setGname(String gname) {
+		this.gname = gname;
 	}
-	public int getgPrice() {
-		return gPrice;
+	public int getGprice() {
+		return gprice;
 	}
-	public void setgPrice(int gPrice) {
-		this.gPrice = gPrice;
+	public void setGprice(int gprice) {
+		this.gprice = gprice;
 	}
-	public int getgAmount() {
-		return gAmount;
+	public int getGamount() {
+		return gamount;
 	}
-	public void setgAmount(int gAmount) {
-		this.gAmount = gAmount;
+	public void setGamount(int gamount) {
+		this.gamount = gamount;
 	}
-	public String getgImage1() {
-		return gImage1;
+	public String getGimage1() {
+		return gimage1;
 	}
-	public void setgImage1(String gImage1) {
-		this.gImage1 = gImage1;
+	public void setGimage1(String gimage1) {
+		this.gimage1 = gimage1;
 	}
-	
 	@Override
 	public String toString() {
-		return "CartDTO [cart_num=" + cart_num + ", userid=" + userid + ", gCategory=" + gCategory + ", gCode=" + gCode
-				+ ", gName=" + gName + ", gPrice=" + gPrice + ", gAmount=" + gAmount + ", gImage1=" + gImage1
-				+ "]";
+		return "CartDTO [cart_num=" + cart_num + ", userid=" + userid + ", gcategory=" + gcategory + ", gcode=" + gcode
+				+ ", gname=" + gname + ", gprice=" + gprice + ", gamount=" + gamount + ", gimage1=" + gimage1 + "]";
 	}
 	
 }

@@ -85,7 +85,6 @@ public class OrderController {
 		
 		ModelAndView mav = new ModelAndView();
 		String cart_num = map.get("cart_num");
-		String userid = map.get("userid");
 		
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
 		if(mDTO==null) {
@@ -113,12 +112,12 @@ public class OrderController {
 			mav.setViewName("redirect:loginForm");
 		}else {
 			String id = mDTO.getUserid();
-			String gCode = map.get("gCode");
-			String gAmount = map.get("gAmount");
+			String gcode = map.get("gcode");
+			String gamount = map.get("gamount");
 		
-			GoodsDTO gDTO = gService.goodsRetrieve(gCode);
+			GoodsDTO gDTO = gService.goodsRetrieve(gcode);
 			MemberDTO memDTO = mService.mypage(id);
-			mav.addObject("gAmount",gAmount);
+			mav.addObject("gamount",gamount);
 			mav.addObject("gDTO",gDTO);
 			mav.addObject("memDTO",memDTO);
 			
@@ -188,11 +187,11 @@ public class OrderController {
 			@RequestParam String[] cart_num,
 			@RequestParam String[] userid,
 
-			@RequestParam String[] gCode,
-			@RequestParam String[] gName,
-			@RequestParam String[] gPrice,
-			@RequestParam String[] gAmount,
-			@RequestParam String[] gImage1,
+			@RequestParam String[] gcode,
+			@RequestParam String[] gname,
+			@RequestParam String[] gprice,
+			@RequestParam String[] gamount,
+			@RequestParam String[] gimage1,
 
 			@RequestParam String orderName,
 			@RequestParam String post1,
@@ -214,11 +213,11 @@ public class OrderController {
 			for (int i = 0; i < cart_num.length; i++) {
 				OrderDTO dto = new OrderDTO();
 				dto.setUserid(userid[i]);
-				dto.setgCode(gCode[i]);
-				dto.setgName(gName[i]);
-				dto.setgPrice(Integer.parseInt(gPrice[i]));
-				dto.setgAmount(Integer.parseInt(gAmount[i]));
-				dto.setgImage1(gImage1[i]);
+				dto.setGcode(gcode[i]);
+				dto.setGname(gname[i]);
+				dto.setGprice(Integer.parseInt(gprice[i]));
+				dto.setGamount(Integer.parseInt(gamount[i]));
+				dto.setGimage1(gimage1[i]);
 				dto.setOrderName(orderName);
 				dto.setPost1(post1);
 				dto.setPost2(post2);

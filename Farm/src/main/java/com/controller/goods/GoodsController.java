@@ -37,14 +37,14 @@ public class GoodsController {
 	
 	@RequestMapping("/goodsList")
 	@ModelAttribute("goodsList")
-	public List<GoodsDTO> goodsList(@RequestParam String gCategory){
-		return service.goodsList(gCategory);
+	public List<GoodsDTO> goodsList(@RequestParam String gcategory){
+		return service.goodsList(gcategory);
 	}
 	
 	@RequestMapping("/goodsRetrieve")
 	@ModelAttribute("goodsRetrieve")
-	public GoodsDTO goodsRetrieve(@RequestParam String gCode){
-		return service.goodsRetrieve(gCode);
+	public GoodsDTO goodsRetrieve(@RequestParam String gcode){
+		return service.goodsRetrieve(gcode);
 	}
 	
 	@RequestMapping("/gWrite")

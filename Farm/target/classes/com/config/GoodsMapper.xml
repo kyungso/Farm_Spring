@@ -12,13 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="goodsList" parameterType="string" resultType="GoodsDTO">
  select gcode,gcategory,gname,gcontent,gprice,gimage1,gimage2 
  from goods
- where gcategory=#{gCategory}
+ where gcategory=#{gcategory}
 </select>
 
 <select id="goodsRetrieve" parameterType="string" resultType="GoodsDTO">
  select gcode,gcategory,gname,gcontent,gprice,gimage1,gimage2 
  from goods
- where gcode=#{gCode}
+ where gcode=#{gcode}
 </select>
 
 <insert id="goodsWrite" parameterType="hashmap">

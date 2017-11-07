@@ -17,11 +17,11 @@ public class OrderDTO {
 	private String post2;
 	private String addr1;
 	private String addr2;
-	private String gCode;
-	private String gName;
-	private int gPrice;
-	private int gAmount;
-	private String gImage1;
+	private String gcode;
+	private String gname;
+	private int gprice;
+	private int gamount;
+	private String gimage1;
 	private String payMethod;
 	private String orderDay;
 	public OrderDTO() {
@@ -29,7 +29,7 @@ public class OrderDTO {
 		// TODO Auto-generated constructor stub
 	}
 	public OrderDTO(int order_num, String userid, String orderName, String phone, String post1, String post2,
-			String addr1, String addr2, String gCode, String gName, int gPrice, int gAmount, String gImage1,
+			String addr1, String addr2, String gcode, String gname, int gprice, int gamount, String gimage1,
 			String payMethod, String orderDay) {
 		super();
 		this.order_num = order_num;
@@ -40,37 +40,14 @@ public class OrderDTO {
 		this.post2 = post2;
 		this.addr1 = addr1;
 		this.addr2 = addr2;
-		this.gCode = gCode;
-		this.gName = gName;
-		this.gPrice = gPrice;
-		this.gAmount = gAmount;
-		this.gImage1 = gImage1;
+		this.gcode = gcode;
+		this.gname = gname;
+		this.gprice = gprice;
+		this.gamount = gamount;
+		this.gimage1 = gimage1;
 		this.payMethod = payMethod;
 		this.orderDay = orderDay;
 	}
-	
-	
-	/*public OrderDTO(List<OrderDTO> list, int order_num, String userid, String orderName, String phone, String post1,
-			String post2, String addr1, String addr2, String gCode, String gName, int gPrice, int gAmount,
-			String gImage1, String payMethod, String orderDay) {
-		super();
-		this.list = list;
-		this.order_num = order_num;
-		this.userid = userid;
-		this.orderName = orderName;
-		this.phone = phone;
-		this.post1 = post1;
-		this.post2 = post2;
-		this.addr1 = addr1;
-		this.addr2 = addr2;
-		this.gCode = gCode;
-		this.gName = gName;
-		this.gPrice = gPrice;
-		this.gAmount = gAmount;
-		this.gImage1 = gImage1;
-		this.payMethod = payMethod;
-		this.orderDay = orderDay;
-	}*/
 	public int getOrder_num() {
 		return order_num;
 	}
@@ -119,35 +96,35 @@ public class OrderDTO {
 	public void setAddr2(String addr2) {
 		this.addr2 = addr2;
 	}
-	public String getgCode() {
-		return gCode;
+	public String getGcode() {
+		return gcode;
 	}
-	public void setgCode(String gCode) {
-		this.gCode = gCode;
+	public void setGcode(String gcode) {
+		this.gcode = gcode;
 	}
-	public String getgName() {
-		return gName;
+	public String getGname() {
+		return gname;
 	}
-	public void setgName(String gName) {
-		this.gName = gName;
+	public void setGname(String gname) {
+		this.gname = gname;
 	}
-	public int getgPrice() {
-		return gPrice;
+	public int getGprice() {
+		return gprice;
 	}
-	public void setgPrice(int gPrice) {
-		this.gPrice = gPrice;
+	public void setGprice(int gprice) {
+		this.gprice = gprice;
 	}
-	public int getgAmount() {
-		return gAmount;
+	public int getGamount() {
+		return gamount;
 	}
-	public void setgAmount(int gAmount) {
-		this.gAmount = gAmount;
+	public void setGamount(int gamount) {
+		this.gamount = gamount;
 	}
-	public String getgImage1() {
-		return gImage1;
+	public String getGimage1() {
+		return gimage1;
 	}
-	public void setgImage1(String gImage1) {
-		this.gImage1 = gImage1;
+	public void setGimage1(String gimage1) {
+		this.gimage1 = gimage1;
 	}
 	public String getPayMethod() {
 		return payMethod;
@@ -161,31 +138,13 @@ public class OrderDTO {
 	public void setOrderDay(String orderDay) {
 		this.orderDay = orderDay;
 	}
-	
-	/*public List<OrderDTO> getList() {
-		return list;
-	}
-
-	public void setList(List<OrderDTO> list) {
-		this.list = list;
-	}*/
-
-	/*@Override
-	public String toString() {
-		return "OrderDTO [list=" + list + ", order_num=" + order_num + ", userid=" + userid + ", orderName=" + orderName
-				+ ", phone=" + phone + ", post1=" + post1 + ", post2=" + post2 + ", addr1=" + addr1 + ", addr2=" + addr2
-				+ ", gCode=" + gCode + ", gName=" + gName + ", gPrice=" + gPrice + ", gAmount=" + gAmount + ", gImage1="
-				+ gImage1 + ", payMethod=" + payMethod + ", orderDay=" + orderDay + "]";
-	}*/
-
 	@Override
 	public String toString() {
 		return "OrderDTO [order_num=" + order_num + ", userid=" + userid + ", orderName=" + orderName + ", phone="
-				+ phone + ", post1=" + post1 + ", post2=" + post2 + ", addr1=" + addr1 + ", addr2=" + addr2 + ", gCode="
-				+ gCode + ", gName=" + gName + ", gPrice=" + gPrice + ", gAmount=" + gAmount + ", gImage1=" + gImage1
+				+ phone + ", post1=" + post1 + ", post2=" + post2 + ", addr1=" + addr1 + ", addr2=" + addr2 + ", gcode="
+				+ gcode + ", gname=" + gname + ", gprice=" + gprice + ", gamount=" + gamount + ", gimage1=" + gimage1
 				+ ", payMethod=" + payMethod + ", orderDay=" + orderDay + "]";
 	}
-	
 	
 	
 	

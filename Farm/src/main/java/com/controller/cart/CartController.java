@@ -40,10 +40,10 @@ public class CartController {
 		else{
 			dto.setUserid(mem.getUserid());
 			service.addCart(dto);
-			String gCode = dto.getgCode();
+			String gcode = dto.getGcode();
 			//mav.addObject("cart","장바구니에 "+dto.getgName()+" 상품이 잘 담겼습니다.");
-			redirectAttributes.addFlashAttribute("cart","장바구니에 "+dto.getgName()+" 상품이 잘 담겼습니다." );
-			mav.setViewName("redirect:goodsRetrieve?gCode="+gCode);
+			redirectAttributes.addFlashAttribute("cart","장바구니에 "+dto.getGname()+" 상품이 잘 담겼습니다." );
+			mav.setViewName("redirect:goodsRetrieve?gcode="+gcode);
 		}
 		return mav;
 	}

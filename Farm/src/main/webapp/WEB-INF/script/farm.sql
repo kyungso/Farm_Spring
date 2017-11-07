@@ -122,3 +122,10 @@ ORDERDAY DATE DEFAULT SYSDATE
 
 drop sequence order_num_seq;
 create sequence order_num_seq START WITH 1;
+
+-- 관리자 테이블
+CREATE TABLE admin(
+ userid VARCHAR(10) NOT NULL,
+ passwd VARCHAR(10) NOT NULL,
+ PRIMARY KEY(userid)
+);

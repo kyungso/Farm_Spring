@@ -73,13 +73,13 @@ label{
 				</tr>
 
 				<tr>
-					<td height="35" class="td_default"><span class="a_default">${oDTO.gName}</span>
+					<td height="35" class="td_default"><span class="a_default">${oDTO.gname}</span>
 					</td>
 					<td height="35" class="td_default" align="center"><span
-						id="price1">${oDTO.gPrice}</span>원</td>
+						id="price1">${oDTO.gprice}</span>원</td>
 					<td height="35" class="td_default" align="center"><span
-						id="num1">${oDTO.gAmount}</span>개</td>
-					<td height="35" class="td_default" align="center"><span>${oDTO.gPrice*oDTO.gAmount}</span>원
+						id="num1">${oDTO.gamount}</span>개</td>
+					<td height="35" class="td_default" align="center"><span>${oDTO.gprice*oDTO.gamount}</span>원
 					</td>
 				</tr>
 
@@ -98,7 +98,7 @@ label{
 					<td class="td_default" width="150" height="35">결제금액</td>
 					<td class="td_default" height="35" align='right'>
 						<div class="input-field inline">
-						<input type='text' id='total' value='${oDTO.gPrice*oDTO.gAmount}' readonly></div>
+						<input type='text' id='total' value='${oDTO.gprice*oDTO.gamount}' readonly></div>
 						<div class="input-field inline">원</div>
 					</td>
 				</tr>
@@ -171,13 +171,13 @@ label{
 				</tr>
 
 				<tr>
-					<td height="35" class="td_default"><span class="a_default">${oDTO_d.gName}</span>
+					<td height="35" class="td_default"><span class="a_default">${oDTO_d.gname}</span>
 					</td>
 					<td height="35" class="td_default" align="center"><span
-						id="price1">${oDTO_d.gPrice}</span>원</td>
+						id="price1">${oDTO_d.gprice}</span>원</td>
 					<td height="35" class="td_default" align="center"><span
-						id="num1">${oDTO_d.gAmount}</span>개</td>
-					<td height="35" class="td_default" align="center"><span>${oDTO_d.gPrice*oDTO_d.gAmount}</span>원
+						id="num1">${oDTO_d.gamount}</span>개</td>
+					<td height="35" class="td_default" align="center"><span>${oDTO_d.gprice*oDTO_d.gamount}</span>원
 					</td>
 				</tr>
 
@@ -196,7 +196,7 @@ label{
 					<td class="td_default" width="150" height="35">결제금액</td>
 					<td class="td_default" height="35" align='right'>
 						<div class="input-field inline">
-						<input type='text' id='total' value='${oDTO_d.gPrice*oDTO_d.gAmount}' readonly></div>
+						<input type='text' id='total' value='${oDTO_d.gprice*oDTO_d.gamount}' readonly></div>
 						<div class="input-field inline">원</div>
 					</td>
 				</tr>

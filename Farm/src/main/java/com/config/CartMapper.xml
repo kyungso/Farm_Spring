@@ -6,12 +6,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <insert id="addCart" parameterType="CartDTO">
  insert into
- cart(cart_num,userid,gCategory,gCode,gName,gPrice,gAmount,gImage1)
- values(cart_num_seq.nextval,#{userid},#{gCategory},#{gCode},#{gName},#{gPrice},#{gAmount},#{gImage1}) 
+ cart(cart_num,userid,gcategory,gcode,gname,gprice,gamount,gimage1)
+ values(cart_num_seq.nextval,#{userid},#{gcategory},#{gcode},#{gname},#{gprice},#{gamount},#{gimage1}) 
 </insert>
 
 <select id="cartList" parameterType="string" resultType="CartDTO">
- select cart_num,userid,gCategory,gCode,gName,gPrice,gAmount,gImage1
+ select cart_num,userid,gcategory,gcode,gname,gprice,gamount,gimage1
  from cart
  where userid=#{userid}
  order by cart_num desc
@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <update id="amountUpdate" parameterType="hashmap">
  update cart 
- set gAmount=#{gAmount}
+ set gamount=#{gamount}
  where cart_num=#{cart_num}
 </update>
 
@@ -40,13 +40,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </delete>
 
 <select id="orderConfirm" parameterType="int" resultType="CartDTO">
- select cart_num,userid,gCategory,gCode,gName,gPrice,gAmount,gImage1
+ select cart_num,userid,gcategory,gcode,gname,gprice,gamount,gimage1
  from cart
  where cart_num=#{cart_num}
 </select>
 
 <select id="orderAllConfirm" parameterType="arraylist" resultType="CartDTO">
-  select cart_num,userid,gCategory,gCode,gName,gPrice,gAmount,gImage1
+  select cart_num,userid,gcategory,gcode,gname,gprice,gamount,gimage1
   from cart
   <where>
    cart_num IN
