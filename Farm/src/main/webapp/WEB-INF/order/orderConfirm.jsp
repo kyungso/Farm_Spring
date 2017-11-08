@@ -158,7 +158,7 @@ label{
 						<td class="td_default" width="300" style='padding-left: 30px'>${cDTO.gname}
 							<br> 
 						</td>
-						<td class="td_default" align="center" width="110">${cDTO.gprice}
+						<td class="td_default" align="center" width="110"><fmt:formatNumber value="${cDTO.gprice}" type="number" />
 						</td>
 						<td class="td_default" align="center" width="90">${cDTO.gamount}</td>
 
@@ -168,7 +168,7 @@ label{
 					<tr>
 						<td height="30"></td>
 						<td class="td_default" align="right">총 결제 금액 :</td>
-						<td class="td_default" align='right'>${cDTO.gprice*cDTO.gamount}원</td>
+						<td class="td_default" align='right'><fmt:formatNumber value="${cDTO.gprice*cDTO.gamount}" type="number" />원</td>
 					</tr>
 				</table>
 			</td>
@@ -338,7 +338,7 @@ label{
 						<td class="td_default" width="300" style='padding-left: 30px'>${gDTO.gname}
 							<br>
 						</td>
-						<td class="td_default" align="center" width="110">${gDTO.gprice}
+						<td class="td_default" align="center" width="110"><fmt:formatNumber value="${gDTO.gprice}" type="number" />
 						</td>
 						<td class="td_default" align="center" width="90">${gamount}</td>
 
@@ -348,7 +348,7 @@ label{
 					<tr>
 						<td height="30"></td>
 						<td class="td_default" align="right">총 결제 금액 :</td>
-						<td class="td_default" align='right'>${gDTO.gprice*gamount}원</td>
+						<td class="td_default" align='right'><fmt:formatNumber value="${gDTO.gprice*gamount}" type="number" />원</td>
 					</tr>
 				</table>
 			</td>

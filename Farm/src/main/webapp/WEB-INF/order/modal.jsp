@@ -26,8 +26,8 @@
 		</tr>
 		<tr>
 			<td><img src="images/items/${param.gimage1}.jpg" width="250" /></td>
-			<td><font size="3">${param.gname}</font><br> 상품금액:
-				${param.gprice} <br> 
+			<td><font size="3">${param.gname}</font><br> 
+			상품금액 : <fmt:formatNumber value="${param.gprice}" type="number" />원 <br> 
 				<input type="button"  value="제품 상세 페이지로 이동" onclick="moveGoodsRetrieve('${param.gcode}')"></td>
 		  
 		</tr>

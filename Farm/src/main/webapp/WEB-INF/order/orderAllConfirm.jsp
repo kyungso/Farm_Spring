@@ -111,7 +111,7 @@ label{
 						<td class="td_default" width="300" style='padding-left: 30px'>${cDTOlist.gname}
 							<br> 
 						</td>
-						<td class="td_default" align="center" width="110">${cDTOlist.gprice}
+						<td class="td_default" align="center" width="110"><fmt:formatNumber value="${cDTOlist.gprice}" type="number" />
 						</td>
 						<td class="td_default" align="center" width="90">${cDTOlist.gamount}</td>
 						<c:set var="total_cost" value="${total_cost+(cDTOlist.gprice*cDTOlist.gamount)}"></c:set>
@@ -121,7 +121,7 @@ label{
 					<tr>
 						<td height="30"></td>
 						<td class="td_default" align="right">총 결제 금액 :</td>
-						<td class="td_default" align='right'>${total_cost}원</td>
+						<td class="td_default" align='right'><fmt:formatNumber value="${total_cost}" type="number" />원</td>
 					</tr>
 				</table>
 		</td>

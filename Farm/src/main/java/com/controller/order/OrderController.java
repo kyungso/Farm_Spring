@@ -62,7 +62,7 @@ public class OrderController {
 		
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
 		if(mDTO == null) {
-			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:/loginForm");
 		}else {
 			String userid = mDTO.getUserid();
@@ -88,7 +88,7 @@ public class OrderController {
 		
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
 		if(mDTO==null) {
-			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:loginForm");
 		}
 		CartDTO cDTO = oService.orderConfirm(Integer.parseInt(cart_num));
@@ -108,7 +108,7 @@ public class OrderController {
 		
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
 		if(mDTO==null) {
-			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:loginForm");
 		}else {
 			String id = mDTO.getUserid();
@@ -138,7 +138,7 @@ public class OrderController {
 		
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
 		if(mDTO==null) {
-			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:loginForm");
 		}else {
 			List<CartDTO> cDTO = oService.orderAllConfirm(Arrays.asList(checks));
@@ -156,7 +156,7 @@ public class OrderController {
 		
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
 		if(mDTO==null) {
-			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:loginForm");
 		}else {
 			oService.orderDone(dto, cart_num);
@@ -172,7 +172,7 @@ public class OrderController {
 		
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
 		if(mDTO==null) {
-			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:loginForm");
 		}else {
 			oService.orderDone_d(dto_d);
@@ -206,7 +206,7 @@ public class OrderController {
 		
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
 		if(mDTO==null) {
-			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:loginForm");
 		}else {
 			List<OrderDTO> oDTOlist = new ArrayList<OrderDTO>();
@@ -248,7 +248,7 @@ public class OrderController {
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
 		
 		if(mDTO==null) {
-			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:/loginForm");
 		}else {
 			OrderDTO oDTO = oService.orderListDetail(Integer.parseInt(order_num));

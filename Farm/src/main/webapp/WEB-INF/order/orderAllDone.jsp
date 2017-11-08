@@ -79,10 +79,10 @@ label{
 					<td height="35" class="td_default"><span class="a_default">${oDTO.gname}</span>
 					</td>
 					<td height="35" class="td_default" align="center"><span
-						id="price1">${oDTO.gprice}</span>원</td>
+						id="price1"><fmt:formatNumber value="${oDTO.gprice}" type="number" /></span>원</td>
 					<td height="35" class="td_default" align="center"><span
 						id="num1">${oDTO.gamount}</span>개</td>
-					<td height="35" class="td_default" align="center"><span>${oDTO.gprice*oDTO.gamount}</span>원
+					<td height="35" class="td_default" align="center"><span><fmt:formatNumber value="${oDTO.gprice*oDTO.gamount}" type="number" /></span>원
 					<c:set var="result" value="${result+(oDTO.gprice*oDTO.gamount)}"></c:set>
 					</td>
 				</tr>
@@ -103,7 +103,8 @@ label{
 					<td class="td_default" width="150" height="35">결제금액</td>
 					<td class="td_default" height="35" align='right'>
 						<div class="input-field inline">
-						<input type='text' id='total' value='${result}' readonly></div>
+						<fmt:formatNumber var="result2" value="${result}" type="number" />
+						<input type='text' id='total' value='${result2}' readonly></div>
 						<div class="input-field inline">원</div>
 				</tr>
 				<tr>

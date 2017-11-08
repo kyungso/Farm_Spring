@@ -288,7 +288,7 @@ label {
 					onClick="return show_hide_box(this,440,300,'1px solid')">
 						${list.gname}</a> <br> </td>
 
-				<td class="td_default" align="center" width="110">${list.gprice}<br>
+				<td class="td_default" align="center" width="110"><fmt:formatNumber value="${list.gprice}" type="number" /><br>
 					<font size="2" color="#665b5f">[ (${list.gamount}개) ] </font>
 				</td>
 				<td>구매확정</td>

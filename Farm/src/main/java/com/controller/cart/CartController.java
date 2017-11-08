@@ -34,7 +34,7 @@ public class CartController {
 		
 		MemberDTO mem = (MemberDTO)session.getAttribute("login");
 		if(mem == null) {
-			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:loginForm");
 		}
 		else{
@@ -53,7 +53,7 @@ public class CartController {
 		MemberDTO mem = (MemberDTO)session.getAttribute("login");
 		ModelAndView mav = new ModelAndView();
 		if(mem == null) {
-			redirectAttributes.addFlashAttribute("logincheck","로그인이 필요합니다." );
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:loginForm");
 			return mav;
 		}else {
