@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.AdminMapper">
+
+<select id="admin_memberCount" resultType="int">
+ select count(*)
+ from member
+</select>
+<select id="admin_orderCount" resultType="int">
+ select count(*)
+ from orderinfo
+ where to_char(orderday)=to_char(sysdate)
+</select>
+
+<select id="adminLogin" parameterType="hashmap" resultType="AdminDTO">
+select userid,passwd
+from admin
+where userid=#{userid} and passwd=#{passwd}
+</select>
+
+<select id="admin_MemberList" resultType="MemberDTO">
+select userid,passwd,username,post1,post2,addr1,addr2,phone1,phone2,phone3,email,point,buycnt,joinday
+from member
+</select>
+
+<select id="admin_FruitCount" parameterType="arraylist" resultType="int">
+ select count(*) from orderinfo
+ where gCode like 'F%'
+ and to_char(orderday,'MM')=#{month}
+</select>
+
+<select id="admin_BoardList" resultType="FreeBoardDTO">
+ select board_num, userid, title, author, content, writeday, image, readcnt, imagename, secret, passwd
+ from freeboard
+</select>
+
+</mapper>
