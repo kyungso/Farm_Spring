@@ -244,16 +244,16 @@ label {
 				value="${list.order_num}">
 			<input type="hidden" name="userid${list.order_num}"
 				value="${list.userid}">
-			<input type="hidden" name="gCode${list.order_num}"
-				value="${list.gCode}">
-			<input type="hidden" name="gImage1${list.order_num}"
-				value="${list.gImage1}">
-			<input type="hidden" name="gName${list.order_num}"
-				value="${list.gName}">
-			<input type="hidden" name="gPrice${list.order_num}"
-				value="${list.gPrice}">
-			<input type="hidden" name="gAmount${list.order_num}"
-				value="${list.gAmount}">
+			<input type="hidden" name="gcode${list.order_num}"
+				value="${list.gcode}">
+			<input type="hidden" name="gimage1${list.order_num}"
+				value="${list.gimage1}">
+			<input type="hidden" name="gname${list.order_num}"
+				value="${list.gname}">
+			<input type="hidden" name="gprice${list.order_num}"
+				value="${list.gprice}">
+			<input type="hidden" name="gamount${list.order_num}"
+				value="${list.gamount}">
 			<input type="hidden" name="orderName${list.order_num}"
 				value="${list.orderName}">
 			<input type="hidden" name="phone${list.order_num}"
@@ -282,14 +282,14 @@ label {
 					<input type="button" onclick="retrieve('${list.order_num}')"
 					value="상세보기"></td>
 				<td class="td_default"><img
-					src="images/items/${list.gImage1}.jpg" border="0" width="80" /></td>
+					src="images/items/${list.gimage1}.jpg" border="0" width="80" /></td>
 				<td class="td_default" width="300"><a
-					href="modal?gName=${list.gName}&gImage1=${list.gImage1}&gPrice=${list.gPrice}&gCode=${list.gCode}"
+					href="modal?gname=${list.gname}&gimage1=${list.gimage1}&gprice=${list.gprice}&gcode=${list.gcode}"
 					onClick="return show_hide_box(this,440,300,'1px solid')">
-						${list.gName}</a> <br> </td>
+						${list.gname}</a> <br> </td>
 
-				<td class="td_default" align="center" width="110">${list.gPrice}<br>
-					<font size="2" color="#665b5f">[ (${list.gAmount}개) ] </font>
+				<td class="td_default" align="center" width="110"><fmt:formatNumber value="${list.gprice}" type="number" /><br>
+					<font size="2" color="#665b5f">[ (${list.gamount}개) ] </font>
 				</td>
 				<td>구매확정</td>
 			</tr>

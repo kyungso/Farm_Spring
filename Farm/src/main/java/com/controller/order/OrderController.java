@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.CartDTO;
 import com.dto.GoodsDTO;
@@ -27,7 +28,6 @@ import com.service.MemberService;
 import com.service.OrderService;
 
 @Controller
-//@RequestMapping("/loginX")
 public class OrderController {
 
 	@Autowired
@@ -43,7 +43,7 @@ public class OrderController {
 	
 	@RequestMapping("/orderList")
 	public ModelAndView orderList(@RequestParam(required=false) HashMap<String,String> map, 
-							      HttpSession session) {
+							      HttpSession session, RedirectAttributes redirectAttributes) {
 		ModelAndView mav = new ModelAndView();
 		
 		String curPage = map.get("curPage");
@@ -62,6 +62,7 @@ public class OrderController {
 		
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
 		if(mDTO == null) {
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:/loginForm");
 		}else {
 			String userid = mDTO.getUserid();
@@ -79,76 +80,105 @@ public class OrderController {
 	}
 	
 	@RequestMapping("/orderConfirm") //장바구니
-	public ModelAndView orderConfirm(@RequestParam Map<String,String> map, HttpSession session) {
+	public ModelAndView orderConfirm(@RequestParam Map<String,String> map, HttpSession session,
+									 RedirectAttributes redirectAttributes) {
 		
 		ModelAndView mav = new ModelAndView();
 		String cart_num = map.get("cart_num");
-		String userid = map.get("userid");
 		
+		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
+		if(mDTO==null) {
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
+			mav.setViewName("redirect:loginForm");
+		}
 		CartDTO cDTO = oService.orderConfirm(Integer.parseInt(cart_num));
-		//MemberDTO mDTO = mService.mypage(userid);
+		mDTO = mService.mypage(mDTO.getUserid());
 		mav.addObject("cDTO",cDTO);
-		//mav.addObject("mDTO",mDTO);
+		mav.addObject("mDTO",mDTO);
 		
 		mav.setViewName("orderConfirm");
 		return mav;
 	}
 	
 	@RequestMapping("/orderConfirm_d") //상품에서 바로 구매
-	public ModelAndView orderConfirm_d(@RequestParam Map<String,String> map, HttpSession session) {
+	public ModelAndView orderConfirm_d(@RequestParam Map<String,String> map, HttpSession session,
+			 						   RedirectAttributes redirectAttributes) {
 		
 		ModelAndView mav = new ModelAndView();
 		
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
-		String id = mDTO.getUserid();
-		String gCode = map.get("gCode");
-		String gAmount = map.get("gAmount");
-	
-		GoodsDTO gDTO = gService.goodsRetrieve(gCode);
-		//MemberDTO memDTO = mService.mypage(id);
-		mav.addObject("gAmount",gAmount);
-		mav.addObject("gDTO",gDTO);
-		//mav.addObject("memDTO",memDTO);
+		if(mDTO==null) {
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
+			mav.setViewName("redirect:loginForm");
+		}else {
+			String id = mDTO.getUserid();
+			String gcode = map.get("gcode");
+			String gamount = map.get("gamount");
 		
-		mav.setViewName("orderConfirm");
+			GoodsDTO gDTO = gService.goodsRetrieve(gcode);
+			MemberDTO memDTO = mService.mypage(id);
+			mav.addObject("gamount",gamount);
+			mav.addObject("gDTO",gDTO);
+			mav.addObject("memDTO",memDTO);
+			
+			mav.setViewName("orderConfirm");
+		}
 		return mav;
 	}
 	
 	
 	@RequestMapping("/orderAllConfirm")
-	public ModelAndView orderAllConfirm(@RequestParam String userid, HttpServletRequest request) {
+	public ModelAndView orderAllConfirm(HttpServletRequest request, HttpSession session, RedirectAttributes redirectAttributes) {
 		ModelAndView mav = new ModelAndView();
 		
 		String[] checks = request.getParameterValues("check");
 		for (String s : checks) {
 			System.out.println(s);
 		}
-		//System.out.println(userid);
-		List<CartDTO> cDTO = oService.orderAllConfirm(Arrays.asList(checks));
-		//MemberDTO mDTO = mService.mypage(userid);
-		mav.addObject("cDTO",cDTO);
-		//mav.addObject("mDTO",mDTO);
-		mav.setViewName("orderAllConfirm");
+		
+		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
+		if(mDTO==null) {
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
+			mav.setViewName("redirect:loginForm");
+		}else {
+			List<CartDTO> cDTO = oService.orderAllConfirm(Arrays.asList(checks));
+			mDTO = mService.mypage(mDTO.getUserid());
+			mav.addObject("cDTO",cDTO);
+			mav.addObject("mDTO",mDTO);
+			mav.setViewName("orderAllConfirm");
+		}
 		return mav;
 	}
 	
 	@RequestMapping("/orderDone") //장바구니에서 구매
-	public ModelAndView orderDone(@RequestParam String cart_num, @ModelAttribute("oDTO") OrderDTO dto) {
+	public ModelAndView orderDone(@RequestParam String cart_num, @ModelAttribute("oDTO") OrderDTO dto, HttpSession session, RedirectAttributes redirectAttributes) {
 		ModelAndView mav = new ModelAndView();
 		
-		oService.orderDone(dto, cart_num);
+		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
+		if(mDTO==null) {
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
+			mav.setViewName("redirect:loginForm");
+		}else {
+			oService.orderDone(dto, cart_num);
 		
-		mav.setViewName("orderDone");
+			mav.setViewName("orderDone");
+		}
 		return mav;
 	}
 	
 	@RequestMapping("/orderDone_d") //goodsRetrieve에서 바로 구매 cDTO==null
-	public ModelAndView orderDone_d(@ModelAttribute("oDTO_d") OrderDTO dto_d) {
+	public ModelAndView orderDone_d(@ModelAttribute("oDTO_d") OrderDTO dto_d, HttpSession session, RedirectAttributes redirectAttributes) {
 		ModelAndView mav = new ModelAndView();
 		
-		oService.orderDone_d(dto_d);
+		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
+		if(mDTO==null) {
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
+			mav.setViewName("redirect:loginForm");
+		}else {
+			oService.orderDone_d(dto_d);
 		
-		mav.setViewName("orderDone");
+			mav.setViewName("orderDone");
+		}
 		return mav;
 	}
 	
@@ -157,11 +187,11 @@ public class OrderController {
 			@RequestParam String[] cart_num,
 			@RequestParam String[] userid,
 
-			@RequestParam String[] gCode,
-			@RequestParam String[] gName,
-			@RequestParam String[] gPrice,
-			@RequestParam String[] gAmount,
-			@RequestParam String[] gImage1,
+			@RequestParam String[] gcode,
+			@RequestParam String[] gname,
+			@RequestParam String[] gprice,
+			@RequestParam String[] gamount,
+			@RequestParam String[] gimage1,
 
 			@RequestParam String orderName,
 			@RequestParam String post1,
@@ -169,46 +199,56 @@ public class OrderController {
 			@RequestParam String addr1,
 			@RequestParam String addr2,
 			@RequestParam String phone,
-			@RequestParam String payMethod) {
+			@RequestParam String payMethod,
+			HttpSession session,
+			RedirectAttributes redirectAttributes) {
 		ModelAndView mav = new ModelAndView();
 		
-		List<OrderDTO> oDTOlist = new ArrayList<OrderDTO>();
-		for (int i = 0; i < cart_num.length; i++) {
-			OrderDTO dto = new OrderDTO();
-			dto.setUserid(userid[i]);
-			dto.setgCode(gCode[i]);
-			dto.setgName(gName[i]);
-			dto.setgPrice(Integer.parseInt(gPrice[i]));
-			dto.setgAmount(Integer.parseInt(gAmount[i]));
-			dto.setgImage1(gImage1[i]);
-			dto.setOrderName(orderName);
-			dto.setPost1(post1);
-			dto.setPost2(post2);
-			dto.setAddr1(addr1);
-			dto.setAddr2(addr2);
-			dto.setPhone(phone);
-			dto.setPayMethod(payMethod);
-			oDTOlist.add(dto);
+		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
+		if(mDTO==null) {
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
+			mav.setViewName("redirect:loginForm");
+		}else {
+			List<OrderDTO> oDTOlist = new ArrayList<OrderDTO>();
+			for (int i = 0; i < cart_num.length; i++) {
+				OrderDTO dto = new OrderDTO();
+				dto.setUserid(userid[i]);
+				dto.setGcode(gcode[i]);
+				dto.setGname(gname[i]);
+				dto.setGprice(Integer.parseInt(gprice[i]));
+				dto.setGamount(Integer.parseInt(gamount[i]));
+				dto.setGimage1(gimage1[i]);
+				dto.setOrderName(orderName);
+				dto.setPost1(post1);
+				dto.setPost2(post2);
+				dto.setAddr1(addr1);
+				dto.setAddr2(addr2);
+				dto.setPhone(phone);
+				dto.setPayMethod(payMethod);
+				oDTOlist.add(dto);
+			}
+			
+			/*for (OrderDTO orderDTO : oDTOlist) {
+				System.out.println(orderDTO);
+			}*/
+			
+			oService.orderAllDone(oDTOlist, Arrays.asList(cart_num));
+			mav.addObject("oDTOlist",oDTOlist);
+			mav.setViewName("orderAllDone");
 		}
-		
-		for (OrderDTO orderDTO : oDTOlist) {
-			System.out.println(orderDTO);
-		}
-		
-		oService.orderAllDone(oDTOlist, Arrays.asList(cart_num));
-		mav.addObject("oDTOlist",oDTOlist);
-		mav.setViewName("orderAllDone");
 		return mav;
 	}
 	
 	
 	@RequestMapping(value="/orderListDetail") //장바구니에서 전체주문하기
-	public ModelAndView orderAllDone(@RequestParam String order_num, HttpSession session) {
+	public ModelAndView orderAllDone(@RequestParam String order_num, HttpSession session,
+									 RedirectAttributes redirectAttributes) {
 		ModelAndView mav = new ModelAndView();
 		
 		MemberDTO mDTO = (MemberDTO)session.getAttribute("login");
 		
 		if(mDTO==null) {
+			redirectAttributes.addFlashAttribute("mesg","로그인이 필요합니다." );
 			mav.setViewName("redirect:/loginForm");
 		}else {
 			OrderDTO oDTO = oService.orderListDetail(Integer.parseInt(order_num));

@@ -28,7 +28,7 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <style type="text/css">
 	.album-wrap {position:relative; width:800px; height:350px; margin:0 auto; overflow:hidden;}
 	.album-wrap ul.album {position:absolute;}
@@ -60,8 +60,36 @@
 	<li><a href="#"><img src="images/btn_circle.png" alt=""></a></li>
 	<li><a href="#"><img src="images/btn_circle.png" alt=""></a></li>
 </ul>	
+<!-- 메인 배너 -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<div id="kakaostory-share-button" data-url="http://localhost:8090/app/"></div>
+<font size="2" color="gray">Copyright(c)2017 W3 All rights reserved. </font>
+</center>
+<br>
 	
 </body>
+<script>
+  window.kakaoAsyncInit = function () {
+    Kakao.Story.createShareButton({
+      container: '#kakaostory-share-button'
+    });
+  };
+
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//developers.kakao.com/sdk/js/kakao.story.min.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'kakao-js-sdk'));
+</script>
+
 <script type="text/javascript">
 	var $list = $('ul.album');
 	var size = $list.children().outerWidth();

@@ -128,11 +128,11 @@ label{
 <form action="orderDone" onsubmit="return formCheck()">
 	<input type="hidden" name="cart_num" value="${cDTO.cart_num}">
 	<input type="hidden" name="userid" value="${mDTO.userid}"> 
-	<input type="hidden" name="gCode" value="${cDTO.gCode}"> 
-	<input type="hidden" name="gName" value="${cDTO.gName}"> 
-	<input type="hidden" name="gPrice" value="${cDTO.gPrice}"> 
-	<input type="hidden" name="gAmount" value="${cDTO.gAmount}"> 
-	<input type="hidden" name="gImage1" value="${cDTO.gImage1}">
+	<input type="hidden" name="gcode" value="${cDTO.gcode}"> 
+	<input type="hidden" name="gname" value="${cDTO.gname}"> 
+	<input type="hidden" name="gprice" value="${cDTO.gprice}"> 
+	<input type="hidden" name="gamount" value="${cDTO.gamount}"> 
+	<input type="hidden" name="gimage1" value="${cDTO.gimage1}">
 
 	<table>
 		<tr>
@@ -153,14 +153,14 @@ label{
 					<tr>
 						<td class="td_default" width="80">${cDTO.cart_num}</td>
 						<td class="td_default" width="80"><img
-							src="images/items/${cDTO.gImage1}.jpg" border="0" align="center"
+							src="images/items/${cDTO.gimage1}.jpg" border="0" align="center"
 							width="80" /></td>
-						<td class="td_default" width="300" style='padding-left: 30px'>${cDTO.gName}
+						<td class="td_default" width="300" style='padding-left: 30px'>${cDTO.gname}
 							<br> 
 						</td>
-						<td class="td_default" align="center" width="110">${cDTO.gPrice}
+						<td class="td_default" align="center" width="110"><fmt:formatNumber value="${cDTO.gprice}" type="number" />
 						</td>
-						<td class="td_default" align="center" width="90">${cDTO.gAmount}</td>
+						<td class="td_default" align="center" width="90">${cDTO.gamount}</td>
 
 					</tr>
 
@@ -168,7 +168,7 @@ label{
 					<tr>
 						<td height="30"></td>
 						<td class="td_default" align="right">총 결제 금액 :</td>
-						<td class="td_default" align='right'>${cDTO.gPrice*cDTO.gAmount}원</td>
+						<td class="td_default" align='right'><fmt:formatNumber value="${cDTO.gprice*cDTO.gamount}" type="number" />원</td>
 					</tr>
 				</table>
 			</td>
@@ -308,11 +308,11 @@ label{
 <c:if test="${empty cDTO}">
 <form action="orderDone_d" onsubmit="return formCheck_direct()">
 	<input type="hidden" name="userid" value="${memDTO.userid}"> 
-	<input type="hidden" name="gCode" value="${gDTO.gCode}"> 
-	<input type="hidden" name="gName" value="${gDTO.gName}"> 
-	<input type="hidden" name="gPrice" value="${gDTO.gPrice}"> 
-	<input type="hidden" name="gAmount" value="${gAmount}"> 
-	<input type="hidden" name="gImage1" value="${gDTO.gImage1}">
+	<input type="hidden" name="gcode" value="${gDTO.gcode}"> 
+	<input type="hidden" name="gname" value="${gDTO.gname}"> 
+	<input type="hidden" name="gprice" value="${gDTO.gprice}"> 
+	<input type="hidden" name="gamount" value="${gamount}"> 
+	<input type="hidden" name="gimage1" value="${gDTO.gimage1}">
 
 	<table>
 		<tr>
@@ -333,14 +333,14 @@ label{
 					<tr>
 						<td class="td_default" width="80"></td>
 						<td class="td_default" width="80"><img
-							src="images/items/${gDTO.gImage1}.jpg" border="0" align="center"
+							src="images/items/${gDTO.gimage1}.jpg" border="0" align="center"
 							width="80" /></td>
-						<td class="td_default" width="300" style='padding-left: 30px'>${gDTO.gName}
+						<td class="td_default" width="300" style='padding-left: 30px'>${gDTO.gname}
 							<br>
 						</td>
-						<td class="td_default" align="center" width="110">${gDTO.gPrice}
+						<td class="td_default" align="center" width="110"><fmt:formatNumber value="${gDTO.gprice}" type="number" />
 						</td>
-						<td class="td_default" align="center" width="90">${gAmount}</td>
+						<td class="td_default" align="center" width="90">${gamount}</td>
 
 					</tr>
 
@@ -348,7 +348,7 @@ label{
 					<tr>
 						<td height="30"></td>
 						<td class="td_default" align="right">총 결제 금액 :</td>
-						<td class="td_default" align='right'>${gDTO.gPrice*gAmount}원</td>
+						<td class="td_default" align='right'><fmt:formatNumber value="${gDTO.gprice*gamount}" type="number" />원</td>
 					</tr>
 				</table>
 			</td>

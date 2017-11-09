@@ -51,12 +51,12 @@ label{
 			<table class="bordered">
 			<tr>
 			 <th>상품금액</th>
-			 <td id="price">${oDTO.gPrice}</td>
+			 <td id="price"><fmt:formatNumber value="${oDTO.gprice}" type="number" /></td>
 			 <td></td>
 			</tr>
 			<tr>
 			 <th>총 결제금액</th>
-			 <td id="price">${oDTO.gPrice*oDTO.gAmount}원</td>
+			 <td id="price"><fmt:formatNumber value="${oDTO.gprice*oDTO.gamount}" type="number" />원</td>
 			 <td>${oDTO.payMethod}<br>
 			 	 ${oDTO.orderDay}
 			 </td>
@@ -82,9 +82,9 @@ label{
 				</tr>
 				<tr>
 					<td>1</td>
-					<td colspan="2">${oDTO.gName}</td>
-					<td>${oDTO.gAmount}</td>
-					<td >${oDTO.gPrice*oDTO.gAmount}원</td>
+					<td colspan="2">${oDTO.gname}</td>
+					<td>${oDTO.gamount}</td>
+					<td><fmt:formatNumber value="${oDTO.gprice*oDTO.gamount}" type="number" />원</td>
 					<td >구매확정</td>
 				</tr>
 			</table>
@@ -107,7 +107,7 @@ label{
 			  	(${oDTO.post1}-${oDTO.post2})&nbsp; ${oDTO.addr1} <br> 
 			  	지번: ${oDTO.addr2} <br>
 			  	${oDTO.phone}<br><br>
-			  	상품명: ${oDTO.gName}
+			  	상품명: ${oDTO.gname}
 			  </td>
 			 </tr>
 			</table>

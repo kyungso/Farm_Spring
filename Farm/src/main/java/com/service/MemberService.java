@@ -72,6 +72,9 @@ public class MemberService {
 		
 	}
 
+	public MemberDTO mypage(String userid) {
+		return dao.mypage(userid);
+	}
 
 
 }

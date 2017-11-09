@@ -10,10 +10,35 @@
 function gForm(){
 	 location.href="/app/goodsAllList";
 }  
-function gWrite(f){
+/* function gWrite(f){
 	 f.action ="/app/goodsWrite";
 	 f.submit();
-} 
+}  */
+function gWrite(f) {
+    if (document.myForm.gcategory.value == "" || document.myForm.gcategory.value == null) {
+        alert("카테고리를 입력하세요.");
+        document.myForm.gcategory.focus();
+        return;
+    } else if (document.myForm.gcode.value == "" || document.myForm.gcode.value == null) {
+        alert("상품코드를 입력하세요.");
+        document.myForm.gcode.focus();
+        return;
+    } else if (document.myForm.gname.value == "" || document.myForm.gname.value == null) {
+        alert("상품이름을 입력하세요.");
+        document.myForm.gname.focus();
+        return;
+    } else if (document.myForm.gprice.value == "" || document.myForm.gprice.value == null) {
+        alert("상품가격을 입력하세요.");
+        document.myForm.gprice.focus();
+        return;
+    } else if (document.myForm.gcontent.value == "" || document.myForm.gcontent.value == null) {
+        alert("상품설명을 입력하세요.");
+        document.myForm.gcontent.focus();
+        return;
+    } else {
+        document.myForm.submit();
+    }
+}
 </script>
 <style>
 .check {
@@ -105,7 +130,7 @@ function gWrite(f){
                 <tr>
                     <td colspan="3"><div align="center">
                  <input type="button" value="등록" onclick="gWrite(myForm)" class="check" />
-                 <input type="button" value="목록" onclick="bForm()" class="check"/>
+                 <input type="button" value="목록" onclick="gForm()" class="check"/>
                         </div>  </td>
                 </tr>
             </table>

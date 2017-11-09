@@ -7,24 +7,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <insert id="orderDone" parameterType="OrderDTO">
  insert into 
  orderinfo(order_num,userid,gcode,gname,gprice,gamount,gimage1,orderName,post1,post2,addr1,addr2,phone,payMethod)
- values(order_num_seq.nextval,#{userid},#{gCode},#{gName},#{gPrice},#{gAmount},#{gImage1},#{orderName},#{post1},#{post2},#{addr1},#{addr2},#{phone},#{payMethod})
+ values(order_num_seq.nextval,#{userid},#{gcode},#{gname},#{gprice},#{gamount},#{gimage1},#{orderName},#{post1},#{post2},#{addr1},#{addr2},#{phone},#{payMethod})
 </insert>
 
 <insert id="orderAllDone" parameterType="arraylist">
 		insert all
 		<foreach collection="list" item="xxx">
 			into orderinfo(order_num,userid,gcode,gname,gprice,gamount,gimage1,orderName,post1,post2,addr1,addr2,phone,payMethod)
-			values(get_seq,#{xxx.userid},#{xxx.gCode},#{xxx.gName},#{xxx.gPrice},#{xxx.gAmount},#{xxx.gImage1},#{xxx.orderName},#{xxx.post1},#{xxx.post2},#{xxx.addr1},#{xxx.addr2},#{xxx.phone},#{xxx.payMethod})
+			values(get_seq,#{xxx.userid},#{xxx.gcode},#{xxx.gname},#{xxx.gprice},#{xxx.gamount},#{xxx.gimage1},#{xxx.orderName},#{xxx.post1},#{xxx.post2},#{xxx.addr1},#{xxx.addr2},#{xxx.phone},#{xxx.payMethod})
 		</foreach>
 		select * from dual
 </insert>
 
 <select id="orderList" parameterType="hashmap" resultType="OrderDTO">
- select order_num,userid,gCode,gName,gPrice,gAmount,gImage1,orderName,post1,post2,addr1,addr2,phone,payMethod,to_char(orderday,'YYYY-MM-dd') orderday
+ select order_num,userid,gcode,gname,gprice,gamount,gimage1,orderName,post1,post2,addr1,addr2,phone,payMethod,to_char(orderday,'YYYY-MM-dd') orderday
  from orderinfo
  where userid=#{userid}
  and to_char(orderday,'yyyy-mm-dd') between #{start_date} and #{end_date}
- <if test="searchValue!=null">and gName like '%'||#{searchValue}||'%'</if>
+ <if test="searchValue!=null">and gname like '%'||#{searchValue}||'%'</if>
+  order by order_num desc
 </select>
 <select id="order_totalCount" parameterType="hashmap" resultType="int">
  select count(*) from orderinfo
@@ -35,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  select count(*) from orderinfo
  where userid=#{userid}
  and to_char(orderday,'yyyy-mm-dd') between #{start_date} and #{end_date}
- <if test="searchValue!=null">and gName like '%'||#{searchValue}||'%'</if>
+ <if test="searchValue!=null">and gname like '%'||#{searchValue}||'%'</if>
 </select>
 
 <delete id="orderDel" parameterType="arraylist">
@@ -50,7 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </delete>
 
 <select id="orderListDetail" parameterType="int" resultType="OrderDTO">
- select order_num,userid,gCode,gName,gPrice,gAmount,gImage1,orderName,post1,post2,addr1,addr2,phone,payMethod,to_char(orderday,'YYYY-MM-dd') orderday
+ select order_num,userid,gcode,gname,gprice,gamount,gimage1,orderName,post1,post2,addr1,addr2,phone,payMethod,to_char(orderday,'YYYY-MM-dd') orderday
  from orderinfo
  where order_num=#{order_num}
 </select>

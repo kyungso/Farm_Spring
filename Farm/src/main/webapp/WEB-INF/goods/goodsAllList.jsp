@@ -3,54 +3,41 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
-	${goodsAllList.size()}
-<table width="100%" cellspacing="0" cellpadding="0">
-	
+<div style="margin-left: 10%">
+<table>
 	<tr>
 		<td>
-			<table align="center" width="710" cellspacing="0" cellpadding="0"
-				border="0">
-	
+			<table style="width: 700px;">
 				<tr>
 					<c:forEach var="goodsAllList" items="${goodsAllList}" varStatus="status">
 					<td>
-						<table style='padding: 15px'>
-							<tr>
-								<td><a href="goodsRetrieve?gCode=${goodsAllList.gcode}"> 
-									<img src="images/items/${goodsAllList.gimage1}.jpg" border="0" align="center" width="200">
-					      <img src="/images/${goodsAllList.gimage1}" border="0" align="center" width="200" >		</a></td>
-							</tr>
-							<tr>
-								<td class="td_default" align="center">
-								<a class="a_black" href="goodsRetrieve?gCode=${goodsAllList.gcode}">${goodsAllList.gname}<br>
-								</a> <font color="gray"> -------------------------------- </font></td>
-							</tr>
-							<tr>
-								<td class="td_gray" align="center">${goodsAllList.gcontent}
-								</td>
-							</tr>
-							<tr>
-								<td class="td_red" align="center"><font color="red"><strong>
-											${goodsAllList.gprice} </strong></font></td>
-							</tr>
-						</table>
+						<a href="goodsRetrieve?gcode=${goodsAllList.gcode}">
+							<span>
+								<img src="images/items/${goodsAllList.gimage1}.jpg" border="0" align="center" width="250">
+								<img src="/images/${goodsAllList.gimage1}" border="0" align="center" width="250" >
+							</span><br>
+							<span style="color: black;">${goodsAllList.gname}
+							</span><br>
+							<span><b style="color: black;"><fmt:formatNumber value="${goodsAllList.gprice}" type="number" /><b></span>
+							
+						</a>
 					</td> 
 					<c:if test="${(status.index+1)%4==0}">
 					 <tr>
-								<td height="5">
+								<td height="3">
 					 </tr>
 					</c:if>
 					</c:forEach>
 				</tr>
 				
-			</table>
+			</table> 
 		</td>
 	</tr>
 	<tr>
-		<td height="10">
+		<td height="3">
 	</tr>
-</table>
+</table> 
+</div>
 	<c:if test="${!empty sessionScope.login}">
 		<center>
 			<input type="button" value="상품올리기"

@@ -192,19 +192,19 @@ label{
 			</td>
 			<td class="td_default" width="80">${list.cart_num}</td>
 			<td class="td_default" width="80">
-				<img src="images/items/${list.gImage1}.jpg" border="0" align="center" width="80" /></td>
+				<img src="images/items/${list.gimage1}.jpg" border="0" align="center" width="80" /></td>
 			<td class="td_default" width="300" style='padding-left: 30px'>
-				${list.gName} <br> 
+				${list.gname} <br> 
 			</td>
 			<td class="td_default" align="center" width="110">
-				<span id="gPrice${list.cart_num}">${list.gPrice}</span></td>
+				<span id="gprice${list.cart_num}">${list.gprice}</span></td>
 			<td class="td_default" align="center" width="90"><input
 				class="input_default" type="text" name="CART_AMOUNT"
 				id="CART_AMOUNT${list.cart_num}" style="text-align: right" maxlength="3" size="2"
-				value="${list.gAmount}"></input></td>
+				value="${list.gamount}"></input></td>
 			<td><input type="button" value="수정" class="updateBtn" data-num="${list.cart_num}" /></td>
 			<td class="td_default" align="center" width="80"
-				style='padding-left: 5px'><span id="sum${list.cart_num}"> ${list.gPrice*list.gAmount} </span></td>
+				style='padding-left: 5px'><span id="sum${list.cart_num}"> ${list.gprice*list.gamount} </span></td>
 			<td><input type="button" value="구매" 
 				class="order" data-num="${list.cart_num}" data-userid="${list.userid}"></td>
 			<td class="td_default" align="center" width="30">
