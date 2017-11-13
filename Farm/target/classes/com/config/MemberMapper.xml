@@ -79,7 +79,7 @@ select  userid,username,post1,post2,addr1,addr2,phone1,phone2,phone3,email,point
 
 
 <select id="idCheckForPw" parameterType="string" resultType="string">
-select user from member where userid=#{userid}
+select userid from member where userid=#{userid}
 </select>
 
 
