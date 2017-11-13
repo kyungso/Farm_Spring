@@ -9,6 +9,7 @@ public class QnaPageDTO {
 	private int curPage;
 	private int totalCount;
 	 public static int perPage=6;
+
 	public QnaPageDTO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -45,6 +46,6 @@ public class QnaPageDTO {
 	public String toString() {
 		return "QnaPageDTO [list=" + list + ", curPage=" + curPage + ", totalCount=" + totalCount + "]";
 	}
-	
+
 	
 }
