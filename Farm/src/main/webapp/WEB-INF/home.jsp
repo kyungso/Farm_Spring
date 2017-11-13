@@ -36,6 +36,11 @@
 	
 	ul.bt-roll {width:60px; margin:0 auto; margin-top:0px;}
 		ul.bt-roll li {float:left; margin-right:5px;}
+		
+	div.center {
+	width: 130px;
+	margin: 0 auto;
+}	
 </style>
 </head>
 <body>
@@ -67,11 +72,19 @@
 <br>
 <br>
 <br>
+<div class="center">
+<div >
+<a href="https://rp5.ru/12514/ko">
+<img border=0 width=88 height=31 src="https://rp5.ru/informer/88x31x2.php?f=26&id=5483&lang=ko&um=00000"></a>
+</div>
+<div id="kakaostory-share-button" data-url="http://localhost:8090/app/" ></div>
+
+
+</div>
 <center>
-<div id="kakaostory-share-button" data-url="http://localhost:8090/app/"></div>
-<font size="2" color="gray">Copyright(c)2017 W3 All rights reserved. </font>
+<font size="2" color="gray" >Copyright(c)2017 W3 All rights reserved. </font>
 </center>
-<br>
+
 	
 </body>
 <script>

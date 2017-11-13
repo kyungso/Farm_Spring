@@ -47,6 +47,11 @@ th, td {
 	margin: 4px 2px;
 	cursor: pointer;
 }
+	div.center {
+	width: 500px;
+	margin: 0 auto;
+}	
+
 </style>
 <body>
 	<div align="center">
@@ -101,25 +106,26 @@ th, td {
 				</tr>
 				<tr>
 					<td>
-									  <div class="browser-default col s1" style="padding-left: 10px;"> 
-										<select class="browser-default col s3"   name="searchName" >
+					<br>
+					<div class="center">
+									  <div > 
+										<select class="browser-default"  style="width: 500px; height: 30px; vertical-align: bottom;" 
+										name="searchName" >
 											<option value="title" >제목</option>
 											<option value="author">작성자</option>
 											<option value="content">내용</option>
 										</select>
 									 </div> 
-									<div class="input-field inline">
+									<div class="input-field inline" >
 										<input type="text" name="searchValue">
 									</div>
 									<div class="input-field inline">
 										<input type="submit" value="검색" class="searchSubmit"
 										onclick="searchBoard(myForm)">
 									</div>
-
+</div>
 					</td>
 				</tr>
-			</table>
-	<br>
 	</form>
 	</div>
 	<c:if test="${!empty sessionScope.login}">

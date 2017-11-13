@@ -41,4 +41,10 @@ where qna_num=#{qna_num}
 update qna set state='답변완료'
 where qna_num=#{qna_num}
 </update>
+
+	<select id="qnaTotalCount" parameterType="string" resultType="int">
+		select count(*)
+		from qna
+		where userid IN (#{userid}, 'master')
+	</select>
 </mapper>

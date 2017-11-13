@@ -23,7 +23,7 @@
 
  <div class="row" style="margin-top: 1%; margin: auto;">
     <div class="col s12">
-    <ul>
+    <ul  style="margin: auto;  padding-left: 300px;">
     	<li class="col s3"><a class=" dropdown-button" href="#!" data-activates="dropdown2" style="color: black;"><i class="material-icons">menu</i>메뉴전체보기</a>
  		<ul id="dropdown2" class="dropdown-content">
  			<c:if test="${!empty sessionScope.login}">

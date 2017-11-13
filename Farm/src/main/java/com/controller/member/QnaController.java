@@ -1,10 +1,6 @@
 package com.controller.member;
 
 import java.util.HashMap;
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.dto.MemberDTO;
 import com.dto.QnaDTO;
+import com.dto.QnaPageDTO;
 import com.service.QnaService;
 
 @Controller
@@ -25,9 +20,11 @@ public class QnaController {
 	QnaService service;
 	
 	@RequestMapping("/QNAList")
-	public String qnaList(@RequestParam String userid, Model m){
-		List<QnaDTO> list=service.qnaList(userid);
-		m.addAttribute("qnaList", list);
+	public String qnaList(@RequestParam String userid,
+			@RequestParam(required=false,defaultValue="1") int curPage, Model m){
+			//List<QnaDTO> list=service.qnaList(userid);
+		QnaPageDTO list=service.page(userid,curPage);
+			m.addAttribute("qnaList", list);
 		return "qnaList";
 	}
 	

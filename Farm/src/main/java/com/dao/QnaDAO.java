@@ -3,11 +3,13 @@ package com.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dto.QnaDTO;
+import com.dto.QnaPageDTO;
 
 @Repository
 public class QnaDAO {
@@ -40,5 +42,19 @@ public class QnaDAO {
 	public void tx(QnaDTO dto) {
 		template.update("stateUpdate",Integer.parseInt(dto.getQna_num()));
 		template.insert("qnaReplyWrite", dto);
+	}
+
+	public QnaPageDTO page(String userid, int curPage) {
+		QnaPageDTO dto = new QnaPageDTO();
+		  int sIndex = (curPage - 1)* QnaPageDTO.getPerPage();
+	      int length  = QnaPageDTO.getPerPage();
+	      List<QnaDTO> list =
+	    		  template.selectList("selectAllQna",userid,new RowBounds(sIndex, length));
+	      System.out.println(userid);
+	      int totalCount = template.selectOne("qnaTotalCount",userid);
+	      dto.setList(list);
+			dto.setCurPage(curPage);
+			dto.setTotalCount(totalCount);
+	      return dto;
 	}
 }

@@ -3,12 +3,15 @@ package com.service;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.QnaDAO;
+import com.dto.PageDTO;
 import com.dto.QnaDTO;
+import com.dto.QnaPageDTO;
 
 @Service
 public class QnaService {
@@ -40,6 +43,10 @@ public class QnaService {
 	public void QNAReplyWrite(QnaDTO dto) {
 		dao.tx(dto);
 		
+	}
+
+	public QnaPageDTO page(String userid, int curPage) {
+	return dao.page(userid,curPage);
 	}
 	
 }
