@@ -92,7 +92,8 @@
 					</tr>
 					<tr>
 						<td rowspan="8">
-						 <img src="images/items/${goodsRetrieve.gimage1}.jpg" width="400" /></td>
+						 <img src="images/items/${goodsRetrieve.gimage1}.jpg" width="400" />
+						   <img src="/images/${goodsRetrieve.gimage1}"border="0" align="center" width="200"   ></td>
 						<%-- <td class="td_title">제품코드</td>
 						<td class="td_default" colspan="2">${goodsRetrieve.gcode}</td> --%>
 					</tr>
@@ -146,6 +147,7 @@
 
 <hr style="border: solid 1px lightgrey;">
  <div align="center" style="margin-top: 50px">
-  <img src="images/items/${goodsRetrieve.gimage2}.jpg" border="0" align="center" /></td>
+  <img src="images/items/${goodsRetrieve.gimage2}.jpg" border="0" align="center" />
+   <img src="/images/${goodsRetrieve.gimage2}"  >	</td>
  </div>
  

@@ -43,12 +43,28 @@ table {
 </style>
 
 
-<c:set var="curPage" value="${qnaList.curPage}" />
+	<c:set var="curPage" value="${qnaList.curPage}" />
 <c:set var="perPage" value="${QnaPageDTO.getPerPage()}" />
 <c:set var="totalCount" value="${qnaList.totalCount}" />
-<fmt:parseNumber var="totalNum" integerOnly="true"	value="${totalCount/perPage}" />
+<c:out value="${totalCount}"/>
+<fmt:parseNumber var="totalNum" integerOnly="true"	value="${qnaList.getList().size()/perPage}" />
+<c:out value="${totalNum}"/>
 <c:if test="${totalCount%perPage!=0}">
 <c:set var="totalNum" value="${totalNum+1}"/>
+</c:if>
+<c:if test="${startPage <1 }">
+	<c:set var="startPage" value="1" />
+</c:if>
+
+<!-- totalNum == 총 페이지수, totalCount = 총 레코드 갯수 -->
+<!-- 현재 페이지번호의 블럭번호 구하기 -->	
+<fmt:parseNumber var="curBlock" integerOnly="true" value="${(curPage/perPage)+1 }" />
+<!-- 시작페이지번호 구하기  -->	
+<fmt:parseNumber var="startPage" integerOnly="true"	value="${(curBlock - 1)*perPage+1}" />
+<!-- 마지막페이지번호 구하기 -->	
+<fmt:parseNumber var="endPage" integerOnly="true" value="${(startPage +perPage)-1 }" />
+<c:if test="${endPage > totalNum }">
+	<c:set var="endPage" value="${totalNum}" />
 </c:if>
 
 
@@ -96,9 +112,9 @@ table {
 </tr>
 </c:forEach>
 </c:if>
-<tr> <td align="center" colspan="5">
+<tr> <td >
 
-<c:forEach begin="1" end="${totalNum}" varStatus="status">
+<c:forEach begin="${startPage}" end="${totalNum}" varStatus="status">
 <c:if test="${curPage==status.index}">
 ${status.index }
 </c:if>
