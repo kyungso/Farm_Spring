@@ -20,7 +20,7 @@ create table member
 
 
 create table goods
-   ( gcode varchar2(20) PRIMARY KEY, --��ǰ�ڵ�
+   ( gcode varchar2(20) PRIMARY KEY,
      gcategory varchar2(20) not null,
      gname varchar2(50) not null,
      gcontent varchar2(4000) not null,
@@ -55,17 +55,18 @@ create sequence review_num_seq START WITH 1;
   image VARCHAR2(100)  ,
   readcnt NUMBER(10) DEFAULT 0 ,
   imageName VARCHAR2(100),
-  secret VARCHAR2(100),
-  passwd VARCHAR2(100) );
+  secret VARCHAR2(10),
+  passwd VARCHAR2(10)
+  );
 
 create sequence  board_num_seq start with 1;
 
  create table boardcomment
-( board_num NUMBER(20) ,
-  co_num NUMBER(20) ,
-  userid VARCHAR2(20) ,
+( board_num NUMBER(20)  ,
+  co_num NUMBER(20)PRIMARY KEY ,
+  userid VARCHAR2(20) NOT NULL ,
   cowriteday DATE DEFAULT SYSDATE,
-  cocontent VARCHAR2(1000) );
+  cocontent VARCHAR2(1000) NOT NULL );
   
 create sequence co_num_seq start with 1;
 
@@ -129,3 +130,27 @@ CREATE TABLE admin(
  passwd VARCHAR(10) NOT NULL,
  PRIMARY KEY(userid)
 );
+
+  alter table QNA
+  add CONSTRAINT QNA_userid_fk FOREIGN KEY(userid)
+   REFERENCES member(userid) ON DELETE CASCADE;
+   
+   alter table FREEBOARD
+  add CONSTRAINT FREEBOARD_userid_fk FOREIGN KEY(userid)
+   REFERENCES member(userid) ON DELETE CASCADE;
+   
+   alter table BOARDCOMMENT
+  add CONSTRAINT BOARDCOMMENT_BOARD_NUM_fk FOREIGN KEY(BOARD_NUM)
+   REFERENCES FREEBOARD(BOARD_NUM) ON DELETE CASCADE;
+   
+  alter table CART
+  add CONSTRAINT CART_userid_fk FOREIGN KEY(userid)
+   REFERENCES member(userid) ON DELETE CASCADE;
+   
+   alter table ORDERINFO
+  add CONSTRAINT ORDERINFO_userid_fk FOREIGN KEY(userid)
+   REFERENCES member(userid) ON DELETE CASCADE;
+
+   
+   
+   
