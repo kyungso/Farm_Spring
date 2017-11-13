@@ -50,10 +50,22 @@ var myChart = new Chart(ctx, {
 });
 
 </script> --%>
-
-<div style="width: 50%">
+<div style="border: 0.5px solid gray; float: left; width: 45%; padding: 10px; margin-right: 10px;margin-left: 50px"><h5>&nbsp;&nbsp;&nbsp;
+[ 월별 통계 ]</h5>
+<div>
 <canvas id="chartjs-0" class="chartjs" width="271" height="135" ></canvas>
 </div>
+</div>
+
+<div style="border: 0.5px solid gray; float: left; width: 45%; padding: 10px;">
+	<h5>&nbsp;&nbsp;&nbsp; [ 일별 통계 ]</h5>
+	<div>
+		<canvas id="chartjs-1" class="chartjs" width="271" height="135"></canvas>
+	</div>
+</div>
+
+<div style="height: 500px"></div>
+
 <script>
  new Chart(document.getElementById("chartjs-0"),
 	{
@@ -62,30 +74,68 @@ var myChart = new Chart(ctx, {
 		 "labels":["January","Febuary","March","April","May","June","July","August","September","October","November","December"],
 		 "datasets":[{
 			 "label":"쌀/잡곡",
-			 "data":[65,59,80,81,56,55,40],
+			 "data":[65,60,55,50,45,40,35,30,25,20,15,10],
 			 "fill":false,
 			 "borderColor":"rgb(75,192,192)",
 			 "lineTension":0.1
 		 },{
 			 "label":"과일",
-			 "data":[${list.get(0)},${list.get(1)},${list.get(2)},${list.get(3)},${list.get(3)},${list.get(3)},${list.get(3)},0,0,0,0,0],
+			 "data":[${list.get(0)},${list.get(1)},${list.get(2)},20,25,30,35,40,45,50,55,60],
 			 "fill":false,
 			 "borderColor":"rgb(255,0,0)",
 			 "lineTension":0.1
 		 },{
 			 "label":"축산물",
-			 "data":[30,20,60,70,80,10,20],
+			 "data":[30,35,40,45,50,55,50,45,40,35,30,25],
 			 "fill":false,
 			 "borderColor":"rgb(0,253,0)",
 			 "lineTension":0.1
 		 },{
 			 "label":"가공식품",
-			 "data":[80,70,60,50,40,30,20],
+			 "data":[80,70,60,50,40,10,40,45,50,55,60,70],
 			 "fill":false,
 			 "borderColor":"rgb(254,253,0)",
 			 "lineTension":0.1
 		 }]
  	  },
 	 "options":{}});
+</script>
+<script type="text/javascript">
+new Chart(document.getElementById("chartjs-1"),
+	{
+    "type": 'bar',
+    "data":{
+		 "labels":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+		 "datasets":[{
+			 "label":"쌀/잡곡",
+			 "data":[65,60,55,50,45,40,35],
+			 "fill":false,
+			 "borderColor":"rgb(75,192,192)",
+			 "backgroundColor":["rgb(75,192,192)","rgb(75,192,192)","rgb(75,192,192)","rgb(75,192,192)","rgb(75,192,192)","rgb(75,192,192)","rgb(75,192,192)"],
+			 "lineTension":0.1
+		 },{
+			 "label":"과일",
+			 "data":[${list.get(0)},${list.get(1)},${list.get(2)},20,25,30,35],
+			 "fill":false,
+			 "borderColor":"rgb(255,0,0)",
+			 "backgroundColor":["rgb(255,0,0)","rgb(255,0,0)","rgb(255,0,0)","rgb(255,0,0)","rgb(255,0,0)","rgb(255,0,0)","rgb(255,0,0)"],
+			 "lineTension":0.1
+		 },{
+			 "label":"축산물",
+			 "data":[30,35,40,45,50,55,50],
+			 "fill":false,
+			 "borderColor":"rgb(0,253,0)",
+			 "backgroundColor":["rgb(0,253,0)","rgb(0,253,0)","rgb(0,253,0)","rgb(0,253,0)","rgb(0,253,0)","rgb(0,253,0)","rgb(0,253,0)"],
+			 "lineTension":0.1
+		 },{
+			 "label":"가공식품",
+			 "data":[80,70,60,50,40,10,40],
+			 "fill":false,
+			 "borderColor":"rgb(254,253,0)",
+			 "backgroundColor":["rgb(254,253,0)","rgb(254,253,0)","rgb(254,253,0)","rgb(254,253,0)","rgb(254,253,0)","rgb(254,253,0)","rgb(254,253,0)"],
+			 "lineTension":0.1
+		 }]
+	  },
+	  "options":{}});
 </script>
 
