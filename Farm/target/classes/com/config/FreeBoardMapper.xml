@@ -95,8 +95,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
     <select id="boardMain" resultType="FreeBoardDTO">
-	select board_num,author,title,to_char(writeday,
-		'YYYY/MM/dd')writeday from freeboard where rownum between 1 and 5
+	select * from (select board_num,author,title,to_char(writeday,
+		'YYYY/MM/dd')writeday from freeboard 
+    order by writeday desc) where rownum between 1 and 5
 	</select>
 
 
