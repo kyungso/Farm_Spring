@@ -29,7 +29,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.dto.CommentDTO;
 import com.dto.FreeBoardDTO;
 import com.dto.MemberDTO;
+import com.dto.OrderDTO;
 import com.dto.PageDTO;
+import com.service.BestOrderService;
 import com.service.CommentService;
 import com.service.FreeBoardService;
 import com.service.MemberService;
@@ -41,6 +43,8 @@ public class FreeBoardController {
 	FreeBoardService service;	
 	@Autowired
 	CommentService cService;	
+	@Autowired
+	BestOrderService bService;
 	
 	@RequestMapping("/boardForm")
 	public String boardList(@RequestParam(required=false,defaultValue="title") String searchName,
@@ -196,6 +200,16 @@ public class FreeBoardController {
 		cService.deleteByComment(co_num);	
 	}
 	
+	@RequestMapping(value="/", method=RequestMethod.GET)
+    public ModelAndView list(){
+		List<FreeBoardDTO> list =service.list();
+		List<OrderDTO> list2 =bService.mbestList();
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("home");
+		mav.addObject("xxx",list);
+		mav.addObject("bestList",list2);
+    	return mav;
+    }
 
 	
 }

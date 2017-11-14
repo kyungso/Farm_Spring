@@ -40,7 +40,7 @@
     	 	<li class="divider"></li>
   		</ul></li>
   		<li class="col s2"><a href="/app/goodsAllList" style="color: black;">쇼핑하기</a></li>
-        <li class="col s2"><a href="" style="color: black;">베스트상품</a></li>
+        <li class="col s2"><a href="bestList" style="color: black;">베스트상품</a></li>
         <li class="col s2"><a href="boardForm" style="color: black;">자유게시판</a></li>
       </ul>
     </div>

@@ -30,6 +30,7 @@
 				<value>classpath:com/config/QnaMapper.xml</value>
 				<value>classpath:com/config/CommentMapper.xml</value>
 				<value>classpath:com/config/AdminMapper.xml</value>
+				<value>classpath:com/config/BestOrderMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">

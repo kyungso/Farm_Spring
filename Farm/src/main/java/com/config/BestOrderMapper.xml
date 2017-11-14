@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.BestOrderMapper">
+
+<select id="bestList" parameterType="string" resultType="OrderDTO">
+  select distinct gcode,gprice,gname,gimage1,gname
+ from  orderinfo
+ order by gcode
+</select>
+
+<select id="mbestList" parameterType="string" resultType="OrderDTO">
+ select distinct gcode,gprice,gname,gimage1
+ from  orderinfo
+ where rownum between 1 and 4
+ order by gcode
+</select>
+
+
+</mapper>

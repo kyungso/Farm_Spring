@@ -155,7 +155,7 @@ th, td {
 							<tr align='center' valign='top'> 
 								<td colspan='6' align='center'  style=”word-break:break-all; width="100px;" "> 
 								<div align='justify' class='text3'>
-					      ${retrieve.content }		<br><br><br>			     	    
+					      ${retrieve.content }		<br><br><br><br><br><br>	     	    
 					      <c:if test="${retrieve.imageName != null}">   
 					      <img src="/images/${retrieve.imageName}"  >	
 					      </c:if>
@@ -189,7 +189,7 @@ th, td {
 	</tr>
 <tr>
 <td>
-<br>
+
 <center>
    <c:if test="${sessionScope.login.userid==retrieve.userid}">
                  <input type="button" value="수정" 

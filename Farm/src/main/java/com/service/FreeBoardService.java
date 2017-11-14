@@ -43,5 +43,9 @@ public class FreeBoardService {
 	public PageDTO page(int curPage,HashMap<String, String> map) {
 		return dao.page(curPage, map);		
 	}
+	
+	public List<FreeBoardDTO> list(){
+		return dao.list();
+	}
 
 }

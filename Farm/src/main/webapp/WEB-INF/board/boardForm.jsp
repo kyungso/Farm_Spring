@@ -107,23 +107,21 @@ th, td {
 				<tr>
 					<td>
 					<br>
-					<div class="center">
-									  <div > 
-										<select class="browser-default"  style="width: 500px; height: 30px; vertical-align: bottom;" 
+					<br>
+									<select class="browser-default col s3 m6"  style="width: 150px; height: 30px; vertical-align: text-bottom;" 
 										name="searchName" >
 											<option value="title" >제목</option>
 											<option value="author">작성자</option>
 											<option value="content">내용</option>
 										</select>
-									 </div> 
-									<div class="input-field inline" >
+									<!-- </div> -->
+									<span class="input-field inline" style="margin:0.09em 0; ">
 										<input type="text" name="searchValue">
-									</div>
-									<div class="input-field inline">
+									</span>
+									<span class="input-field inline">
 										<input type="submit" value="검색" class="searchSubmit"
 										onclick="searchBoard(myForm)">
-									</div>
-</div>
+									</span>
 					</td>
 				</tr>
 	</form>

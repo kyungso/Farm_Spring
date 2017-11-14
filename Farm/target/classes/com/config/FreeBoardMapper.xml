@@ -93,6 +93,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			where content LIKE '%'||#{searchValue}||'%'
 		</if>
 	</select>
+	
+    <select id="boardMain" resultType="FreeBoardDTO">
+	select board_num,author,title,to_char(writeday,
+		'YYYY/MM/dd')writeday from freeboard where rownum between 1 and 5
+	</select>
 
 
 </mapper>

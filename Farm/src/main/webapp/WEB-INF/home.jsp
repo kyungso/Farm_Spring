@@ -37,10 +37,42 @@
 	ul.bt-roll {width:60px; margin:0 auto; margin-top:0px;}
 		ul.bt-roll li {float:left; margin-right:5px;}
 		
-	div.center {
-	width: 130px;
-	margin: 0 auto;
+.center {
+  position:absolute;
+  top: 150%;
+  left:43%;
+  width:300px;
+  height:100px;  
+  margin:-50px 0 0 -50px;
 }	
+
+table {
+	width: 230%;
+	align-items: center;
+}
+th, td {
+	padding: 5px;
+	text-align: center;
+}
+
+.layer{
+  position:absolute;
+  top: 100%;
+  left:24%;
+  width:100px;
+  height:100px;
+  margin:-50px 0 0 -50px;
+}
+
+.layer2{
+  position:absolute;
+  top: 100%;
+  left:58%;
+  width:150px;
+  height:100px;  
+  margin:-50px 0 0 -50px;
+
+}
 </style>
 </head>
 <body>
@@ -65,26 +97,65 @@
 	<li><a href="#"><img src="images/btn_circle.png" alt=""></a></li>
 	<li><a href="#"><img src="images/btn_circle.png" alt=""></a></li>
 </ul>	
-<!-- 메인 배너 -->
+<!-- 메인 배너 끝 -->
+<br>
+<!-- 베스트상품 -->
+<div class="layer">
+<a href="bestList"> 
+<img src="images/farm.jpg"></a><br>
+<table>
+<tr>
+
+<c:forEach var="bestList" items="${bestList}" varStatus="status">
+<td><a href="goodsRetrieve?gcode=${bestList.gcode}"> 
+<img src="images/items/${bestList.gimage1}.jpg" border="0" align="center" width="210"></a></td>
+<c:if test="${(status.index+1)%2==0}">
+<tr>
+								<td height="3">
+					 </tr>
+</c:if>
+</c:forEach>
+</tr>
+</table>
+</div>
+<!-- 베스트상품 끝 -->
+<br>
+<!-- 게시판 -->
+<div class="layer2">
+<a href="boardForm"> 
+<img src="images/board.jpg"></a>
 <br>
 <br>
+<table class="bordered" >
+<c:if test="${xxx.size()==0}">
+<tr>
+<td>작성된 글이 없습니다.</td>
+</tr>
+</c:if>
+<c:if test="${xxx.size()!=0 }">
+<c:forEach items="${xxx}" var="dto">
+<tr>
+<td >${dto.author}</td>
+<td id="retrieve${dto.board_num}">
+<a href="boardRetrieve?board_num=${dto.board_num}">${dto.title}</a></td>
+<td >${dto.writeday}</td>
+</tr>
+</c:forEach>
+</c:if>
+</table>
+</div>
+<!-- 게시판 끝 -->
 <br>
-<br>
-<br>
-<br>
+<!-- 하단 배너 -->
 <div class="center">
 <div >
 <a href="https://rp5.ru/12514/ko">
 <img border=0 width=88 height=31 src="https://rp5.ru/informer/88x31x2.php?f=26&id=5483&lang=ko&um=00000"></a>
 </div>
 <div id="kakaostory-share-button" data-url="http://localhost:8090/app/" ></div>
-
-
-</div>
-<center>
 <font size="2" color="gray" >Copyright(c)2017 W3 All rights reserved. </font>
-</center>
-
+</div>
+<!-- 하단 배너 끝 -->
 	
 </body>
 <script>

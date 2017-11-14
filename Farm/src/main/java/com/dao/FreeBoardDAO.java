@@ -70,6 +70,10 @@ public class FreeBoardDAO {
 		
 	}
 	
+	public List<FreeBoardDTO> list(){
+		return template.selectList("boardMain");
+	}
+	
 
 	
 
