@@ -10,8 +10,8 @@ a{
 }
 </style>
 
-<div class="row" style="margin-top: 2%;" align="center">
-	<div class="col s12">
+<div class="row" style="margin-top: 1%;" align="center">
+	<div class="col s12" style="padding-left:300px;">
 		<ul>
 			<li class="col s2"><a href="/app/admin/adminMain">HOME</a></li>
 			<li class="col s2"><a href="/app/admin/admin_Member">회원 관리</a></li>

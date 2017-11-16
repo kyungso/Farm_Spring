@@ -29,7 +29,7 @@
  			<c:if test="${!empty sessionScope.login}">
  			<li><a href="/app/main_mypage" style="color: #37474f;"><i class="material-icons">person</i>마이페이지</a></li>
  			<li class="divider"></li>
- 			<li><a href="/app/main_mypage" style="color: #37474f;"><i class="material-icons">shopping_basket</i>장바구니</a></li>
+ 			<li><a href="/app/cartList" style="color: #37474f;"><i class="material-icons">shopping_basket</i>장바구니</a></li>
  			<li class="divider"></li>
  			</c:if>
  			<li><a href="/app/goodsAllList" style="color: #37474f;"><i class="material-icons">view_module</i>쇼핑하기</a></li>

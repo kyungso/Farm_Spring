@@ -4,8 +4,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<div class="row" style="margin-top: 2%">
-<div class="col s3 offset-s2" align="center" style="border-style: ridge; margin-right: 4%">
+<div class="row" style="margin-top: 1%; margin-left: 10%;">
+<div class="col s3 offset-s2" align="center" style="border-style: ridge; margin-right: 4%; ">
 <a href="admin_Member">
 <br>
 <h5>회원수</h5>

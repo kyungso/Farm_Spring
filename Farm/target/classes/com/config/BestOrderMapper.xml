@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="mbestList" parameterType="string" resultType="OrderDTO">
  select distinct gcode,gprice,gname,gimage1
  from  orderinfo
- where rownum between 1 and 4
+ where rownum between 1 and 2
  order by gcode
 </select>
 
