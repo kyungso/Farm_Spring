@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("PageDTO")
-public class PageDTO {
+@Alias("FreeBoardPageDTO")
+public class FreeBoardPageDTO {
 
 	//전체 데이터
 	private List<FreeBoardDTO> list;
@@ -58,7 +58,7 @@ public class PageDTO {
 		return perPage;
 	}
 	public static void setPerPage(int perPage) {
-		PageDTO.perPage = perPage;
+		FreeBoardPageDTO.perPage = perPage;
 	}
 	
 	

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dto.FreeBoardDTO;
 import com.dto.MemberDTO;
-import com.dto.PageDTO;
+import com.dto.FreeBoardPageDTO;
 
 @Repository("freeBoardDAO")
 public class FreeBoardDAO {
@@ -48,8 +48,8 @@ public class FreeBoardDAO {
 		return n;				
 	}
 		
-	public PageDTO page(int curPage,HashMap<String, String> map) {
-		PageDTO dto = new PageDTO();
+	public FreeBoardPageDTO page(int curPage,HashMap<String, String> map) {
+		FreeBoardPageDTO dto = new FreeBoardPageDTO();
 		int sIndex = (curPage-1)*dto.getPerPage(); 
 		int perpage = dto.getPerPage(); 	
 		

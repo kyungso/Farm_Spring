@@ -34,7 +34,6 @@ public class BestOrderController {
 	@RequestMapping("/bestList")
 	public ModelAndView bestList(){
 		List<OrderDTO> list = service.bestList();
-		System.out.println(list);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("bestList");
 		mav.addObject("bestList",list);

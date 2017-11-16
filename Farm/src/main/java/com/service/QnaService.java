@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dao.QnaDAO;
-import com.dto.PageDTO;
+import com.dto.FreeBoardPageDTO;
 import com.dto.QnaDTO;
 import com.dto.QnaPageDTO;
 

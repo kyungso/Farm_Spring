@@ -10,7 +10,7 @@ import com.dao.CommentDAO;
 import com.dao.FreeBoardDAO;
 import com.dto.CommentDTO;
 import com.dto.FreeBoardDTO;
-import com.dto.PageDTO;
+import com.dto.FreeBoardPageDTO;
 
 @Service("commentService")
 public class CommentService {

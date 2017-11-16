@@ -43,7 +43,7 @@ create table review
    gname VARCHAR2(10) NOT NULL,
    gsize VARCHAR2(10) NOT NULL);
 
-create sequence review_num_seq START WITH 1;
+create sequence review_num_seq;
  
  create table freeboard
 ( board_num NUMBER(20) PRIMARY KEY,
@@ -59,7 +59,7 @@ create sequence review_num_seq START WITH 1;
   passwd VARCHAR2(10)
   );
 
-create sequence  board_num_seq start with 1;
+create sequence  board_num_seq;
 
  create table boardcomment
 ( board_num NUMBER(20)  ,
@@ -68,7 +68,7 @@ create sequence  board_num_seq start with 1;
   cowriteday DATE DEFAULT SYSDATE,
   cocontent VARCHAR2(1000) NOT NULL );
   
-create sequence co_num_seq start with 1;
+create sequence co_num_seq;
 
 
 create table QNA(
@@ -87,7 +87,7 @@ STATE VARCHAR2(10) ,
 GROUP_NO NUMBER(10) NOT NULL
 );
 
- create sequence QNA_NUM_seq START WITH 1;
+ create sequence QNA_NUM_seq;
  
  -- cart
  create table cart
@@ -100,7 +100,7 @@ GROUP_NO NUMBER(10) NOT NULL
     gImage1 VARCHAR2(20) not null,
     userid VARCHAR2(10) not null);  
  drop sequence cart_num_seq;
- create sequence cart_num_seq start with 1; 
+ create sequence cart_num_seq; 
 
  --order
  create table orderInfo(
@@ -122,7 +122,7 @@ ORDERDAY DATE DEFAULT SYSDATE
 );
 
 drop sequence order_num_seq;
-create sequence order_num_seq START WITH 1;
+create sequence order_num_seq;
 
 -- 관리자 테이블
 CREATE TABLE admin(

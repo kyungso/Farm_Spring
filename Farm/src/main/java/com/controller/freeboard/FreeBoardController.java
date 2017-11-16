@@ -30,7 +30,7 @@ import com.dto.CommentDTO;
 import com.dto.FreeBoardDTO;
 import com.dto.MemberDTO;
 import com.dto.OrderDTO;
-import com.dto.PageDTO;
+import com.dto.FreeBoardPageDTO;
 import com.service.BestOrderService;
 import com.service.CommentService;
 import com.service.FreeBoardService;
@@ -53,7 +53,7 @@ public class FreeBoardController {
 			@RequestParam HashMap<String, String> map, Model m) {
      	map.put("searchName", searchName);
 		map.put("searchValue", searchValue);
-		PageDTO list= service.page(curPage, map);
+		FreeBoardPageDTO list= service.page(curPage, map);
 		m.addAttribute("list",list);
 		m.addAttribute("perPage", list.getPerPage());	
 		return "boardForm";

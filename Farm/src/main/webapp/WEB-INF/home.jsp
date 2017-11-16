@@ -39,7 +39,7 @@
 		
 .center {
   position:absolute;
-  top: 150%;
+  top: 160%;
   left:43%;
   width:300px;
   height:100px;  
@@ -68,7 +68,7 @@ th, td {
   position:absolute;
   top: 100%;
   left:58%;
-  width:150px;
+  width:155px;
   height:100px;  
   margin:-50px 0 0 -50px;
 

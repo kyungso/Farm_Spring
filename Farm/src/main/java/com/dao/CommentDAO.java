@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.dto.CommentDTO;
 import com.dto.FreeBoardDTO;
-import com.dto.PageDTO;
+import com.dto.FreeBoardPageDTO;
 
 @Repository("commentDAO")
 public class CommentDAO {

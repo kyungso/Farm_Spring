@@ -5,17 +5,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.mybatis.BestOrderMapper">
 
 <select id="bestList" parameterType="string" resultType="OrderDTO">
-  select distinct gcode,gprice,gname,gimage1,gname
- from  orderinfo
- order by gcode
+ select gcode, gprice, gname, gimage1,count(gamount) as cnt
+ from orderinfo
+ group by gcode , gprice, gname, gimage1,gamount
+ order by cnt desc
 </select>
 
 <select id="mbestList" parameterType="string" resultType="OrderDTO">
  select distinct gcode,gprice,gname,gimage1
  from  orderinfo
- where rownum between 1 and 4
+ where rownum between 1 and 2
  order by gcode
 </select>
-
 
 </mapper>

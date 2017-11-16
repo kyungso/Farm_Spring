@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.dao.FreeBoardDAO;
 import com.dto.FreeBoardDTO;
 import com.dto.MemberDTO;
-import com.dto.PageDTO;
+import com.dto.FreeBoardPageDTO;
 
 @Service("freeBoardService")
 public class FreeBoardService {
@@ -40,7 +40,7 @@ public class FreeBoardService {
 	}
 		
 	
-	public PageDTO page(int curPage,HashMap<String, String> map) {
+	public FreeBoardPageDTO page(int curPage,HashMap<String, String> map) {
 		return dao.page(curPage, map);		
 	}
 	

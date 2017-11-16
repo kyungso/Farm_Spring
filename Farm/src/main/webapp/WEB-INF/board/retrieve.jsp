@@ -116,6 +116,7 @@ th, td {
 	<input type="hidden" name="author" value="${retrieve.author}"/>
 	<input type="hidden" name="content" value="${retrieve.content}"/>
 	<input type="hidden" name="image" value="${retrieve.image}"/>
+	<br>
 <table width='95%' height='100%' border='0' cellpadding='0' cellspacing='0'  >
 	<tr>	
 		<td height='100%' valign='top'> 

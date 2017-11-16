@@ -116,7 +116,7 @@ th, td {
 										</select>
 									<!-- </div> -->
 									<span class="input-field inline" style="margin:0.09em 0; ">
-										<input type="text" name="searchValue">
+										<input type="text" name="searchValue" placeholder="검색어를 입력해주세요">
 									</span>
 									<span class="input-field inline">
 										<input type="submit" value="검색" class="searchSubmit"
