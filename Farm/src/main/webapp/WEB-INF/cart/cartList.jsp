@@ -10,14 +10,14 @@
 		$(".updateBtn").on("click",function(event){
 			var num = $(this).attr("data-num");
 			var amount = $("#CART_AMOUNT"+num).val();
-			$("#sum"+num).text(($("#gPrice"+num).text())*amount);
+			$("#sum"+num).text(($("#gprice"+num).text())*amount);
 			
 			$.ajax({
 				type:"get",
 				url:"cartAmountUpdate",
 				data:{
 					cart_num:num,
-					gAmount:amount
+					gamount:amount
 				},
 				dataType:"text",
 				success:function(responseData,status,xhr){
@@ -77,8 +77,8 @@
 		});
 		
 		$("#keepShopping").on("click",function(event){ 
-			$(location).attr('href','/app/goodsAllList');
-		});
+			$("form").attr('action',"goodsAllList");
+		}); 
 		
 		$("#orderAllConfirm").on("click",function(event){
 			$("form").attr('action','orderAllConfirm');
@@ -102,7 +102,7 @@
  }  */
  /* function keepShopping(){
 	 location.href="/app/goodsAllList";
- }  */
+ } */ 
  /* function delCart(num){
 	if(confirm("삭제하시겠습니까?")){
 		location.href="delCart?num="+num;
@@ -135,6 +135,8 @@
 <style>
 table {
 	width: 90%;
+	margin-left: 5%;
+	margin-top: 3%;
 }
 
 th, td {
@@ -158,15 +160,15 @@ label{
 		</td>
 	</tr>
 	<tr>
-		<td class="td_default">
+		<th class="td_default">
 			<input type="checkbox" name="allCheck" id="allCheck"/>
       		<label for="allCheck">전체선택</label>
-		</td>
-		<td class="td_default">주문번호</td>
-		<td class="td_default" colspan="2">상품정보</td>
-		<td class="td_default">판매가</td>
-		<td class="td_default"colspan="2">수량</td>
-		<td class="td_default">합계</td>
+		</th>
+		<th class="td_default">주문번호</th>
+		<th class="td_default" colspan="2">상품정보</th>
+		<th class="td_default">판매가</th>
+		<th class="td_default"colspan="2">수량</th>
+		<th class="td_default">합계</th>
 		<td colspan="2"></td>
 	</tr>
 	<c:if test="${cartList.size()==0}">
@@ -193,7 +195,7 @@ label{
 			<td class="td_default" width="80">${list.cart_num}</td>
 			<td class="td_default" width="80">
 				<img src="images/items/${list.gimage1}.jpg" border="0" align="center" width="80" /></td>
-			<td class="td_default" width="300" style='padding-left: 30px'>
+			<td class="td_default" width="230" style='padding-left: 30px'>
 				${list.gname} <br> 
 			</td>
 			<td class="td_default" align="center" width="110">

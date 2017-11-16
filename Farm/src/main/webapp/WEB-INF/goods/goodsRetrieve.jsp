@@ -64,7 +64,7 @@
 		$("#bottom_order").on("click",function(){
 			/* document.goodRetrieveForm.action ="OrderConfirmServlet";
 			document.goodRetrieveForm.submit(); */
-			$("form").attr('action','orderConfirm').submit();
+			$("form").attr('action','orderConfirm_d').submit();
 		});
 		
 		function numberWithCommas(x) {
