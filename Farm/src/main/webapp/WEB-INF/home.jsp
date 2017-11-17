@@ -68,7 +68,7 @@ th, td {
   position:absolute;
   top: 100%;
   left:58%;
-  width:155px;
+  width:160px;
   height:100px;  
   margin:-50px 0 0 -50px;
 
