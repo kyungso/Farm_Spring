@@ -121,4 +121,13 @@ public class TestController {
 			 
 		 }
 	*/
+		 
+		 
+		 
+		 
+		 @RequestMapping( "/register")
+		 public  String register(@RequestParam String bizNo, @RequestParam String phone1, @RequestParam String phone2, @RequestParam String phone3) {
+			 
+			return "main_mypage";
+		 }
 }
