@@ -114,9 +114,10 @@ table {
 								<td colspan='4' align='center'>&nbsp;</td>
 							</tr>
 							<tr>
-								<c:if test = "${!fn:contains(qnaRetrieve.title, '└──RE:')}">
-								<td><input type="button" class="button" id="qnaDelete" value="삭제"></td>
+								
 							<c:if test="${qnaRetrieve.state !='답변완료'}">
+							<c:if test = "${!fn:contains(qnaRetrieve.title, '└──RE:')}">
+								<td><input type="button" class="button" id="qnaDelete" value="삭제"></td>
 							<td><input type="submit" class="button" id="qnaUpdate" value="수정"></td>
 								<td><input type="button" class="button" id="qnaReply" value="댓글"></td>
 							</c:if>
