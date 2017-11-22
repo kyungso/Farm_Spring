@@ -87,8 +87,7 @@ tr:hover {
     naver_id_login.setState(state);
     naver_id_login.init_naver_id_login();
    </script>
-   <div class="input-field inline">
-		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+		<div class="g-signin2 input-field inline" data-onsuccess="onSignIn" data-theme="dark"></div>
 		</td>
 		</tr>
 		</table>
@@ -163,7 +162,7 @@ function getCookie(cookieName) {
         console.log('Full Name: ' + profile.getName());
         console.log("Email: " + profile.getEmail());
         
-        location.href = "http://192.168.0.151:8090/app/session?state=".concat(googleUser.getAuthResponse().id_token,"&email=",profile.getEmail(),"&nickname=",profile.getName(),"&sns_id=",profile.getId());
+        location.href = "http://192.168.0.151.xip.io:8090/app/session?state=".concat(googleUser.getAuthResponse().id_token,"&email=",profile.getEmail(),"&nickname=",profile.getName(),"&sns_id=",profile.getId());
 
 
 };
