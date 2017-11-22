@@ -39,10 +39,16 @@
 		
 .center {
   position:absolute;
-  top: 160%;
+  top: 185%;
   left:43%;
   width:300px;
   height:100px;  
+  margin:-50px 0 0 -50px;
+}	
+.md {
+  position:absolute;
+  top: 142%;
+  left:24%;
   margin:-50px 0 0 -50px;
 }	
 
@@ -146,14 +152,21 @@ th, td {
 </div>
 <!-- 게시판 끝 -->
 <br>
+<div class="md">
+<a href="goodsRetrieve?gcode=R3"> 
+<img src="images/md.jpg"></a>
+<a href="goodsRetrieve?gcode=R4"> 
+<img src="images/md-01.jpg"></a>
+</div>
 <!-- 하단 배너 -->
+
 <div class="center">
 <div >
 <a href="https://rp5.ru/12514/ko">
-<img border=0 width=88 height=31 src="https://rp5.ru/informer/88x31x2.php?f=26&id=5483&lang=ko&um=00000"></a>
+<img border=0 width=100 height=100 src="https://rp5.ru/informer/100x100x2.php?f=25&id=12514&lang=en&um=seoul"></a>
 </div>
 <div id="kakaostory-share-button" data-url="http://localhost:8090/app/" ></div>
-<font size="2" color="gray" >Copyright(c)2017 W3 All rights reserved. </font>
+<font size="2" color="gray" >Copyright(c)2017 W3 All rights reserved. </font><br>
 </div>
 <!-- 하단 배너 끝 -->
 	
