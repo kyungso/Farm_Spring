@@ -6,6 +6,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 <script>
+
 var result = true;
 
 function formCheck(){
@@ -55,7 +56,9 @@ function formCheck(){
 		result = false;
 	}
 	return result;
+
 }
+
 </script>
 <script>
 $(document).ready(function() {
@@ -79,13 +82,13 @@ $(document).ready(function() {
 			success:function(responseData, status, xhr){
 				console.log(responseData);
 				$("#result").text(responseData).css("color","red").css("font-size","9px");
-			
+			},
 			error: function(xhr, status, e){console.log(status, e);}
 			}); //ajax
 		}
 	});
 	
-	
+
 	//비번 일치하는지 
 	$("#passwd2").on("blur",function(event){		
 		var pw=$("#passwd").val();
@@ -125,7 +128,7 @@ $(document).ready(function() {
 			
 			return result;
 			
-			
+
 			
 
 	}); //ready
@@ -178,16 +181,16 @@ tr:hover {
 			<td>
 				<!-- 다음주소 시작--> 
 				<div class="input-field inline">
-					<input name="post1" id="post1" size="5" readonly="">
+					<input name="post1" id="post1" size="5" readonly="readonly">
 				</div>
 				 - 
 				<div class="input-field inline">
-					<input name="post2" id="post2" size="5" readonly="">
+					<input name="post2" id="post2" size="5" readonly="readonly">
 				</div> 
 				<div class="input-field inline">
 				<input onclick="openDaumPostcode()" type="button" value="우편번호찾기"><br>
 				</div>
-				<input name="addr1" id="addr1" size="40" readonly="" placeholder="도로명주소"> <br> 
+				<input name="addr1" id="addr1" size="40" readonly="readonly" placeholder="도로명주소"> <br> 
 				<span style="line-height: 10%;"><br></span> 
 				<input name="addr2" id="addr2" size="40" placeholder="지번주소"> 
 				<!-- 다음주소 끝 -->
@@ -220,9 +223,12 @@ tr:hover {
 			<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 			 <div class="g-recaptcha" id="captcha" data-sitekey="6LdunzUUAAAAANa2UQxd0idzXmF6USh90gI2MgPo"></div>
 			</td></tr>
-		</tr>
+
+		<tr><td>
 		<input type="hidden" id="point" name="point" value="0">
 		<input type="hidden" id="buycnt" name="buycnt" value="0">
+		</td>
+		</tr>
 		<tr>
 			<td><input type="submit" value="회원가입"></input> 
 			<input type="reset" value="취소"></td>

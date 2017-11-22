@@ -176,7 +176,7 @@ public class MemberController {
 		MemberDTO dto=(MemberDTO)session.getAttribute("login");
 		service.memberDelete(dto.getUserid());
 		session.invalidate();
-		m.addAttribute("delete", "회원탈퇴 완료");
+		m.addAttribute("mesg", "회원탈퇴 완료");
 		return "home";
 	}
 	

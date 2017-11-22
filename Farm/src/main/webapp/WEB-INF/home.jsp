@@ -3,14 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<c:if test="${!empty delete}">
-	<script>
-		alert('${delete}');
-	</script>
-</c:if>
 
 <c:if test="${!empty mesg}">
-	<script>alert('${mesg}')</script>
+	<script>alert('${mesg}');</script>
 </c:if>
 
 
