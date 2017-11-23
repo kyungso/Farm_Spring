@@ -33,7 +33,7 @@ create table goods
 
 create table review
  ( review_num NUMBER(10) PRIMARY KEY,
-   userid VARCHAR2(10) NOT NULL,
+   userid VARCHAR2(30) NOT NULL,
    username VARCHAR2(10) NOT NULL,
    grade NUMBER(5) NOT NULL,
    image VARCHAR2(20) DEFAULT 'x',
@@ -47,7 +47,7 @@ create sequence review_num_seq;
  
  create table freeboard
 ( board_num NUMBER(20) PRIMARY KEY,
-  userid VARCHAR2(20) NOT NULL,
+  userid VARCHAR2(30) NOT NULL,
   title VARCHAR2(50) NOT NULL,
   author VARCHAR2(50) NOT NULL,
   content VARCHAR2(4000),
@@ -64,12 +64,12 @@ create sequence  board_num_seq;
  create table boardcomment
 ( board_num NUMBER(20)  ,
   co_num NUMBER(20)PRIMARY KEY ,
-  userid VARCHAR2(20) NOT NULL ,
+  userid VARCHAR2(30) NOT NULL ,
   cowriteday DATE DEFAULT SYSDATE,
   cocontent VARCHAR2(1000) NOT NULL );
   
 create sequence co_num_seq;
-
+create sequence group_no_seq;
 
 create table QNA(
  
@@ -98,14 +98,14 @@ GROUP_NO NUMBER(10) NOT NULL
     gPrice NUMBER(10) not null,
     gAmount NUMBER(10) not null,
     gImage1 VARCHAR2(20) not null,
-    userid VARCHAR2(10) not null);  
+    userid VARCHAR2(30) not null);  
  drop sequence cart_num_seq;
  create sequence cart_num_seq; 
 
  --order
  create table orderInfo(
 ORDER_NUM NUMBER(10) PRIMARY KEY,
-USERID VARCHAR2(10) NOT NULL,
+USERID VARCHAR2(30) NOT NULL,
 ORDERNAME VARCHAR2(10) NOT NULL,
 PHONE VARCHAR2(15) NOT NULL,
 POST1 VARCHAR2(3) NOT NULL,
@@ -126,7 +126,7 @@ create sequence order_num_seq;
 
 -- 관리자 테이블
 CREATE TABLE admin(
- userid VARCHAR(10) NOT NULL,
+ userid VARCHAR(30) NOT NULL,
  passwd VARCHAR(10) NOT NULL,
  PRIMARY KEY(userid)
 );
