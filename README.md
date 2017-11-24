@@ -1,9 +1,16 @@
-# RyanFarm Project
+# RyanFarm 사용설명서
+
+![placeholder](Farm_Spring/Farm/src/index.jpg "Small example image")
 
 
-**농산물직거래싸이트
+* 01. 명세서
+> dd
 
-> 01. 명세서
-02. 소스
-03. sql파일
-04. 최종발표PPT
+* 02. 소스
+> dd
+
+* 03. sql파일
+> dd
+
+* 04. 최종발표PPT
+> dd
