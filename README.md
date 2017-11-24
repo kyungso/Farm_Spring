@@ -1,6 +1,6 @@
 # RyanFarm 사용설명서
 
-![placeholder](Farm_Spring/Farm/src/index.jpg "Small example image")
+![placeholder](https://github.com/kyungso/Farm_Spring/blob/master/Farm/src/index.jpg "Small example image")
 
 
 * 01. 명세서
